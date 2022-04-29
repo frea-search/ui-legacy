@@ -7,8 +7,6 @@
 ### インストール方法
 予め`curl`と`git`をインストールしてください <br>
 ```
-mkdir -p /tmp/frea
-cd /tmp/frea
 git clone https://git.sda1.net/frea/search
 cd search
 sudo -H ./utils/searx.sh install all
