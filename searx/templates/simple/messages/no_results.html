@@ -3,7 +3,7 @@
 <div class="dialog-error" role="alert">
   {{ icon_big('warning') }}
   <div>
-    <p><strong>{{ _('Error!') }}</strong> {{ _('Engines cannot retrieve results.') }}</p>
+    <p>{{ _('Engines cannot retrieve results.') }}</p>
     {% for engine_name, error_type in unresponsive_engines %}
     <p>{{- '' -}}
       {{- engine_name }} (
@@ -17,7 +17,10 @@
 </div>
 {% else %}
 <div class="dialog-error" role="alert">
-  <p><strong>{{ _('Sorry!') }}</strong></p>
-  <p>{{ _("we didn't find any results. Please use another query or search in more categories.") }}</p>
+   {{ icon_big('warning') }}
+   <p>{{ _("we didn't find any results. Please use another query or search in more categories.") }}</p>
 </div>
+<br>
+<img height="148px" width="auto" src="https://assets.freasearch.org/assets/img/404.png">
+
 {% endif %}
