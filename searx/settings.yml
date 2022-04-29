@@ -5,19 +5,20 @@ general:
   enable_metrics: true      # record stats
 
 brand:
-  new_issue_url: https://github.com/searxng/searxng/issues/new
+  new_issue_url: https://git.sda1.net/frea/search/issues
   docs_url: https://docs.searxng.org/
-  public_instances: https://searx.space
+  public_instances: https://freasearch.org/
   wiki_url: https://github.com/searxng/searxng/wiki
-  issue_url: https://github.com/searxng/searxng/issues
+  issue_url: https://git.sda1.net/frea/search/issues
+
 
 search:
   # Filter results. 0: None, 1: Moderate, 2: Strict
-  safe_search: 0
+  safe_search: 1
   # Existing autocomplete backends: "dbpedia", "duckduckgo", "google",
   # "seznam", "startpage", "swisscows", "qwant", "wikipedia" - leave blank to turn it off
   # by default.
-  autocomplete: ""
+  autocomplete: "duckduckgo"
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
   default_lang: ""
@@ -57,7 +58,7 @@ server:
   http_protocol_version: "1.0"
   # POST queries are more secure as they don't show up in history but may cause
   # problems when using Firefox containers
-  method: "POST"
+  method: "GET"
   default_http_headers:
     X-Content-Type-Options: nosniff
     X-XSS-Protection: 1; mode=block
@@ -77,7 +78,7 @@ ui:
   templates_path: ""
   # query_in_title: When true, the result page's titles contains the query
   # it decreases the privacy, since the browser can records the page titles.
-  query_in_title: false
+  query_in_title: true
   # ui theme
   default_theme: simple
   # Default interface locale - leave blank to detect from browser information or
@@ -163,30 +164,1834 @@ outgoing:
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
-# enabled_plugins:
-#   # these plugins are enabled if nothing is configured ..
-#   - 'Hash plugin'
-#   - 'Search on category select'
-#   - 'Self Informations'
-#   - 'Tracker URL remover'
-#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
-#   # these plugins are disabled if nothing is configured ..
-#   - 'Hostname replace'  # see hostname_replace configuration below
-#   - 'Open Access DOI rewrite'
-#   - 'Vim-like hotkeys'
+enabled_plugins:
+  - 'Tracker URL remover'
+  - 'Open Access DOI rewrite'
+  - 'Hostname replace'
+  - 'Search on category select'
 
 # Configuration of the "Hostname replace" plugin:
-#
-# hostname_replace:
-#   '(.*\.)?youtube\.com$': 'invidious.example.com'
-#   '(.*\.)?youtu\.be$': 'invidious.example.com'
-#   '(.*\.)?youtube-noocookie\.com$': 'yotter.example.com'
-#   '(.*\.)?reddit\.com$': 'teddit.example.com'
-#   '(.*\.)?redd\.it$': 'teddit.example.com'
-#   '(www\.)?twitter\.com$': 'nitter.example.com'
-#   # to remove matching host names from result list, set value to false
-#   'spam\.example\.com': false
+hostname_replace:
+  '0yenschool.com': false
+  '358dokari.com': false
+  'aiacademy.jp': false
+  'aidemy.net': false
+  'aki-bunkei.com': false
+  'alchemist7.com': false
+  'allschool-navi.com': false
+  'and-engineer.com': false
+  'aoiroadame.com': false
+  'asosori.com': false
+  'axxis.co.jp': false
+  'be.tech-boost.jp': false
+  'become-programmer.com': false
+  'beginner-engineer.net': false
+  'benefit.fnetin.com': false
+  'blog-and-destroy.com': false
+  'blog.codecamp.jp': false
+  'bold.ne.jp/engineer-club': false
+  'boxil.jp': false
+  'buntadayo.com': false
+  'camp.geekjob.jp': false
+  'camp.i-standard.jp': false
+  'camp.trainocate.co.jp': false
+  'careerhub.jp': false
+  'codelabsjp.net': false
+  'codelearn.jp': false
+  'coeteco.jp': false
+  'corporate-labo.com': false
+  'creive.me': false
+  'cuebic.co.jp': false
+  'cuvno.com': false
+  'daily-trial.com': false
+  'di-v.co.jp': false
+  'dividable.net': false
+  'gadgelog.com': false
+  'eng-entrance.com': false
+  'engineer-life.dev': false
+  'engineer-shukatu.jp': false
+  'exidea.co.jp/blog': false
+  'fenet.jp/column': false
+  'flutternyumon.com': false
+  'for-engineer.life': false
+  'free-engineer.life': false
+  'freelance-start.com': false
+  'futabazemi.net': false
+  'gravesrecords.com': false
+  'haa.athuman.com': false
+  'happy-media24.com': false
+  'hataworakuni.net': false
+  'hikopro.com': false
+  'hnavi.co.jp': false
+  'hobby23.net': false
+  'homeworkers.jp': false
+  'horoyoinoblog.com': false
+  'hspcareer.jp': false
+  'i.codehack.jp': false
+  'iikabu.com': false
+  'ijicllp.com': false
+  'internetacademy.jp': false
+  'it-better-future.com': false
+  'it-career-navi.com': false
+  'it-kyujin.jp': false
+  'ited.tech': false
+  'itpropartners.com': false
+  'job-support.ne.jp': false
+  'kaigaihanno.com': false
+  'katalife.com': false
+  'katsuhiroblog.com': false
+  'kenschool.jp': false
+  'kishikorofreee.com': false
+  'kitsune.blog': false
+  'kodomomirai.com': false
+  'kredo.jp': false
+  'kubogen.com': false
+  'ledge.ai': false
+  'lightdarkandshadow.com': false
+  'liskul.com': false
+  'literacyboxes.com': false
+  'maesukeblog.com': false
+  'manabiya-sakura.com': false
+  'maneo.jp': false
+  'marbou-work.com': false
+  'marketer.jp': false
+  'markup-media.com': false
+  'mediafox.jp': false
+  'memorandumrail.com': false
+  'mid-works.com': false
+  'mirai-tc.com': false
+  'modis.jp': false
+  'mokiblog.work': false
+  'myfrankblog.com': false
+  'nakyublog.com': false
+  'netvisionacademy.com': false
+  'nobuo-create.net': false
+  'nomadworker.tokyo': false
+  'osusume.jmty.jp': false
+  'pasonatech.co.jp': false
+  'peachphp.com': false
+  'peraichi.com': false
+  'pg-happy.jp': false
+  'pg-job.net': false
+  'pg-tensyoku.com': false
+  'piroseblog.com': false
+  'plus1-one.co.jp/programming': false
+  'pro-academy.tech': false
+  'proengineer.internous.co.jp': false
+  'proggy.jp': false
+  'prograchannel.com': false
+  'program-yarouyo.com': false
+  'programfromscratch.com': false
+  'programingsaikou.com': false
+  'programmer-japan.com': false
+  'programmercollege.jp/column': false
+  'programming-life.com': false
+  'programming-media.org': false
+  'programming-quest.net': false
+  'programming-school-choice.com': false
+  'programming-school-hikaku.jp': false
+  'programming-school.tech': false
+  'programming-study.com': false
+  'programming-yell.com': false
+  'programming.tsugelog.com': false
+  'pronaru.jp': false
+  'propoko.com': false
+  'ps-geek.com': false
+  'rabico.dev': false
+  'rbbtoday.com': false
+  'sakai-kojiblog.com': false
+  'sakaiyutarou.com': false
+  'sakurasaku-labo.jp': false
+  'sakuratube.org': false
+  'savvycode.dev': false
+  'sejuku.net': false
+  'shibamasa26.com': false
+  'skill-hacks.co.jp': false
+  'shimapuku.com': false
+  'softcampus.co.jp': false
+  'sougyouschool.jp/programming': false
+  'start-programming.com': false
+  'stepup-engineer.com': false
+  'studycode.jp': false
+  'style.potepan.com': false
+  'syu-katu.net': false
+  'syuri7.com': false
+  'shufu.co.jp': false
+  'tamasoft.co.jp': false
+  'tawasimusi.com': false
+  'tech-camp.in': false
+  'tech-hub.love': false
+  'tech-teacher.jp': false
+  'techacademy.jp': false
+  'techcari.com': false
+  'techgym.jp': false
+  'techgym.thebase.in': false
+  'techgym.connpass.com': false
+  'techplay.jp': false
+  'tenshoku-free.com': false
+  'tenshoku-stories.com': false
+  'tensyokuknowhow.com': false
+  'tetz-blog.online': false
+  'thikashi-blog.com': false
+  'tokitsubaki.com': false
+  'travewriter.com': false
+  'tsuyopon.xyz': false
+  'usconsort.com': false
+  'univ-programmer.com': false
+  'untrace.co.jp': false
+  'viva-drone.com': false
+  'wagtechblog.com': false
+  'watablogtravel.com': false
+  'web-camp.io': false
+  'web-director-lifehack.info': false
+  'web-knowledge-info.com': false
+  'websae.net': false
+  'websites-manual.com': false
+  'webukatu.com': false
+  'willcloud.jp': false
+  'winschool.jp': false
+  'works.forward-soft.co.jp': false
+  'workstyle-cafe.com': false
+  'xn--pckba0b4jybydual7d8e.net': false
+  'xn--pckba0b4jybydual7d8ew127fquxd.com': false
+  'yokoyamadesuga.com': false
+  'yuyasakamoto.com': false
+  'zero-school.com': false
+  'プログラミングスクール.net': false
+  'プログラミングスクール比較.com': false
+  'bleepcoder.com': false
+  'githubja.com': false
+  'www.gitmemory.com': false
+  'giters.com': false
+  'www.giters.com': false
+  'githubmemory.com': false
+  'www.wenyanet.com': false
+  'issueexplorer.com': false
+  'opensourcelibs.com': false
+  'awesomeopensource.com': false
+  'www.findbestopensource.com': false
+  'githubhelp.com': false
+  'golangrepo.com': false
+  'gitmemory.cn': false
+  'pythonissues.com': false
+  'reposhub.com': false
+  'openprojectrepo.com': false
+  'gitanswer.com': false
+  'githubplus.com': false
+  'pythonrepo.com': false
+  'bestofcpp.com': false
+  'github.innominds.com': false
+  'www.higithub.com': false
+  'code-examples.net': false
+  'kotaeta.com': false
+  'answer-id.com': false
+  'code.i-harness.com': false
+  'living-sun.com': false
+  'www.coder.work': false
+  'www.it-swarm-ja.tech': false
+  'www.it-swarm.jp.net': false
+  'www.it-swarm-ja.com': false
+  'www.it-swarm.com.ru': false
+  'www.it-roy-ru.com': false
+  'www.it-swarm-fr.com': false
+  'codeflow.site': false
+  'codeguides.site': false
+  'overcoder.net': false
+  'coderoad.ru': false
+  'www.javaer101.com': false
+  'voidcc.com': false
+  'siwib.org': false
+  'fluffyfables.com': false
+  'www.fixes.pub': false
+  'knews.vip': false
+  'isolution.pro': false
+  'uwenku.com': false
+  'lycaeum.dev': false
+  'brocante.dev': false
+  'classmethod.dev': false
+  'stormcrow.dev': false
+  'athabasca-foto.com': false
+  'zsharp.org': false
+  'projectbackpack.org': false
+  'waymanamechurch.org': false
+  'sunflowercreations.org': false
+  'cfadnc.org': false
+  'fitforlearning.org': false
+  'panaindustrial.com': false
+  'sierrasummit2005.org': false
+  'theshuggahpies.com': false
+  'pcbconline.org': false
+  'www.nuomiphp.com': false
+  'ubuntu.buildwebhost.com': false
+  'ubuntuaa.com': false
+  'www.debugcn.com': false
+  'sch22.org': false
+  'gupgallery.com': false
+  'amuddycup.com': false
+  'ecnf2016.org': false
+  'softwareuser.asklobster.com': false
+  'domainelespailles.net': false
+  'ec-europe.org': false
+  'pakostnici.com': false
+  'try2explore.com': false
+  'laravelquestions.com': false
+  'itectec.com': false
+  'stackovergo.com': false
+  'faithcov.org': false
+  'noblenaz.org': false
+  'www.py4u.net': false
+  'culinarydegree.info': false
+  'safehavenpetrescue.org': false
+  'qapicks.com': false
+  'issues-world.com': false
+  'narkive.jp': false
+  'ourladylakes.org': false
+  'intellipaat.com': false
+  'article.docway.net': false
+  'xiu2.net': false
+  'codehero.jp': false
+  'quabr.com': false
+  'www.webdevqa.jp.net': false
+  'exceptionshub.com': false
+  'newbedev.com': false
+  'www.codenong.com': false
+  'cainiaojiaocheng.com': false
+  'routinepanic.com': false
+  'pythonwd.com': false
+  'tutorialmore.com': false
+  'pretagteam.com': false
+  'www.titanwolf.org': false
+  'coderedirect.com': false
+  'ostack.cn': false
+  'easysavecode.com': false
+  'webdevdesigner.com': false
+  'www.ghcc.net': false
+  'developreference.com': false
+  'www.semicolonworld.com': false
+  'tipsfordev.com': false
+  'www.qi-u.com': false
+  'stackqna.com': false
+  'www.xsprogram.com': false
+  'stackoom.com': false
+  'christfever.in': false
+  'cndgn.com': false
+  'codersatellite.com': false
+  'coredump.biz': false
+  'farath.com': false
+  'devbugfix.com': false
+  'www.generacodice.blog': false
+  'www.generacodice.it': false
+  'www.generacodice.com': false
+  'stackify.dev': false
+  'stackfinder.jp.net': false
+  'coder-solution-jp.com': false
+  'jpndev.com': false
+  'www.uebu-kaihatsu.jp.net': false
+  'sqlite.in': false
+  'stackguides.com': false
+  'younggeeks.in': false
+  'www.answerlib.com': false
+  'edupro.id': false
+  'python-stack.de': false
+  'www.stackfinder.ru': false
+  'stackfault.net': false
+  'howtofix.io': false
+  'www.buzzphp.com': false
+  'www.desenv-web-rp.com': false
+  'askdev.vn': false
+  'quares.ru': false
+  'www.examplefiles.net': false
+  'codewdw.com': false
+  'jpcodeqa.com': false
+  'www.jscodetips.com': false
+  'www.5axxw.com': false
+  'question-it.com': false
+  'webmonkez.com': false
+  'ibootweb.com': false
+  'codefaq.info': false
+  'codefaq.ru': false
+  'mediatagtw.com': false
+  'alltodev.com': false
+  'progi.pro': false
+  'jike.in': false
+  'www.web-dev-qa.com': false
+  'elfishgene.com': false
+  'answerlib.com': false
+  'sysadminde.com': false
+  'answacode.com': false
+  'fooobar.com': false
+  'ask-dev.ru': false
+  'arip-photo.org': false
+  'jablogs.com': false
+  'jpdebug.com': false
+  'askcodez.com': false
+  '0yenschool.com': false
+  '358dokari.com': false
+  'aiacademy.jp': false
+  'aidemy.net': false
+  'aki-bunkei.com': false
+  'alchemist7.com': false
+  'allschool-navi.com': false
+  'and-engineer.com': false
+  'aoiroadame.com': false
+  'asosori.com': false
+  'axxis.co.jp': false
+  'be.tech-boost.jp': false
+  'become-programmer.com': false
+  'beginner-engineer.net': false
+  'benefit.fnetin.com': false
+  'blog-and-destroy.com': false
+  'blog.codecamp.jp': false
+  'bold.ne.jp/engineer-club': false
+  'boxil.jp': false
+  'buntadayo.com': false
+  'camp.geekjob.jp': false
+  'camp.i-standard.jp': false
+  'camp.trainocate.co.jp': false
+  'careerhub.jp': false
+  'codelabsjp.net': false
+  'codelearn.jp': false
+  'coeteco.jp': false
+  'corporate-labo.com': false
+  'creive.me': false
+  'cuebic.co.jp': false
+  'cuvno.com': false
+  'daily-trial.com': false
+  'di-v.co.jp': false
+  'dividable.net': false
+  'gadgelog.com': false
+  'eng-entrance.com': false
+  'engineer-life.dev': false
+  'engineer-shukatu.jp': false
+  'exidea.co.jp/blog': false
+  'fenet.jp/column': false
+  'flutternyumon.com': false
+  'for-engineer.life': false
+  'free-engineer.life': false
+  'freelance-start.com': false
+  'futabazemi.net': false
+  'gravesrecords.com': false
+  'haa.athuman.com': false
+  'happy-media24.com': false
+  'hataworakuni.net': false
+  'hikopro.com': false
+  'hnavi.co.jp': false
+  'hobby23.net': false
+  'homeworkers.jp': false
+  'horoyoinoblog.com': false
+  'hspcareer.jp': false
+  'i.codehack.jp': false
+  'iikabu.com': false
+  'ijicllp.com': false
+  'internetacademy.jp': false
+  'it-better-future.com': false
+  'it-career-navi.com': false
+  'it-kyujin.jp': false
+  'ited.tech': false
+  'itpropartners.com': false
+  'job-support.ne.jp': false
+  'kaigaihanno.com': false
+  'katalife.com': false
+  'katsuhiroblog.com': false
+  'kenschool.jp': false
+  'kishikorofreee.com': false
+  'kitsune.blog': false
+  'kodomomirai.com': false
+  'kredo.jp': false
+  'kubogen.com': false
+  'ledge.ai': false
+  'lightdarkandshadow.com': false
+  'liskul.com': false
+  'literacyboxes.com': false
+  'maesukeblog.com': false
+  'manabiya-sakura.com': false
+  'maneo.jp': false
+  'marbou-work.com': false
+  'marketer.jp': false
+  'markup-media.com': false
+  'mediafox.jp': false
+  'memorandumrail.com': false
+  'mid-works.com': false
+  'mirai-tc.com': false
+  'modis.jp': false
+  'mokiblog.work': false
+  'myfrankblog.com': false
+  'nakyublog.com': false
+  'netvisionacademy.com': false
+  'nobuo-create.net': false
+  'nomadworker.tokyo': false
+  'osusume.jmty.jp': false
+  'pasonatech.co.jp': false
+  'peachphp.com': false
+  'peraichi.com': false
+  'pg-happy.jp': false
+  'pg-job.net': false
+  'pg-tensyoku.com': false
+  'piroseblog.com': false
+  'plus1-one.co.jp/programming': false
+  'pro-academy.tech': false
+  'proengineer.internous.co.jp': false
+  'proggy.jp': false
+  'prograchannel.com': false
+  'program-yarouyo.com': false
+  'programfromscratch.com': false
+  'programingsaikou.com': false
+  'programmer-japan.com': false
+  'programmercollege.jp/column': false
+  'programming-life.com': false
+  'programming-media.org': false
+  'programming-quest.net': false
+  'programming-school-choice.com': false
+  'programming-school-hikaku.jp': false
+  'programming-school.tech': false
+  'programming-study.com': false
+  'programming-yell.com': false
+  'programming.tsugelog.com': false
+  'pronaru.jp': false
+  'propoko.com': false
+  'ps-geek.com': false
+  'rabico.dev': false
+  'rbbtoday.com': false
+  'sakai-kojiblog.com': false
+  'sakaiyutarou.com': false
+  'sakurasaku-labo.jp': false
+  'sakuratube.org': false
+  'savvycode.dev': false
+  'sejuku.net': false
+  'shibamasa26.com': false
+  'skill-hacks.co.jp': false
+  'shimapuku.com': false
+  'softcampus.co.jp': false
+  'sougyouschool.jp/programming': false
+  'start-programming.com': false
+  'stepup-engineer.com': false
+  'studycode.jp': false
+  'style.potepan.com': false
+  'syu-katu.net': false
+  'syuri7.com': false
+  'shufu.co.jp': false
+  'tamasoft.co.jp': false
+  'tawasimusi.com': false
+  'tech-camp.in': false
+  'tech-hub.love': false
+  'tech-teacher.jp': false
+  'techacademy.jp': false
+  'techcari.com': false
+  'techgym.jp': false
+  'techgym.thebase.in': false
+  'techgym.connpass.com': false
+  'techplay.jp': false
+  'tenshoku-free.com': false
+  'tenshoku-stories.com': false
+  'tensyokuknowhow.com': false
+  'tetz-blog.online': false
+  'thikashi-blog.com': false
+  'tokitsubaki.com': false
+  'travewriter.com': false
+  'tsuyopon.xyz': false
+  'usconsort.com': false
+  'univ-programmer.com': false
+  'untrace.co.jp': false
+  'viva-drone.com': false
+  'wagtechblog.com': false
+  'watablogtravel.com': false
+  'web-camp.io': false
+  'web-director-lifehack.info': false
+  'web-knowledge-info.com': false
+  'websae.net': false
+  'websites-manual.com': false
+  'webukatu.com': false
+  'willcloud.jp': false
+  'winschool.jp': false
+  'works.forward-soft.co.jp': false
+  'workstyle-cafe.com': false
+  'xn--pckba0b4jybydual7d8e.net': false
+  'xn--pckba0b4jybydual7d8ew127fquxd.com': false
+  'yokoyamadesuga.com': false
+  'yuyasakamoto.com': false
+  'zero-school.com': false
+  'プログラミングスクール.net': false
+  'プログラミングスクール比較.com': false
+  'bleepcoder.com': false
+  'githubja.com': false
+  'www.gitmemory.com': false
+  'giters.com': false
+  'www.giters.com': false
+  'githubmemory.com': false
+  'www.wenyanet.com': false
+  'issueexplorer.com': false
+  'opensourcelibs.com': false
+  'awesomeopensource.com': false
+  'www.findbestopensource.com': false
+  'githubhelp.com': false
+  'golangrepo.com': false
+  'gitmemory.cn': false
+  'pythonissues.com': false
+  'reposhub.com': false
+  'openprojectrepo.com': false
+  'gitanswer.com': false
+  'githubplus.com': false
+  'pythonrepo.com': false
+  'bestofcpp.com': false
+  'github.innominds.com': false
+  'www.higithub.com': false
+  'code-examples.net': false
+  'kotaeta.com': false
+  'answer-id.com': false
+  'code.i-harness.com': false
+  'living-sun.com': false
+  'www.coder.work': false
+  'www.it-swarm.jp.net': false
+  'www.it-roy-ru.com': false
+  'codeflow.site': false
+  'codeguides.site': false
+  'overcoder.net': false
+  'coderoad.ru': false
+  'www.javaer101.com': false
+  'voidcc.com': false
+  'siwib.org': false
+  'fluffyfables.com': false
+  'www.fixes.pub': false
+  'knews.vip': false
+  'isolution.pro': false
+  'uwenku.com': false
+  'lycaeum.dev': false
+  'brocante.dev': false
+  'classmethod.dev': false
+  'stormcrow.dev': false
+  'athabasca-foto.com': false
+  'zsharp.org': false
+  'projectbackpack.org': false
+  'waymanamechurch.org': false
+  'sunflowercreations.org': false
+  'cfadnc.org': false
+  'fitforlearning.org': false
+  'panaindustrial.com': false
+  'sierrasummit2005.org': false
+  'theshuggahpies.com': false
+  'pcbconline.org': false
+  'www.nuomiphp.com': false
+  'ubuntu.buildwebhost.com': false
+  'ubuntuaa.com': false
+  'www.debugcn.com': false
+  'sch22.org': false
+  'gupgallery.com': false
+  'amuddycup.com': false
+  'ecnf2016.org': false
+  'softwareuser.asklobster.com': false
+  'domainelespailles.net': false
+  'ec-europe.org': false
+  'pakostnici.com': false
+  'try2explore.com': false
+  'laravelquestions.com': false
+  'itectec.com': false
+  'stackovergo.com': false
+  'faithcov.org': false
+  'noblenaz.org': false
+  'www.py4u.net': false
+  'culinarydegree.info': false
+  'safehavenpetrescue.org': false
+  'qapicks.com': false
+  'issues-world.com': false
+  'narkive.jp': false
+  'ourladylakes.org': false
+  'intellipaat.com': false
+  'article.docway.net': false
+  'xiu2.net': false
+  'codehero.jp': false
+  'quabr.com': false
+  'www.webdevqa.jp.net': false
+  'exceptionshub.com': false
+  'newbedev.com': false
+  'www.codenong.com': false
+  'cainiaojiaocheng.com': false
+  'routinepanic.com': false
+  'pythonwd.com': false
+  'tutorialmore.com': false
+  'pretagteam.com': false
+  'www.titanwolf.org': false
+  'coderedirect.com': false
+  'ostack.cn': false
+  'easysavecode.com': false
+  'webdevdesigner.com': false
+  'www.ghcc.net': false
+  'developreference.com': false
+  'www.semicolonworld.com': false
+  'tipsfordev.com': false
+  'www.qi-u.com': false
+  'stackqna.com': false
+  'www.xsprogram.com': false
+  'stackoom.com': false
+  'christfever.in': false
+  'cndgn.com': false
+  'codersatellite.com': false
+  'coredump.biz': false
+  'farath.com': false
+  'devbugfix.com': false
+  'www.generacodice.blog': false
+  'www.generacodice.it': false
+  'www.generacodice.com': false
+  'stackify.dev': false
+  'stackfinder.jp.net': false
+  'coder-solution-jp.com': false
+  'jpndev.com': false
+  'www.uebu-kaihatsu.jp.net': false
+  'sqlite.in': false
+  'stackguides.com': false
+  'younggeeks.in': false
+  'www.answerlib.com': false
+  'edupro.id': false
+  'python-stack.de': false
+  'www.stackfinder.ru': false
+  'stackfault.net': false
+  'howtofix.io': false
+  'www.buzzphp.com': false
+  'www.desenv-web-rp.com': false
+  'askdev.vn': false
+  'quares.ru': false
+  'www.examplefiles.net': false
+  'codewdw.com': false
+  'jpcodeqa.com': false
+  'www.jscodetips.com': false
+  'www.5axxw.com': false
+  'question-it.com': false
+  'webmonkez.com': false
+  'ibootweb.com': false
+  'codefaq.info': false
+  'codefaq.ru': false
+  'mediatagtw.com': false
+  'alltodev.com': false
+  'progi.pro': false
+  'jike.in': false
+  'www.web-dev-qa.com': false
+  'elfishgene.com': false
+  'answerlib.com': false
+  'sysadminde.com': false
+  'answacode.com': false
+  'fooobar.com': false
+  'ask-dev.ru': false
+  'arip-photo.org': false
+  'jablogs.com': false
+  'jpdebug.com': false
+  'askcodez.com': false
+  '365airsoft.com': false
+  '366service.com': false
+  '4meahc.com': false
+  '796t.com': false
+  '888wenti.com': false
+  'ajaxhispano.com': false
+  'answer-id.com': false
+  'answerlib.com': false
+  'arip-photo.org': false
+  'array.cyou': false
+  'artfit-prk.com': false
+  'article.docway.net': false
+  'askdev.info': false
+  'athabasca-foto.com': false
+  'baksi.xyz': false
+  'bar-stools-plus.com': false
+  'base64.work': false
+  'bestecode.com': false
+  'bleepcoder.com': false
+  'bleepcoder.jp': false
+  'blingin.in': false
+  'buginfo.tech': false
+  'bugsdb.com': false
+  'bullforyou.com': false
+  'cfadnc.org': false
+  'ciupacabra.com': false
+  'classmethod.dev': false
+  'clearwatergardenclub.org': false
+  'cloud.tencent.com/developer/ask': false
+  'cloud6.net': false
+  'cndgn.com': false
+  'cnpython.com': false
+  'cocoachina.com': false
+  'code-404.net': false
+  'code-adviser.com': false
+  'code-examples.net': false
+  'code.i-harness.com': false
+  'codeday.me': false
+  'codefaq.info': false
+  'codefaq.ru': false
+  'codeflow.site': false
+  'codegrepper.com': false
+  'codeguides.site': false
+  'codehero.jp': false
+  'codengineering.ru': false
+  'codenong.com': false
+  'coder.work': false
+  'coderedirect.com': false
+  'coderoad.ru': false
+  'codersatellite.com': false
+  'codetd.com': false
+  'codingdict.com': false
+  'coredump.biz': false
+  'crypto-days.jp': false
+  'csdn.net': false
+  'daimajiaoliu.com': false
+  'daplus.net': false
+  'de-vraag.com': false
+  'debugcn.com': false
+  'delavaio.com': false
+  'devadvisor.io': false
+  'developreference.com': false
+  'docow.com': false
+  'docway.net': false
+  'dovov.com': false
+  'drunkentengu.com': false
+  'edupro.id': false
+  'edureka.co': false
+  'elfishgene.com': false
+  'euromar2012.org': false
+  'exceptionshub.com': false
+  'extutorial.com': false
+  'firstlightsalon.in': false
+  'fixes.pub': false
+  'fogsbane.dev': false
+  'gajet.club': false
+  'geek-qa.imtqy.com': false
+  'geek-tips.imtqy.com': false
+  'geekcxy.com': false
+  'geeks-world.imtqy.com': false
+  'generacodice.com': false
+  'ghcc.net': false
+  'github-dotcom.gateway.web.tr': false
+  'githubhelp.com': false
+  'githubhot.com': false
+  'githublab.com': false
+  'githubmemory.com': false
+  'gitmemory.com': false
+  'gtainspections.com': false
+  'helloworldkb.com': false
+  'helpex.vn': false
+  'hi.qaru.tech': false
+  'hu.qaru.tech': false
+  'huati365.com': false
+  'hub.fastgit.org': false
+  'ichi.pro': false
+  'ifaj-congress.org': false
+  'includestdio.com': false
+  'isolution.pro': false
+  'issue.life': false
+  'issueexplorer.com': false
+  'issues-world.com': false
+  'it-gundan.net': false
+  'it.wenda123.org': false
+  'itbloger.tistory.com': false
+  'iteramos.com': false
+  'itnews.org': false
+  'itread01.com': false
+  'izziswift.com': false
+  'jablogs.com': false
+  'javaer101.com': false
+  'jb51.cc': false
+  'jike.in': false
+  'jpcloud.net': false
+  'jpcodeqa.com': false
+  'jpdebug.com': false
+  'kaifa99.com': false
+  'kejisen.com': false
+  'knews.vip': false
+  'konnichiwasekai.com': false
+  'kotaeta.com': false
+  'laptrinhx.com': false
+  'learntutorials.net': false
+  'legkovopros.ru': false
+  'litigationtoday.com': false
+  'living-sun.com': false
+  'lycaeum.dev': false
+  'mianquan.net': false
+  'mianshigee.com': false
+  'mlink.in': false
+  'mlog.club': false
+  'newbedev.com': false
+  'nobis.work': false
+  'ojit.com': false
+  'orcode.com': false
+  'ostack.cn': false
+  'overcoder.net': false
+  'panaindustrial.com': false
+  'point808.com': false
+  'progi.pro': false
+  'prograide.com': false
+  'programmerstart.com': false
+  'programmerz.ru': false
+  'programqa.com': false
+  'projectbackpack.org': false
+  'python.engineering': false
+  'python2.net': false
+  'python5.com': false
+  'pythonq.com': false
+  'qa-help.ru': false
+  'qa.1r1g.com': false
+  'qa.icopy.site': false
+  'qapicks.com': false
+  'qaru.site': false
+  'qathai.com': false
+  'qedev.com': false
+  'quabr.com': false
+  'quares.ru': false
+  'question-it.com': false
+  'railstoolkit.com': false
+  'removemalware-jp.com': false
+  'riptutorial.com': false
+  'risposta.org': false
+  'runebook.dev': false
+  'rupython.com': false
+  'sanchezsalvador.com': false
+  'siwib.org': false
+  'softonic.com': false
+  'softonic.jp': false
+  'soinside.com': false
+  'sqlite.in': false
+  'stackfinder.net': false
+  'stacknoob.com': false
+  'stackoom.com': false
+  'stackoverfill.com': false
+  'stackovergo.com': false
+  'stackovernet.com': false
+  'stackovernet.xyz': false
+  'stackoverrun.com': false
+  'stackscn.com': false
+  'steakrecords.com': false
+  'superduperartscamp.com': false
+  'suttonedfoundation.org': false
+  'switch-case.com': false
+  'switch-case.ru': false
+  't.codebug.vip': false
+  'tech-ja.netlify.app': false
+  'techfeed.net': false
+  'thercb.org': false
+  'thinbug.com': false
+  'ti-enxame.com': false
+  'timeglobal.cn': false
+  'titanwolf.org': false
+  'tlcpv.org': false
+  'tousu.in': false
+  'try2explore.com': false
+  'tutorialguruji.com': false
+  'tutorialmore.com': false
+  'ubuntu.buildwebhost.com': false
+  'ubuntugeeks.com': false
+  'uebu-kaihatsu.jp.net': false
+  'uefir.com': false
+  'usersuper.ru': false
+  'utyatnishna.ru': false
+  'uwenku.com': false
+  'vfwpost8762.org': false
+  'visual-foxpro-programmer.com': false
+  'voidcc.com': false
+  'web-dev-qa.com': false
+  'webdevqa.jp.net': false
+  'webpuroguramingu-zhi-wen-ying-dashisutemu.com': false
+  'wenyanet.com': false
+  'while-do.com': false
+  'xbuba.com': false
+  'younggeeks.in': false
+  'zhouni.net': false
+  'zweryfikowac.pl': false
+  '2ch-ranking.net': false
+  '2ch.live': false
+  '2ch.pet': false
+  '2ch.review': false
+  '2ch.sc': false
+  '2ch.vet': false
+  '2chmm.com': false
+  '2nf2.rdy.jp': false
+  '2nn.jp': false
+  '5ch-ranking.com': false
+  '5ch.pub': false
+  'bbspink.icu': false
+  'calcal.net': false
+  'comedydouga.com': false
+  'ikioi2ch.net': false
+  'ikioi5ch.net': false
+  'nico-ran.jp': false
+  'nicoapple.sub.jp': false
+  'nicochart.jp': false
+  'nicoco.net': false
+  'nicovideo.me': false
+  'nicozon.net': false
+  'sub-nicoapple.ssl-lolipop.jp': false
+  'altema.jp': false
+  'game8.jp': false
+  'gamerch.com': false
+  'gamewith.jp': false
+  'gamy.jp': false
+  'esuteru.com': false
+  'ha-navi.com': false
+  'jin115.com': false
+  'janghan.net': false
+  'japan2.wiki': false
+  'jpan.wiki': false
+  'linkfang.org': false
+  'melayukini.net': false
+  'nipponkaigi.net': false
+  'unionpedia.org': false
+  'wikiarabi.org': false
+  'wikinew.wiki': false
+  'wikiqube.net': false
+  'wikituscany.com': false
+  'wikiwand.com': false
+  'proxybot.cc': false
+  'proxyfly.org': false
+  '007okno.ru': false
+  '360comunication.it': false
+  '4beacademy.it': false
+  '505tankist.ru': false
+  '7815671.ru': false
+  '89081813030.ru': false
+  'achillemannara.it': false
+  'adiprodit.it': false
+  'admashine.ru': false
+  'agenciavimos.cl': false
+  'agestion.cl': false
+  'agricolachillepin.cl': false
+  'agriturismoalrefolo.it': false
+  'agzulueta.cl': false
+  'ahamse.it': false
+  'aleaonlus.it': false
+  'alessandropecoraro.it': false
+  'alessandrototaro.it': false
+  'alexanderkorolkov.ru': false
+  'aliance.ru': false
+  'andreafagioni.it': false
+  'annuncitelelavoro.it': false
+  'apollohairdesign.it': false
+  'appartamentilignanoviacarinzia.it': false
+  'argidro.ru': false
+  'aristidecaruso.it': false
+  'arnosportservice.it': false
+  'artefunerariadiligas.it': false
+  'artigianatoveneto.it': false
+  'asisettoresoftair.i': false
+  'attac.cl': false
+  'augmentum-plumbi.it': false
+  'australianopen2015live.com': false
+  'avviso22018.siciliafse1420.it': false
+  'baltpr.ru': false
+  'beelinei.ru': false
+  'berecycling.ru': false
+  'betaniaroma.it': false
+  'betarenovables.cl': false
+  'beyoganow.it': false
+  'blog.artwolf.in': false
+  'blueweld.ru': false
+  'bmxklubben.dk': false
+  'bojonerentacar.ru': false
+  'bomode.it': false
+  'brigantipaolo.it': false
+  'brn.cl': false
+  'bruschatkachelny.ru': false
+  'cadcentroartedanza.it': false
+  'caltapippo.it': false
+  'cantierebaruffaldi.it': false
+  'casadelaempanada.cl': false
+  'casataz.it': false
+  'caterinafucili.it': false
+  'centroippicoiplatani.it': false
+  'cg.ru': false
+  'chzorka.ru': false
+  'cityshin.ru': false
+  'cogestinformatica.it': false
+  'colegiobalmaceda.cl': false
+  'conceptfoam.ru': false
+  'consorziorebaude.it': false
+  'constructorweb.cl': false
+  'cooparcadia.it': false
+  'coorsfortworth.com': false
+  'cortinaslincort.cl': false
+  'cortinovisrl.it': false
+  'crazysportevents.it': false
+  'credo.ru': false
+  'cseclubgarden.it': false
+  'ctsoldemo.it': false
+  'cuchelschool.it': false
+  'davidg.cl': false
+  'deluxesport.cl': false
+  'deluxtrade.ru': false
+  'designpet.it': false
+  'dgtaz698.ecomedincanto.it': false
+  'diariopatagon.cl': false
+  'diddyhome.fr': false
+  'domvgorah.ru': false
+  'ducom.cl': false
+  'dudakids.ru': false
+  'ecomedincanto.it': false
+  'edilemazzocco.it': false
+  'education.ru': false
+  'elcarpincho.cl': false
+  'electrician.ru': false
+  'escueladedeportes.cl': false
+  'escworking.com': false
+  'esmalte.ru': false
+  'estateinmontagna.it': false
+  'eventi.it': false
+  'exnovoband.it': false
+  'farmaciazarla.it': false
+  'fattoriaascaniocruciani.it': false
+  'ferrum42kem.ru': false
+  'festivalvocideuropa.it': false
+  'fiscalformula.it': false
+  'fkdent.ru': false
+  'forumedia.ru': false
+  'francogaliano.it': false
+  'fundament163.ru': false
+  'generaindustrial.cl': false
+  'giveeme.ru': false
+  'gloves.ru': false
+  'gusi.ru': false
+  'halloweentorino.it': false
+  'hc.ru': false
+  'hidratate.cl': false
+  'higoldceramichecaltagirone.it': false
+  'honeysta.net': false
+  'hospitalantofagasta.cl': false
+  'idearteacademy.cl': false
+  'igras.ru': false
+  'iknzr.ru': false
+  'ilmioprovino.it': false
+  'instatigers.it': false
+  'irapido.it': false
+  'italianfooding.it': false
+  'izakayayoko.cl': false
+  'jumpevolution.ru': false
+  'kissswish.ru': false
+  'kuins.cl': false
+  'ladabmhatch.ru': false
+  'lahaciendarestaurante.cl': false
+  'lecoccinelle-eventi.it': false
+  'lejournaldec.cl': false
+  'lev33.ru': false
+  'line.ru': false
+  'localwebsystems.com': false
+  'losangelesudec.cl': false
+  'lucagisticiimpianti.it': false
+  'lvn.cl': false
+  'maderasconta.cl': false
+  'magazine.ru': false
+  'makeup.ru': false
+  'manejateporlavida.cl': false
+  'maniabilitate.it': false
+  'mattiaambrami.it': false
+  'megaferias.cl': false
+  'metagame.cl': false
+  'methossolutions.it': false
+  'mfaux.ru': false
+  'mioshi.it': false
+  'missp.it': false
+  'mnvb.cl': false
+  'modulosnc.it': false
+  'monicagargiulo.it': false
+  'montanadance.ru': false
+  'mosedu.ru': false
+  'musiscuola.it': false
+  'naplevat.ru': false
+  'ninaco.it': false
+  'novachem.it': false
+  'ns500.ru': false
+  'nutricionistarociosuarez.cl': false
+  'obmxklubben.dk': false
+  'officinacordero.it': false
+  'officinemalessandria.it': false
+  'oleificiolama.it': false
+  'olgakuts.ru': false
+  'onlystylemakeup.cl': false
+  'opt.ru': false
+  'optioncapitalgroup.ru': false
+  'ordenmasterov.ru': false
+  'oseni.ru': false
+  'ospedaliprivatiforli.it': false
+  'parchisalentointour.it': false
+  'perm.ru': false
+  'pomu.cl': false
+  'portalrb.ru': false
+  'postelclub.ru': false
+  'pp.ru': false
+  'prensamafil.cl': false
+  'prismasoftware.cl': false
+  'profimed74.ru': false
+  'proklimatshop.ru': false
+  'prometey.ru': false
+  'quarentenet.cl': false
+  'rail.cl': false
+  'rezort.ru': false
+  'ril.it': false
+  'rosapellami.it': false
+  'rotolonicartaroma.it': false
+  's.ru': false
+  'saksmet.ru': false
+  'sbnaj.ru': false
+  'scuoladisportcoaching.it': false
+  'selezioni-artigianatoveneto.it': false
+  'serenissimagranloggiaunitaditaliaignis.it': false
+  'shippinghome.cl': false
+  'sib.ru': false
+  'siciliafse1420.it': false
+  'sociedadteosofica.cl': false
+  'spb.ru': false
+  'sportfiske.org': false
+  'strana.ru': false
+  'studiocoppolasarzana.it': false
+  'style.ru': false
+  'sushi.ru': false
+  'tappezzeriafusco.it': false
+  'teambikevalconca.it': false
+  'thedailydad.org': false
+  'theredhair.it': false
+  'tieressen.ru': false
+  'trandt3.ru': false
+  'uchile.cl': false
+  'unavocefuoricampo.it': false
+  'verleih.it': false
+  'victorycup.ru': false
+  'viktoria52.ru': false
+  'vitadamoglie.it': false
+  'vl.ru': false
+  'winskin.ru': false
+  'yurestaurant.it': false
+  'softoban.com': false
+  '4900.co.jp': false
+  'qumeru.com': false
+  'lineageos18.com': false
+  'bing.com': false
+  'catanuki.com': false
+  'kumikomorikawa.com': false
+  'hiyokomarch.com': false
+  'uridoki.net': false
+  'yaraon-blog.com': false
+  'blog.esuteru.com': false
+  'jin115.com': false
+  'pokemon-matome.net': false
+  'brow2ing.doorblog.jp': false
+  'beelzeboulxxx.com': false
+  'shironeko-guild.blog.jp': false
+  'wonderfulnews.xyz': false
+  'hamusoku.com': false
+  'alfalfalfa.com': false
+  'news4vip.livedoor.biz': false
+  'himasoku.com': false
+  'kanasoku.info': false
+  'irodorich.com': false
+  'kemono-friendsbbs.com': false
+  'yaraon.blog109.fc2.com': false
+  'nogizaka-46bunno1.blog.jp': false
+  'catmiimi.com': false
+  'entamescramble.com': false
+  'androidogate.net': false
+  'akogaresan.net': false
+  'kapiful.com': false
+  'kamitukablog.com': false
+  'kininaru-saishin-news.com': false
+  'agency-star.co.jp': false
+  'miruku.fun': false
+  'fukisatrend.com': false
+  'lovepeace-shuchan.com': false
+  'chikiyasuibuki1104.com': false
+  'katzesokuhou.com': false
+  'newsmatomedia.com': false
+  'saeriho.com': false
+  'hapicys.com': false
+  'aidoly.net': false
+  'taylorblogg.com': false
+  'sportouen.com': false
+  'kanazawa-ambi.com': false
+  'ge-noumatome.com': false
+  'haru-journal.com': false
+  'youtuber-note.com': false
+  'kininarune.com': false
+  'geekseed.jp': false
+  'myjitsu.jp': false
+  'www.sorakara-mile.com': false
+  'uptodown.com': false
+  'game8.jp': false
+  'appmedia.jp': false
+  'gamewith.jp': false
+  'gamy.jp': false
+  'altema.jp': false
+  'gamerch.com': false
+  'gamepedia.jp': false
+  'kamigame.jp': false
+  'gameranbu.jp': false
+  'tutorialmore.com': false
+  'adsoku.blogspot.com': false
+  'innova-jp.com': false
+  'seolaboratory.jp': false
+  'gyro-n.com': false
+  'gicp.co.jp': false
+  'plan-b.co.jp': false
+  'adam-technologies.jp': false
+  'seohacks.net': false
+  'kirari-media.net': false
+  'cherish-media.jp': false
+  'mayonez.jp': false
+  'belcy.jp': false
+  'corowaku.info': false
+  'yamatoq.info': false
+  'minatame-lab.com': false
+  'valuecommerce.ne.jp': false
+  'affiliate.docomo.ne.jp': false
+  'mixhost.jp': false
+  'onamae.com': false
+  'nojiblog.com': false
+  'valueagent.co.jp': false
+  'willgate.co.jp': false
+  'itomakihitode.jp': false
+  'satori.marketing': false
+  'nexer.co.jp': false
+  'udemy.benesse.co.jp': false
+  'unique1.co.jp': false
+  'wacul-ai.com': false
+  'entertainment14.net': false
+  'tuber-plus.com': false
+  'career-find.jp': false
+  'gamer.com.tw': false
+  'hk01.com': false
+  'taptap.com': false
+  'gbyhn.com.tw': false
+  'nijigenfun.com': false
+  'ldplayer.tw': false
+  'affiliate-copywriting.tokyo': false
+  'sundaygamer.net': false
+  'www.aiseesoft.jp': false
+  'aiseesoft.jp': false
+  'www.iosjailbreak.pro': false
+  'iosjailbreak.pro': false
+  'tenorshare.com': false
+  'www.tenorshare.com': false
+  'www.mobi-connect.net': false
+  'mobi-connect.net': false
+  'l-kyojin01.jp': false
+  'appli-world.jp': false
 
+ # block bload domains (https://github.com/searxng/searxng/discussions/970)
+  'com\.de': false
+  '(.*\.)?codegrepper\.com': false
+  '(.*\.)?w3schools\.com': false
+  '(.*\.)?geeksforgeeks\.org': false
+  '(.*\.)?stackshare\.io': false
+  '(.*\.)?tutorialspoint\.com': false
+  '(.*\.)?answeright\.com': false
+  '(.*\.)?askdev\.info': false
+  '(.*\.)?askdev\.io': false
+  '(.*\.)?blogmepost\.com': false
+  '(.*\.)?c-sharpcorner\.com': false
+  '(.*\.)?code-examples\.net': false
+  '(.*\.)?codeflow\.site': false
+  '(.*\.)?gitmemory\.cn': false
+  '(.*\.)?gitmemory\.com': false
+  '(.*\.)?intellipaat\.com': false
+  '(.*\.)?javaer101\.com': false
+  '(.*\.)?programmerstart\.com': false
+  '(.*\.)?programmersought\.com': false
+  '(.*\.)?qastack\.com': false
+  '(.*\.)?roboflow\.ai': false
+  '(.*\.)?stackanswers\.net': false
+  '(.*\.)?stackoom\.com': false
+  '(.*\.)?stackovernet\.com': false
+  '(.*\.)?stackovernet\.xyz': false
+  '(.*\.)?stackoverrun\.com': false
+  '(.*\.)?thetopsites\.net': false
+  '(.*\.)?ubuntugeeks\.com': false
+  '(.*\.)?cyberciti\.biz': false
+  '(.*\.)?ispycode\.com': false
+  '(.*\.)?reposhub\.com': false
+  '(.*\.)?githubmemory\.com': false
+  '(.*\.)?issueexplorer\.com': false
+  '(.*\.)?tabnine\.com': false
+  '(.*\.)?gitcode\.net': false
+  '(.*\.)?command-not-found\.com': false
+  '(.*\.)?im-coder\.com': false
+  '(.*\.)?i-harness\.com': false
+  '(.*\.)?code-examples\.net': false
+  '(.*\.)?kotaeta\.com': false
+  '(.*\.)?answer-id\.com': false
+  '(.*\.)?code\.i-harness\.com': false
+  '(.*\.)?living-sun\.com': false
+  '(.*\.)?coder\.work': false
+  '(.*\.)?it-swarm-ja\.tech': false
+  '(.*\.)?it-swarm-ja\.com': false
+  '(.*\.)?codeflow\.site': false
+  '(.*\.)?codeguides\.site': false
+  '(.*\.)?overcoder\.net': false
+  '(.*\.)?coderoad\.ru': false
+  '(.*\.)?generacodice\.blog': false
+  '(.*\.)?generacodice\.it': false
+  '(.*\.)?generacodice\.com': false
+  '(.*\.)?javaer101\.com': false
+  '(.*\.)?voidcc\.com': false
+  '(.*\.)?siwib\.org': false
+  '(.*\.)?fluffyfables\.com': false
+  '(.*\.)?fixes\.pub': false
+  '(.*\.)?knews\.vip': false
+  '(.*\.)?isolution\.pro': false
+  '(.*\.)?uwenku\.com': false
+  '(.*\.)?lycaeum\.dev': false
+  '(.*\.)?brocante\.dev': false
+  '(.*\.)?classmethod\.dev': false
+  '(.*\.)?stormcrow\.dev': false
+  '(.*\.)?athabasca-foto\.com': false
+  '(.*\.)?zsharp\.org': false
+  '(.*\.)?projectbackpack\.org': false
+  '(.*\.)?waymanamechurch\.org': false
+  '(.*\.)?sunflowercreations\.org': false
+  '(.*\.)?cfadnc\.org': false
+  '(.*\.)?fitforlearning\.org': false
+  '(.*\.)?panaindustrial\.com': false
+  '(.*\.)?sierrasummit2005\.org': false
+  '(.*\.)?theshuggahpies\.com': false
+  '(.*\.)?pcbconline\.org': false
+  '(.*\.)?nuomiphp\.com': false
+  '(.*\.)?ubuntu\.buildwebhost\.com': false
+  '(.*\.)?ubuntuaa\.com': false
+  '(.*\.)?debugcn\.com': false
+  '(.*\.)?sch22\.org': false
+  '(.*\.)?gupgallery\.com': false
+  '(.*\.)?amuddycup\.com': false
+  '(.*\.)?ecnf2016\.org': false
+  '(.*\.)?softwareuser\.asklobster\.com': false
+  '(.*\.)?domainelespailles\.net': false
+  '(.*\.)?ec-europe\.org': false
+  '(.*\.)?pakostnici\.com': false
+  '(.*\.)?try2explore\.com': false
+  '(.*\.)?laravelquestions\.com': false
+  '(.*\.)?itectec\.com': false
+  '(.*\.)?stackovergo\.com': false
+  '(.*\.)?faithcov\.org': false
+  '(.*\.)?noblenaz\.org': false
+  '(.*\.)?py4u\.net': false
+  '(.*\.)?culinarydegree\.info': false
+  '(.*\.)?safehavenpetrescue\.org': false
+  '(.*\.)?qapicks\.com': false
+  '(.*\.)?issues-world\.com': false
+  '(.*\.)?narkive\.jp': false
+  '(.*\.)?ourladylakes\.org': false
+  '(.*\.)?intellipaat\.com': false
+  '(.*\.)?article\.docway\.net': false
+  '(.*\.)?xiu2\.net': false
+  '(.*\.)?codehero\.jp': false
+  '(.*\.)?quabr\.com': false
+  '(.*\.)?webdevqa\.jp\.net': false
+  '(.*\.)?qapicks\.com': false
+  '(.*\.)?exceptionshub\.com': false
+  '(.*\.)?newbedev\.com': false
+  '(.*\.)?codenong\.com': false
+  '(.*\.)?cainiaojiaocheng\.com': false
+  '(.*\.)?routinepanic\.com': false
+  '(.*\.)?pythonwd\.com': false
+  '(.*\.)?tutorialmore\.com': false
+  '(.*\.)?alwaysemmyhope\.com': false
+  '(.*\.)?pretagteam\.com': false
+  '(.*\.)?titanwolf\.org': false
+  '(.*\.)?coderedirect\.com': false
+  '(.*\.)?ostack\.cn': false
+  '(.*\.)?easysavecode\.com': false
+  '(.*\.)?webdevdesigner\.com': false
+  '(.*\.)?ghcc\.net': false
+  '(.*\.)?developreference\.com': false
+  '(.*\.)?semicolonworld\.com': false
+  '(.*\.)?tipsfordev\.com': false
+  '(.*\.)?qi-u\.com': false
+  '(.*\.)?stackqna\.com': false
+  '(.*\.)?xsprogram\.com': false
+  '(.*\.)?stackoom\.com': false
+  '(.*\.)?it-swarm-fr\.com': false
+  '(.*\.)?imtqy\.com': false
+  '(.*\.)?christfever\.in': false
+  '(.*\.)?codersatellite\.com': false
+  '(.*\.)?cndgn\.com': false
+  '(.*\.)?coredump\.biz': false
+  '(.*\.)?farath\.com': false
+  '(.*\.)?devbugfix\.com': false
+  '(.*\.)?tech\.wayne-chu\.com': false
+  '(.*\.)?stackify\.dev': false
+  '(.*\.)?webknox\.com': false
+  '(.*\.)?stackfinder\.jp\.net': false
+  '(.*\.)?coder-solution-jp\.com': false
+  '(.*\.)?jpndev\.com': false
+  '(.*\.)?uebu-kaihatsu\.jp\.net': false
+  '(.*\.)?sqlite\.in': false
+  '(.*\.)?stackguides\.com': false
+  '(.*\.)?younggeeks\.in': false
+  '(.*\.)?answerlib\.com': false
+  '(.*\.)?edupro\.id': false
+  '(.*\.)?python-stack\.de': false
+  '(.*\.)?stackfinder\.ru': false
+  '(.*\.)?stackfault\.net': false
+  '(.*\.)?howtofix\.io': false
+  '(.*\.)?buzzphp\.com': false
+  '(.*\.)?desenv-web-rp\.com': false
+  '(.*\.)?askdev\.vn': false
+  '(.*\.)?quares\.ru': false
+  '(.*\.)?examplefiles\.net': false
+  '(.*\.)?codewdw\.com': false
+  '(.*\.)?jpcodeqa\.com': false
+  '(.*\.)?tutorialguruji\.com': false
+  '(.*\.)?bleepcoder.com': false
+  '(.*\.)?githubja.com': false
+  '(.*\.)?gitmemory.com': false
+  '(.*\.)?giters.com': false
+  '(.*\.)?githubmemory.com': false
+  '(.*\.)?wenyanet.com': false
+  '(.*\.)?issueexplorer.com': false
+  '(.*\.)?opensourcelibs.com': false
+  '(.*\.)?awesomeopensource.com': false
+  '(.*\.)?findbestopensource.com': false
+  '(.*\.)?githubhelp.com': false
+  '(.*\.)?pythonissues.com': false
+  '(.*\.)?golangrepo.com': false
+  '(.*\.)?gitmemory.cn': false
+  '(.*\.)?githubmate.com': false
+  '(.*\.)?reposhub.com': false
+  '(.*\.)?gitanswer.com': false
+  '(.*\.)?githubplus.com': false
+  '(.*\.)?pythonrepo.com': false
+  '(.*\.)?bestofcpp.com': false
+  '(.*\.)?github.innominds.com': false
+  '(.*\.)?www.higithub.com': false
+  'hugkum.sho.jp': false
+  'daigakuzyuken-pro.com': false
+  'www.studyplus.jp': false
+  'blog.senseiplace.com': false
+  'www.superenglish.jp': false
+  'superenglish.jp': false
+  'kobusalad.com': false
+  'www.english990.info': false
+  'english990.info': false
+  'resemom.jp': false
+  'one-div.com': false
+  'www.creativevillage.ne.jp': false
+  'creativevillage.ne.jp': false
+  'www.johntool.com': false
+  'johntool.com': false
+  'www.irep.co.jp': false
+  'irep.co.jp': false
+  'blog.hubspot.jp': false
+  'webtan.impress.co.jp': false
+  'service.grannet.co.jp': false
+  'ferret-plus.com': false
+  'www.akibare-hp.jp': false
+  'akibare-hp.jp': false
+  'gmotech.jp': false
+  'www.willgate.co.jp': false
+  'willgate.co.jp': false
+  'www.crosswalk-seo.com': false
+  'crosswalk-seo.com': false
+  'digimarl.com': false
+  'emma.tools': false
+  'www.onemarketing.jp': false
+  'onemarketing.jp': false
+  'www.mchs.co.jp': false
+  'mchs.co.jp': false
+  'atweb.jp': false
+  'tech.nri-net.com': false
+  'mercart.jp': false
+  'marketing.fwh.co.jp': false
+  'semlabo.com': false
+  'promonista.com': false
+  'n-works.link': false
+  'blastmail.jp': false
+  'big-mac.jp': false
+  'how-inc.co.jp': false
+  'hitonote.jp': false
+  'sasaemi.com': false
+  'web-kanji.com': false
+  'nandemo-nobiru.com': false
+  'belka.co.jp': false
+  'www.belka.co.jp': false
+  'hprs1.com': false
+  'ayudante.jp': false
+  'ortega-works.com': false
+  'sakuweb.co.jp': false
+  'officialmag.stores.jp': false
+  'okatakuma.tokyo': false
+  'soyogoblog.com': false
+  'nasu-rep.jp': false
+  'webbu.jp': false
+  'technical-seo.jp': false
+  'www.digimation.co.jp': false
+  'digimation.co.jp': false
+  'ipeinc.jp': false
+  'estlinks.co.jp': false
+  'hanjo.biglobe.ne.jp': false
+  'www.shopowner-support.net': false
+  'shopowner-support.net': false
+  'www.creal.co.jp': false
+  'creal.co.jp': false
+  'www.siteengine.co.jp': false
+  'siteengine.co.jp': false
+  'ny-marketing.co.jp': false
+  'ajsa.or.jp': false
+  'www.ajsa.or.jp': false
+  'digital-marketing.jp': false
+  'amekaiblog.com': false
+  'umuco.jp': false
+  'selfstudents.jp': false
+  'allegro-inc.com': false
+  'www.allegro-inc.com': false
+  'bizfighters.com': false
+  'excellent.ne.jp': false
+  'moneyblog.jp': false
+  'val-works.com': false
+  'j-mamenoki.co.jp': false
+  'hiropon0101.com': false
+  'lab.kutikomi.com': false
+  'mediaexceed.co.jp': false
+  'keywordfinder.jp': false
+  'socratesbiz.net': false
+  'more-field.co.jp': false
+  'www.sbbit.jp': false
+  'sbbit.jp': false
+  'minkabu.co.jp': false
+  'ideasforgood.jp': false
+  'www.asteria.com': false
+  'asteria.com': false
+  'sogyotecho.jp': false
+  'persol-tech-s.co.jp': false
+  'fisco.jp': false
+  'www.wise-sendai.jp': false
+  'wise-sendai.jp': false
+  'www.fisco.co.jp': false
+  'coincheck.com': false
+  'mynavi-agent.jp': false
+  'zuu.co.jp': false
+  'www.kushim.co.jp': false
+  'kushim.co.jp': false
+  'logmi.jp': false
+  'fashionsnap.com': false
+  'www.fashionsnap.com': false
+  'digital-shift.jp': false
+  'biz-grow.jp': false
+  'cloud-ace.jp': false
+  'businesslawyers.jp': false
+  'www.businesslawyers.jp': false
+  'www.kobe-np.co.jp': false
+  'kobe-np.co.jp': false
+  'nftmania.jp': false
+  'www.bridge-salon.jp': false
+  'bridge-salon.jp': false
+  'coin-otaku.com': false
+  'souken.shikigaku.jp': false
+  'www.techfirm.co.jp': false
+  'techfirm.co.jp': false
+  'berise.co.jp': false
+  'nft-bear.com': false
+  'watcher-blog.com': false
+  'lemontea123.com': false
+  'juken-mikata.net': false
+  'math-masteeer.com': false
+  'daigakujukensenryaku.com': false
+  'univ-juken.com': false
+  'integraldx.info': false
+  'rikeinvest.com': false
+  'chugaku-juken.com': false
+  'high-mathematics.com': false
+  'math-travel.com': false
+  'a-graph.jp': false
+  'bobcares.com': false
+  'topfalance.net': false
+  'spenglish1.com': false
+  'ishiishikikioku.com': false
+  'aques-e.jp': false
+  'fromcocoro.com': false
+  'www.fromcocoro.com': false
+  'ontore-en.com': false
+  'truthofjapan.jp': false
+  'eigo-box.jp': false
+  'kusurinomadoguchi.com': false
+  'www.kusurinomadoguchi.com': false
+  'medistor.net': false
+  'health-1point.com': false
+  'world-mart.jp': false
+  'www.sidebizz.net': false
+  'sidebizz.net': false
+  'gekkan-fukugyou.jp': false
+  'www.sidebizz.net': false
+  'sidebizz.net': false
+  'shop-pro.jp': false
+  'sw.job.dmkt-sp.jp': false
+  'setsuyakulife.jp': false
+  'neolog888.com': false
+  'ifbusy.com': false
+  'yonosuke00.com': false
+  'www.yonosuke00.com': false
+  'www.jaic-college.jp': false
+  'jaic-college.jp': false
+  'petit-richproject.com': false
+  'gendai.ismedia.jp': false
+  'method-ty.s3.amazonaws.com': false
+  'tuimichan.blog.jp': false
+  'azu-soundworks.net': false
+  'skinandxxx.com': false
+  'jin115.com': false
+  'blog.esuteru.com': false
+  'yaraon-blog.com': false
+  'hosyusokuhou.jp': false
+  '2chantena.antenam.biz': false
+  'hamusoku.com': false
+  'yurusaretakodomotachi.com': false
+  'www.yurusaretakodomotachi.com': false
+  'laurier.excite.co.jp': false
+  'applimura.com': false
+  'social-dog.net': false
+  'line-line-line.com': false
+  'ayato-simplelife.com': false
+  'applikoryaku.com': false
+  'pinterest.jp': false
+  'pinterest.com': false
+  'www.pinterest.jp': false
+  'www.pinterest.com': false
+  'apple-geeks.com': false
+  'drfone.wondershare.jp': false
+  'wondershare.jp': false
+  'jp.imyfone.com': false
+  'imyfone.com': false
+  'www.passfab.jp': false
+  'passfab.jp': false
+  'www.passfab.com': false
+  'passfab.com': false
+  'codepre.com': false
+  'ja.aubertolivier.org': false
+  'aubertolivier.org': false
+  'signup.oxfordclub.jp': false
+  'oxfordclub.jp': false
+  'in.powergame.jp': false
+  'powergame.jp': false
+  '借金救済.com': false
+  'toushi-up.com': false
+  'kinsta.com': false
+  'takabeeblog.com': false
+  'www.unix.com': false
+  'japanphotos.info': false
+  'ja.handyradar.org': false
+  'handyradar.org': false
+  'chirashi.twittospia.com': false
+  'webfree-official.com': false
+  'glxy.s3.amazonaws.com': false
+  'sarah-horoscope.com': false
+  'zoom-shukyaku.net': false
+  'jobmonitor.work': false
+  'ishiishikikioku.com': false
+  'careerdrive.jp': false
+  'cross-projects.s3.amazonaws.com': false
+  'zoom-shukyaku.net': false
+  'datetti.com': false
+  'allabout.co.jp': false
+  'fukugyo-napoleon.com': false
+  'newmatosoku.com': false
+  'onecall2ch.com': false
+  'matome-ch.com': false
+  'ii-antenna.net': false
+  'vip.5chmap.com': false
+  'anaguro.yanen.org': false
+  'uhouho2ch.com': false
+  'matomentaly.com': false
+  'newsnow-2ch.com': false
+  '2chnavi.net': false
+  'kusowarota1.blog.fc2.com': false
+  'antenna.jp': false
+  '2ch-c.net': false
+  '0matome.com': false
+  'www.cobwebs.jp': false
+  'cobwebs.jp': false
+  'www.w-endless.co.jp': false
+  'w-endless.co.jp': false
+  'bromo.co.jp': false
+  'shikin-pro.com': false
+  'cyber.promise.co.jp': false
+  'cashing-taizen.com': false
+  'iwashi.biz': false
+  '2ch-matome.link': false
+  'ga-t.net': false
+  '5chmm.jp': false
+  'matome-blog.jp': false
+  'puu-antenna.com': false
+  'bouyomi.jp': false
+  'aborn.matometa-antenna.com': false
+  '(.*\.)?matometa-antenna\.com': false
+  '2ch.0726.biz': false
+  'kojikisokuhou.doorblog.jp': false
+  'nyan.eggtree.net': false
+  'minnano-antena.homemo.net': false
+  'growth-ma.jp': false
+  'kasegitimes.com': false
+  'murosublog.com': false
+  'matome-smartphone.com': false
+  '2chblog.rash.jp': false
+  'cobwebs.jp': false
+  'trend-news.site': false
+  '2chante.blog.fc2.com': false
+  'kami-ch.com': false
+  'usachannel.info': false
+  'chaosantenna.com': false
+  '(.*\.)?antenam\.jp': false
+  '(.*\.)?antenam\.biz': false
+  '(.*\.)?antenam\.info': false
+  '(.*\.)?antenam\.net': false
+  '(.*\.)?an-matome\.com': false
+  'proyakyuantenna.com': false
+  'baseball-mag.net': false
+  'olive-ad.com': false
+  # discordnitropremium.comはDiscord乗っ取りリンクなので注意
+  'discordnitropremium.com': false
+  'careerdrive.jp': false
+  'investment-ol.com': false
+  'marketing-structure.com': false
+  'new-ladder.com': false
+  'gotonobumasa.com': false
+  'selfenlightenment-reformation.com': false
+  '(.*\.)?oxfordclub\.jp': false
+  'npre-well30.com': false
+  'marketing-full-support.co.jp': false
+  'eizone.info': false
+  'pangu8.com': false
+  'www.cydiacloud.com': false
+  'cydiacloud.com': false
+  'www.macxdvd.com': false
+  'macxdvd.com': false
+  'analyze-kawasoe.jp': false
+  'googleadservices.com': false
+  'www.googleadservices.com': false
+  '(.*\.)?susten\.jp': false
+  '(.*\.)?theresponse\.jp': false
+  'experts-u.com': false
+  '(.*\.)?qa-stack\.(.*\.)?': false
+  '(.*\.)?qastack\.(.*\.)?': false
+  '(.*\.)?it-swarm\.(.*\.)?': false
+  '(.*\.)?it-mure\.(.*\.)?': false
+  'towast.biz': false
+  'www.towast.biz': false
+  'engribbon39.com': false
+  'eigo-box.jp': false
+  'iroironoiro.life': false
+  'lifeisrising.xyz': false
+  'www.movie-holic.schoo': false
+  'movie-holic.schoo': false
+  '(.*\.)?fundup\.jp': false
+  'prj2020.com': false
+  'entrecollege1.com': false
+  'fukunokimochi.com': false
+  'buboo.fun': false
+  'n-namihime.com': false
+  'withyou-group.services': false
+  'sns-college.com': false
+  'manabiplaza.com': false
+  'marketing-full-support.co.jp': false
+  'anshin.jdr-association.jp': false
+  'leverage-education.com': false
+  'withyou-group.net': false
+  'japanhistory.jp': false
+  'phenix-japan.co.jp': false
+  '(.*\.)?merone\.jp': false
+  '(.*\.)?hackthehack\.jp': false
+  '(.*\.)?gfujii\.jp': false
+  'entrecollege1.com': false
+  'k2pro.jp': false
+  'trust-to-main.com': false
+  'simosnet.com': false
+
+  
 checker:
   # disable checker when in debug mode
   off_when_debug: true
@@ -240,12 +2045,7 @@ categories_as_tabs:
   images:
   videos:
   news:
-  map:
-  music:
   it:
-  science:
-  files:
-  social media:
 
 engines:
   - name: apk mirror
@@ -288,6 +2088,7 @@ engines:
     engine: artic
     shortcut: arc
     timeout: 4.0
+    disabled: true
 
   - name: arxiv
     engine: arxiv
@@ -304,6 +2105,7 @@ engines:
     engine: bandcamp
     shortcut: bc
     categories: music
+    disabled: true
 
   - name: wikipedia
     engine: wikipedia
@@ -348,6 +2150,7 @@ engines:
   - name: btdigg
     engine: btdigg
     shortcut: bt
+    disabled: true
 
   - name: ccc-tv
     engine: xpath
@@ -374,6 +2177,7 @@ engines:
     engine: openverse
     categories: images
     shortcut: opv
+    disabled: true
 
   # - name: core.ac.uk
   #   engine: core
@@ -405,6 +2209,7 @@ engines:
     engine: currency_convert
     categories: general
     shortcut: cc
+    disabled: true
 
   - name: deezer
     engine: deezer
@@ -415,6 +2220,7 @@ engines:
     engine: deviantart
     shortcut: da
     timeout: 3.0
+    disabled: true
 
   - name: ddg definitions
     engine: duckduckgo_definitions
@@ -434,6 +2240,7 @@ engines:
     engine: docker_hub
     shortcut: dh
     categories: [it, packages]
+    disabled: true
 
   - name: erowid
     engine: xpath
@@ -475,11 +2282,12 @@ engines:
     timeout: 3.0
     weight: 2
     tests: *tests_infobox
+    disabled: true
 
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
-    disabled: true
+    disabled: false
 
   - name: duckduckgo images
     engine: duckduckgo_images
@@ -491,6 +2299,7 @@ engines:
     engine: tineye
     shortcut: tin
     timeout: 9.0
+    disabled: true
 
   - name: etymonline
     engine: xpath
@@ -502,7 +2311,7 @@ engines:
     first_page_num: 1
     shortcut: et
     categories: [dictionaries]
-    disabled: false
+    disabled: true
     about:
       website: https://www.etymonline.com/
       wikidata_id: Q1188617
@@ -538,6 +2347,7 @@ engines:
     # api_key: 'apikey' # required!
     # Or you can use the html non-stable engine, activated by default
     engine: flickr_noapi
+    disabled: true
 
   - name: free software directory
     engine: mediawiki
@@ -572,6 +2382,7 @@ engines:
   - name: genius
     engine: genius
     shortcut: gen
+    disabled: true
 
   - name: gigablast
     engine: gigablast
@@ -634,7 +2445,8 @@ engines:
     engine: google
     shortcut: go
     # see https://docs.searxng.org/src/searx.engines.google.html#module-searx.engines.google
-    use_mobile_ui: false
+    use_mobile_ui: true
+    weigth: 3
     # additional_tests:
     #   android: *test_android
 
@@ -765,6 +2577,7 @@ engines:
     page_size: 20
     categories: [it, packages]
     shortcut: ho
+    disabled: true
     about:
       website: https://hoogle.haskell.org/
       wikidata_id: Q34010
@@ -834,6 +2647,7 @@ engines:
     shortcut: zlib
     categories: files
     timeout: 3.0
+    disabled: true
     # choose base_url, otherwise engine will do it at initialization time
     # base_url: https://b-ok.cc
     # base_url: https://de1lib.org
@@ -844,6 +2658,7 @@ engines:
     engine: loc
     shortcut: loc
     categories: images
+    disabled: true
 
   - name: lobste.rs
     engine: xpath
@@ -893,6 +2708,7 @@ engines:
   - name: mixcloud
     engine: mixcloud
     shortcut: mc
+    disabled: true
 
   # MongoDB engine
   # Required dependency: pymongo
@@ -944,6 +2760,7 @@ engines:
     content_query: description
     categories: it
     shortcut: man
+    disabled: true
     about:
       website: https://www.mankier.com/
       official_api_documentation: https://www.mankier.com/api
@@ -999,6 +2816,7 @@ engines:
   - name: openstreetmap
     engine: openstreetmap
     shortcut: osm
+    disabled: true
 
   - name: openrepos
     engine: xpath
@@ -1048,6 +2866,7 @@ engines:
   - name: photon
     engine: photon
     shortcut: ph
+    disabled: true
 
   - name: piratebay
     engine: piratebay
@@ -1056,6 +2875,7 @@ engines:
     # country
     url: https://thepiratebay.org/
     timeout: 3.0
+    disabled: true
 
   # Required dependency: psychopg2
   #  - name: postgresql
@@ -1085,6 +2905,7 @@ engines:
     suggestion_xpath: /html/body/main/div/div/div/form/div/div[@class="callout-block"]/p/span/a[@class="link"]
     first_page_num: 1
     categories: [it, packages]
+    disabled: true
     about:
       website: https://pypi.org
       wikidata_id: Q2984686
@@ -1097,7 +2918,7 @@ engines:
     engine: qwant
     shortcut: qw
     categories: [general, web]
-    disabled: false
+    disabled: true
     additional_tests:
       rosebud: *test_rosebud
 
@@ -1105,7 +2926,7 @@ engines:
     engine: qwant
     shortcut: qwn
     categories: news
-    disabled: false
+    disabled: true
     network: qwant
 
   - name: qwant images
@@ -1169,10 +2990,12 @@ engines:
   - name: sepiasearch
     engine: sepiasearch
     shortcut: sep
+    disabled: true
 
   - name: soundcloud
     engine: soundcloud
     shortcut: sc
+    disabled: true
 
   - name: stackoverflow
     engine: stackexchange
@@ -1261,7 +3084,7 @@ engines:
     engine: solidtorrents
     shortcut: solid
     timeout: 4.0
-    disabled: false
+    disabled: true
     base_url:
       - https://solidtorrents.net
       - https://solidtorrents.eu
@@ -1360,10 +3183,12 @@ engines:
   - name: dailymotion
     engine: dailymotion
     shortcut: dm
+    disabled: true
 
   - name: vimeo
     engine: vimeo
     shortcut: vm
+    disabled: true
 
   - name: wiby
     engine: json_engine
@@ -1434,7 +3259,7 @@ engines:
     base_url: "https://{language}.wiktionary.org/"
     number_of_results: 5
     search_type: text
-    disabled: false
+    disabled: true
     about:
       website: https://www.wiktionary.org/
       wikidata_id: Q151
@@ -1475,16 +3300,18 @@ engines:
     engine: wolframalpha_noapi
     timeout: 6.0
     categories: []
+    disabled: true
 
   - name: dictzone
     engine: dictzone
     shortcut: dc
+    disabled: true
 
   - name: mymemory translated
     engine: translated
     shortcut: tl
     timeout: 5.0
-    disabled: false
+    disabled: true
     # You can use without an API key, but you are limited to 1000 words/day
     # See: https://mymemory.translated.net/doc/usagelimits.php
     # api_key: ''
@@ -1617,7 +3444,7 @@ engines:
     base_url: https://www.wordnik.com/
     categories: [dictionaries]
     timeout: 5.0
-    disabled: false
+    disabled: true
 
   - name: woxikon.de synonyme
     engine: xpath
