@@ -2012,13 +2012,24 @@ hostname_replace:
   'corowaku.info': false
   'yamatoq.info': false
   'diamond.jp': false
+  'kinaoworks.hatenablog.com': false
+  '(.*\.)?newage3\.net': false
+  'topisyu.hatenablog.com': false
+  'yasusoul.hatenablog.com': false
+  'tratratra.hatenablog.com': false
+  'hirayamax.hatenablog.com': false
+  'isobe-seisen.hatenablog.com': false
+
   
    # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
   '(.*\.)?ameblo\.jp': false
   '(.*\.)?ameba\.jp': false
   'www.nicovideo.jp': false
+  'sp.nicovideo.jp': false
   'blog.goo.ne.jp': false
   'news.yahoo.co.jp': false
+  'b.hatena.ne.jp': false
+  'www.gurutto-koriyama.com': false
 
 
   
