@@ -1991,7 +1991,7 @@ hostname_replace:
   'in.worldforecast.jp': false
   'conlabo.co.jp': false
   'akiyamablog.org': false
-  'pekoe.site' false
+  'pekoe.site': false
   'experts-u.com': false
   '(.*\.)?directbook\.jp': false
   'office-nj.com': false
