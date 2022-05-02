@@ -1998,12 +1998,11 @@ hostname_replace:
   'ibp-zerosta.com': false
   'melos.media': false
   '(.*\.)?dodadsj\.com': false
+  'ikenori.com': false
   
-  # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
+   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
   '(.*\.)?drnagao\.com': false
-  '(.*\.)?ameblo\.jp': false
-  'blog.goo.ne.jp': false
   'tvhospital.jp': false
   'shinjitsu7.com': false
   '(.*\.)?dreamnews\.jp': false
@@ -2012,6 +2011,15 @@ hostname_replace:
   'consultation.link': false
   'corowaku.info': false
   'yamatoq.info': false
+  'diamond.jp': false
+  
+   # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
+  '(.*\.)?ameblo\.jp': false
+  '(.*\.)?ameba\.jp': false
+  'www.nicovideo.jp': false
+  'blog.goo.ne.jp': false
+  'news.yahoo.co.jp': false
+
 
   
 checker:
