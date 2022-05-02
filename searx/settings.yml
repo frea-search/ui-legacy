@@ -1427,8 +1427,6 @@ hostname_replace:
   'cherish-media.jp': false
   'mayonez.jp': false
   'belcy.jp': false
-  'corowaku.info': false
-  'yamatoq.info': false
   'minatame-lab.com': false
   'valuecommerce.ne.jp': false
   'affiliate.docomo.ne.jp': false
@@ -1990,6 +1988,30 @@ hostname_replace:
   'k2pro.jp': false
   'trust-to-main.com': false
   'simosnet.com': false
+  'in.worldforecast.jp': false
+  'conlabo.co.jp': false
+  'akiyamablog.org': false
+  'pekoe.site' false
+  'experts-u.com': false
+  '(.*\.)?directbook\.jp': false
+  'office-nj.com': false
+  'ibp-zerosta.com': false
+  'melos.media': false
+  '(.*\.)?dodadsj\.com': false
+  
+  # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
+  'girlschannel.net': false
+  '(.*\.)?drnagao\.com': false
+  '(.*\.)?ameblo\.jp': false
+  'blog.goo.ne.jp': false
+  'tvhospital.jp': false
+  'shinjitsu7.com': false
+  '(.*\.)?dreamnews\.jp': false
+  'sun-tv.co.jp': false
+  'soukitaisyoku49.com': false
+  'consultation.link': false
+  'corowaku.info': false
+  'yamatoq.info': false
 
   
 checker:
