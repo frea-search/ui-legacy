@@ -1355,7 +1355,6 @@ hostname_replace:
   '4900.co.jp': false
   'qumeru.com': false
   'lineageos18.com': false
-  'bing.com': false
   'catanuki.com': false
   'kumikomorikawa.com': false
   'hiyokomarch.com': false
@@ -2019,6 +2018,12 @@ hostname_replace:
   'tratratra.hatenablog.com': false
   'hirayamax.hatenablog.com': false
   'isobe-seisen.hatenablog.com': false
+  'livecdroom.bbs.fc2.com': false
+  'jp.sputniknews.com': false
+  '(.*\.)?indeep\.jp': false
+  'biz-journal.jp': false
+  '(.*\.)?earthreview\.net': false
+  'tanakanews.com': false
 
   
    # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
@@ -2030,6 +2035,9 @@ hostname_replace:
   'news.yahoo.co.jp': false
   'b.hatena.ne.jp': false
   'www.gurutto-koriyama.com': false
+  
+   # bingのキャッシュ（？）、短縮リンクが検索結果に表示され既存の検索結果と被る原因となるためブロック
+  'bing.com': false
 
 
   
