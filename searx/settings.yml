@@ -1999,10 +1999,14 @@ hostname_replace:
   '(.*\.)?dodadsj\.com': false
   'ikenori.com': false
   '(.*\.)?freecodecamp\.org': false
+  '(.*\.)?howtogeek\.com': false
+  '(.*\.)?vpnunlimited\.com': false
   
    # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
   '(.*\.)?drnagao\.com': false
+  'nagaoclinic.or.jp': false
+  'www.nagaoclinic.or.jp': false
   'tvhospital.jp': false
   'shinjitsu7.com': false
   '(.*\.)?dreamnews\.jp': false
@@ -2025,17 +2029,23 @@ hostname_replace:
   'biz-journal.jp': false
   '(.*\.)?earthreview\.net': false
   'tanakanews.com': false
+  'ochakai-akasaka.com': false
+  '(.*\.)?labornetjp\.org': false
+  'tapnewswire.com': false
+  'keen-area.net': false
 
   
    # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
   '(.*\.)?ameblo\.jp': false
   '(.*\.)?ameba\.jp': false
+  '(.*\.)?exblog\.jp': false
   'www.nicovideo.jp': false
   'sp.nicovideo.jp': false
   'blog.goo.ne.jp': false
   'news.yahoo.co.jp': false
   'b.hatena.ne.jp': false
   'www.gurutto-koriyama.com': false
+  'apps.apple.com': false
   
    # bingのキャッシュ（？）、短縮リンクが検索結果に表示され既存の検索結果と被る原因となるためブロック
   'bing.com': false
