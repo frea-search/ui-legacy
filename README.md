@@ -13,6 +13,7 @@ sudo -H ./utils/searx.sh install all
 ```
 
 <br>
+
 `/etc/nginx/conf.d/frea.conf` に以下の内容を書き込みます。
 
 ```
@@ -32,8 +33,11 @@ server {
         
 }
 ```
+
 <br>
+
 最後に変更を適用
+
 ```
 sudo nginx -s reload
 ```
