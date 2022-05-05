@@ -2000,6 +2000,12 @@ hostname_replace:
   '(.*\.)?howtogeek\.com': false
   '(.*\.)?vpnunlimited\.com': false
   'totalnewsjp.com': false
+  'unc0ver.app': false
+  'pokegolove.com': false
+  '(.*\.)?tenorshare\.jp': false
+  '(.*\.)?fonelab\.com': false
+  '(.*\.)?starzsoft\.com': false
+  '(.*\.)?fonedog\.jp': false
   
    # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
