@@ -2006,6 +2006,8 @@ hostname_replace:
   '(.*\.)?fonelab\.com': false
   '(.*\.)?starzsoft\.com': false
   '(.*\.)?fonedog\.jp': false
+  'www.motivation-up.co.jp': false
+  'motivation-up.co.jp': false
   
    # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
