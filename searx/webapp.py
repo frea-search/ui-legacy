@@ -454,11 +454,14 @@ def render(template_name: str, **kwargs):
 
     # values from the preferences
     kwargs['preferences'] = request.preferences
+    kwargs['autocomplete'] = request.preferences.get_value('autocomplete')
+    kwargs['infinite_scroll'] = request.preferences.get_value('infinite_scroll')
     kwargs['results_on_new_tab'] = request.preferences.get_value('results_on_new_tab')
     kwargs['advanced_search'] = request.preferences.get_value('advanced_search')
     kwargs['query_in_title'] = request.preferences.get_value('query_in_title')
     kwargs['safesearch'] = str(request.preferences.get_value('safesearch'))
     kwargs['theme'] = request.preferences.get_value('theme')
+    kwargs['method'] = request.preferences.get_value('method')
     kwargs['categories_as_tabs'] = list(settings['categories_as_tabs'].keys())
     kwargs['categories'] = _get_enable_categories(categories.keys())
     kwargs['OTHER_CATEGORY'] = OTHER_CATEGORY
