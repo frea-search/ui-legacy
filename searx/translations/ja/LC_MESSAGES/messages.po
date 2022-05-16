@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-03 16:51+0000\n"
-"PO-Revision-Date: 2022-05-08 11:17+0900\n"
-"Last-Translator: iFvt;/s:.Io8yejcE! <6dbjomtr@anonaddy.me>\n"
+"POT-Creation-Date: 2022-05-08 08:49+0000\n"
+"PO-Revision-Date: 2022-05-16 22:48+0900\n"
+"Last-Translator: tents <remendne@pentrens.jp>\n"
 "Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/"
 ">\n"
 "Language: ja\n"
@@ -26,8 +26,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.2\n"
-"Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
+"Generated-By: Babel 2.10.1\n"
 
 #. CONSTANT_NAMES['DEFAULT_GROUP_NAME']
 #: searx/searxng.msg
@@ -298,9 +298,10 @@ msgstr "オープンアクセス DOI の書き換え"
 
 #: searx/plugins/oa_doi_rewrite.py:10
 msgid ""
-"Avoid paywalls by redirecting to open-access versions of publications "
-"when available"
-msgstr "可能ならば出版物のオープンアクセス版へリダイレクトして有料の壁を避ける"
+"Avoid paywalls by redirecting to open-access versions of publications when "
+"available"
+msgstr ""
+"可能ならば オープンアクセス版の出版物へリダイレクトし、有料出版物を回避する"
 
 #: searx/plugins/search_on_category_select.py:19
 msgid "Search on category select"
@@ -429,24 +430,15 @@ msgstr "No HTTPS"
 msgid "View error logs and submit a bug report"
 msgstr "エラーログを表示し、バグレポートを送信します"
 
-#: searx/templates/oscar/preferences.html:38
-#: searx/templates/oscar/stats.html:70
-#: searx/templates/simple/preferences.html:53
-#: searx/templates/simple/stats.html:67
+#: searx/templates/simple/preferences.html:53 searx/templates/simple/stats.html:67
 msgid "Median"
 msgstr "中央値"
 
-#: searx/templates/oscar/preferences.html:39
-#: searx/templates/oscar/stats.html:76
-#: searx/templates/simple/preferences.html:54
-#: searx/templates/simple/stats.html:73
+#: searx/templates/simple/preferences.html:54 searx/templates/simple/stats.html:73
 msgid "P80"
 msgstr "P80"
 
-#: searx/templates/oscar/preferences.html:40
-#: searx/templates/oscar/stats.html:82
-#: searx/templates/simple/preferences.html:55
-#: searx/templates/simple/stats.html:79
+#: searx/templates/simple/preferences.html:55 searx/templates/simple/stats.html:79
 msgid "P95"
 msgstr "P95"
 
@@ -607,9 +599,9 @@ msgid ""
 "Hypertext_Transfer_Protocol#Request_methods\" rel=\"external\">learn more about "
 "request methods</a>"
 msgstr ""
-"フォームがどの方法で送信されるかを変更できます。<a "
-"href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
-" rel=\"external\">リクエストメソッドについて詳しく知るにはここをクリック</a>"
+"フォームの送信方法を変更します。<a href=\"https://ja.wikipedia.org/wiki/"
+"Hypertext_Transfer_Protocol#リクエストメソッド\" rel=\"external\">リクエストメ"
+"ソッドってなに？</a>"
 
 #: searx/templates/simple/preferences.html:259
 msgid "Image proxy"
@@ -746,46 +738,60 @@ msgstr "クッキー名"
 msgid "Value"
 msgstr "値"
 
-#: searx/templates/oscar/preferences.html:492
-#: searx/templates/simple/preferences.html:413
-msgid ""
-"These settings are stored in your cookies, this allows us not to store "
-"this data about you."
-msgstr "これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保存するわけではありません。"
-
-#: searx/templates/oscar/preferences.html:493
-#: searx/templates/simple/preferences.html:415
-msgid ""
-"These cookies serve your sole convenience, we don't use these cookies to "
-"track you."
-msgstr "クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを追跡するためにクッキーを使うことはありません。"
-
-#: searx/templates/oscar/preferences.html:497
 #: searx/templates/simple/preferences.html:404
 msgid "Search URL of the currently saved preferences"
 msgstr "現在保存されている設定の検索 URL"
 
-#: searx/templates/oscar/preferences.html:498
 #: searx/templates/simple/preferences.html:408
 msgid ""
 "Note: specifying custom settings in the search URL can reduce privacy by "
 "leaking data to the clicked result sites."
-msgstr "注意: 検索 URL にカスタム設定を指定すると、クリックした結果サイトにデータが漏洩し、プライバシーが低下する恐れがあります。"
+msgstr ""
+"注意: 検索 URL にカスタム設定を指定すると、クリックした結果サイトにデータが漏洩"
+"し、プライバシーが低下する恐れがあります。"
 
-#: searx/templates/oscar/preferences.html:503
-msgid "save"
+#: searx/templates/simple/preferences.html:413
+msgid ""
+"These settings are stored in your cookies, this allows us not to store this "
+"data about you."
+msgstr ""
+"これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保"
+"存するわけではありません。"
+
+#: searx/templates/simple/preferences.html:415
+msgid ""
+"These cookies serve your sole convenience, we don't use these cookies to track "
+"you."
+msgstr ""
+"クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを"
+"追跡するためにクッキーを使うことはありません。"
+
+#: searx/templates/simple/preferences.html:418
+msgid "Save"
 msgstr "保存"
 
-#: searx/templates/oscar/preferences.html:504
-msgid "back"
-msgstr "戻る"
-
-#: searx/templates/oscar/preferences.html:505
 #: searx/templates/simple/preferences.html:419
 msgid "Reset defaults"
 msgstr "デフォルト設定に戻す"
 
-#: searx/templates/oscar/results.html:32 searx/templates/simple/results.html:46
+#: searx/templates/simple/preferences.html:420
+msgid "Back"
+msgstr "戻る"
+
+#: searx/templates/simple/results.html:23
+msgid "Answers"
+msgstr "回答"
+
+#: searx/templates/simple/results.html:39
+msgid "Number of results"
+msgstr "通知の数"
+
+#: searx/templates/simple/messages/no_results.html:6
+#: searx/templates/simple/results.html:46
+msgid "Error!"
+msgstr "エラー"
+
+#: searx/templates/simple/results.html:46
 msgid "Engines cannot retrieve results"
 msgstr "エンジンは結果を取得できません"
 
@@ -1150,3 +1156,111 @@ msgstr "動画を隠す"
 
 #~ msgid "Advanced settings"
 #~ msgstr "詳細設定"
+
+#~ msgid "Close"
+#~ msgstr "閉じる"
+
+#~ msgid "Language"
+#~ msgstr "言語"
+
+#~ msgid "broken"
+#~ msgstr "起動不可"
+
+#~ msgid "supported"
+#~ msgstr "サポート"
+
+#~ msgid "not supported"
+#~ msgstr "未サポート"
+
+#~ msgid "about"
+#~ msgstr "このサイトについて"
+
+#~ msgid "Avg."
+#~ msgstr "平均"
+
+#~ msgid "User Interface"
+#~ msgstr "ユーザーインタフェース"
+
+#~ msgid "Choose style for this theme"
+#~ msgstr "このテーマのスタイルを選択"
+
+#~ msgid "Style"
+#~ msgstr "スタイル"
+
+#~ msgid "Show advanced settings"
+#~ msgstr "詳細設定を表示"
+
+#~ msgid "Show advanced settings panel in the home page by default"
+#~ msgstr "デフォルトでホームページで詳細設定を表示する"
+
+#~ msgid "Allow all"
+#~ msgstr "すべて許可"
+
+#~ msgid "Disable all"
+#~ msgstr "すべて無効"
+
+#~ msgid "Selected language"
+#~ msgstr "選択された言語"
+
+#~ msgid "Query"
+#~ msgstr "クエリ"
+
+#~ msgid "save"
+#~ msgstr "保存"
+
+#~ msgid "back"
+#~ msgstr "戻る"
+
+#~ msgid "Links"
+#~ msgstr "リンク"
+
+#~ msgid "RSS subscription"
+#~ msgstr "RSS登録"
+
+#~ msgid "Search results"
+#~ msgstr "検索結果"
+
+#~ msgid "next page"
+#~ msgstr "次のページ"
+
+#~ msgid "previous page"
+#~ msgstr "前のページ"
+
+#~ msgid "Start search"
+#~ msgstr "検索を開始"
+
+#~ msgid "Clear search"
+#~ msgstr "探索を消す"
+
+#~ msgid "Clear"
+#~ msgstr "消す"
+
+#~ msgid "stats"
+#~ msgstr "統計"
+
+#~ msgid "Heads up!"
+#~ msgstr "気をつけて!"
+
+#~ msgid "It look like you are using SearXNG first time."
+#~ msgstr "SearXNG を初めてお使いになるようですね。"
+
+#~ msgid "Well done!"
+#~ msgstr "あっぱれ!"
+
+#~ msgid "Settings saved successfully."
+#~ msgstr "設定の保存に成功しました。"
+
+#~ msgid "Oh snap!"
+#~ msgstr "おっと！"
+
+#~ msgid "Something went wrong."
+#~ msgstr "なにか問題が起こっているようです。"
+
+#~ msgid "Date"
+#~ msgstr "日付"
+
+#~ msgid "Type"
+#~ msgstr "タイプ"
+
+#~ msgid "Get image"
+#~ msgstr "画像を取得する"
