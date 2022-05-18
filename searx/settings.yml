@@ -25,7 +25,7 @@ search:
   # use codes from 'languages.py'
   default_lang: ""
   # Available languages
-  languages:
+  # languages:
   #   - all
   #   - en
   #   - en-US
