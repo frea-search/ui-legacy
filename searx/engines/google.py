@@ -188,7 +188,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     _lang = params['language']
     _any_language = _lang.lower() == 'all'
     if _any_language:
-        _lang = 'en-US'
+        _lang = 'ja-JP'
     language = match_language(_lang, lang_list, custom_aliases)
     ret_val['language'] = language
 
