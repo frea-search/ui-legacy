@@ -23,7 +23,7 @@ search:
   autocomplete_min: 4
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
-  default_lang: ""
+  default_lang: "all"
   # Available languages
   # languages:
   #   - all
@@ -2015,6 +2015,8 @@ hostname_replace:
   '(.*\.)?wizcase\.com': false
   '(.*\.)?drivereasy\.com': false
   'itojisan.xyz': false
+  'surgeonkazu.hatenablog.com': false
+  '(.*\.)?chu\.jp': false
   
    # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
