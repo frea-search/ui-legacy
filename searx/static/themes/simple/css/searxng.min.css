@@ -2772,6 +2772,7 @@ html.no-js #clear_search.hide_if_nojs {
 
 #send_search {
 	border-radius: 0 8px 8px 0
+}
 
 #send_search:hover {
 	cursor: pointer;
@@ -3838,7 +3839,7 @@ a,
 
 #search_url {
 	padding-top: 45px;
-	/*display: none;*/
+	display: none;
 }
 
 
