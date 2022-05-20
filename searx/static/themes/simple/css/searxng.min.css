@@ -3494,10 +3494,10 @@ article[data-vim-selected].category-videos {
 	grid-area: sidebar;
 	word-wrap: break-word;
 	color: var(--color-sidebar-font);
-	background: #f4f4f4;
 }
 
 #sidebar .infobox {
+	background: #f4f4f4;
 	margin: 10px 0 10px;
 	padding: 1rem;
 	font-size: .9em;
