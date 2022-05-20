@@ -783,7 +783,7 @@ template {
 		--color-show-btn-background: #555;
 		--color-show-btn-font: #bbb;
 		--color-search-border: #555;
-		--color-search-background: #2d2d2d;
+		--color-search-background: #353535;
 		--color-search-font: #fff;
 		--color-search-background-hover: #58f;
 		--color-error: #f55b5b;
@@ -885,8 +885,8 @@ template {
 	--color-warning-background: #39300a;
 	--color-success: #79f56e;
 	--color-success-background: #0e390a;
-	--color-categories-item-selected-font: #58f;
-	--color-categories-item-border-selected: #58f;
+	--color-categories-item-selected-font: #ce3d3d;
+	--color-categories-item-border-selected: #ce3d3d;
 	--color-autocomplete-font: #fff;
 	--color-autocomplete-border: #555;
 	--color-autocomplete-background: #222;
@@ -3899,8 +3899,9 @@ h1 {
 		text-shadow: 0 0 10px #fff, 0 0 15px #fff;
 	}
 
+
 	#sidebar .infobox {
-		box-shadow: 0 5px 13px #0b0b0b;
+		background: #2d2d2d;
 	}
 
 	#search_logo {
@@ -3911,6 +3912,10 @@ h1 {
 
 	#search_logo svg {
 		display: none;
+	}
+
+	#search_header {
+		background: #222;
 	}
 
 }
