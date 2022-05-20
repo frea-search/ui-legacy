@@ -690,7 +690,7 @@ template {
 	--color-show-btn-background: #bbb;
 	--color-show-btn-font: #222;
 	--color-search-border: #bbb;
-	--color-search-background: #fff;
+	--color-search-background: #f0f0f0;
 	--color-search-font: #222;
 	--color-search-background-hover: #4a4a4a;
 	--color-error: #db3434;
@@ -707,7 +707,7 @@ template {
 	--color-autocomplete-background-hover: #f7f7f7;
 	--color-answer-border: #ddd;
 	--color-answer-font: #444;
-	--color-answer-background: #f7f7f7;
+	--color-answer-background: #eee;
 	--color-result-border: #ddd;
 	--color-result-url-font: #000;
 	--color-result-vim-selected: #f7f7f7;
@@ -2711,7 +2711,6 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 .search_box {
-	box-shadow: 0 3px 10px rgba(32, 33, 36, 0.18);
 	border-radius: .8rem;
 	width: 44rem;
 	display: inline-flex;
@@ -2763,7 +2762,7 @@ html.no-js #clear_search.hide_if_nojs {
 	width: 100%;
 	padding-left: 1rem;
 	padding-right: 0 !important;
-	border-radius: .8rem 0 0 .8rem
+	border-radius: 8px 0 0 8px
 }
 
 #q::-ms-clear,
@@ -2772,8 +2771,7 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 #send_search {
-	border-radius: 0 .8rem .8rem 0
-}
+	border-radius: 0 8px 8px 0
 
 #send_search:hover {
 	cursor: pointer;
@@ -3070,8 +3068,7 @@ a:visited .highlight {
 
 article[data-vim-selected] {
 	background: var(--color-result-vim-selected);
-	border-left: .2rem solid var(--color-result-vim-arrow);
-	border-radius: 0 10px 10px 0
+	border-radius: 10px 10px 10px 10px
 }
 
 article.result-images[data-vim-selected] {
@@ -3472,7 +3469,6 @@ article[data-vim-selected].category-videos {
 
 #answers {
 	grid-area: answers;
-	border: 1px solid var(--color-answer-border);
 	background: var(--color-answer-background);
 	padding: 1rem;
 	margin: 1rem 0;
@@ -3496,12 +3492,12 @@ article[data-vim-selected].category-videos {
 #sidebar {
 	grid-area: sidebar;
 	word-wrap: break-word;
-	color: var(--color-sidebar-font)
+	color: var(--color-sidebar-font);
+	background: #f4f4f4;
 }
 
 #sidebar .infobox {
 	margin: 10px 0 10px;
-	box-shadow: 0 5px 13px var(--color-sidebar-border);
 	padding: 1rem;
 	font-size: .9em;
 	border-radius: 10px
@@ -3842,6 +3838,7 @@ a,
 
 #search_url {
 	padding-top: 45px;
+	display: none;
 }
 
 
