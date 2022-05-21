@@ -4,6 +4,12 @@
 ### ブラックリストについて
 `searx/settings.yml`に検索エンジンの設定と検索結果に表示しないサイトの一覧があります。これに追加、削除したいドメインや質問がある場合、issueかPRを開いてください。
 
+### API
+Frea Searchには完全無償で使えるAPIが付属しています。検索結果をjsonで取得できます。
+```
+https://freasearch.org/search?q=検索したいワード&format=json
+```
+
 ### インストール方法
 予め`curl`と`git`、`nginx`をインストールしてください <br>
 ```
