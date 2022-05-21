@@ -15,7 +15,7 @@ search:
 
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
-  default_lang: 'all'
+  default_lang: ''
 
   # remove format to deny access, use lower case.
   formats:
