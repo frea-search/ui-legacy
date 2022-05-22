@@ -239,15 +239,15 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
 
         # restricts search results to documents written in a particular
         # language.
-        ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
+        # ! comment outed for debug !
+        # ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
 
-        # Accept-Language: fr-CH, fr;q=0.8, en;q=0.6, *;q=0.5
+        # Accept-Language: ja, en-US; q=0.7, en;q=0.3
         ret_val['headers']['Accept-Language'] = ','.join(
             [
-                lang_country,
-                language + ';q=0.8,',
-                'en;q=0.6',
-                '*;q=0.5',
+                language,
+                'en-US;' + 'q=0.7,',
+                'en;q=0.3',
             ]
         )
 
