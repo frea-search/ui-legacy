@@ -2068,9 +2068,7 @@ hostname_replace:
   'b.hatena.ne.jp': false
   'www.gurutto-koriyama.com': false
   'apps.apple.com': false
-  
-   # bingのキャッシュ（？）、短縮リンクが検索結果に表示され既存の検索結果と被る原因となるためブロック
-  'bing.com': false
+
 
 
   
@@ -2128,6 +2126,7 @@ categories_as_tabs:
   videos:
   news:
   it:
+  social media:
 
 engines:
   - name: apk mirror
@@ -3052,6 +3051,7 @@ engines:
     engine: reddit
     shortcut: re
     page_size: 25
+    disabled: false
 
   # Required dependency: redis
   # - name: myredis
@@ -3246,7 +3246,7 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: true
+    disabled: false
 
   - name: yahoo news
     engine: yahoo_news
