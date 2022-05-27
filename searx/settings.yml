@@ -2018,6 +2018,15 @@ hostname_replace:
   'itojisan.xyz': false
   'surgeonkazu.hatenablog.com': false
   '(.*\.)?chu\.jp': false
+  '(.*\.)?getdroidtips\.com': false
+  'kumanokawa-project.net': false
+  'third-pg.jp': false
+  'rs-info.site': false
+  'flmg.work': false
+  'the-fanfare-project.net': false
+  'blbd.info': false
+  'npre-well30.com': false
+  '(.*\.)?kumanokawa-project\.biz': false
   
    # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
