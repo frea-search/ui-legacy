@@ -2027,8 +2027,12 @@ hostname_replace:
   'blbd.info': false
   'npre-well30.com': false
   '(.*\.)?kumanokawa-project\.biz': false
+  'ima.goo.ne.jp': false
+  '(.*\.)?shadan-kun\.com': false
+  '(.*\.)?careergarden\.jp': false
+  'colorfree-map.com': false
   
-   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
+  # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
   '(.*\.)?drnagao\.com': false
   'nagaoclinic.or.jp': false
@@ -2062,11 +2066,11 @@ hostname_replace:
   '(.*\.)?mag2\.com': false
   '(.*\.)?easeus\.com': false
   
-   # アンチトラッカーを使用すると閲覧できないサイト
+  # アンチトラッカーを使用すると閲覧できないサイト
   '(.*\.)?hb-plaza\.com': false
 
   
-   # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
+  # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
   '(.*\.)?ameblo\.jp': false
   '(.*\.)?ameba\.jp': false
   '(.*\.)?exblog\.jp': false
