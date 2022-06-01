@@ -3657,7 +3657,7 @@ engines:
     content_xpath: ../div[@class="news-text"]
     thumbnail_xpath: ../../../../img/@src
     first_page_num: 1
-    disabled: true
+    disabled: false
     about:
       website: https://petalsearch.com/
       wikidata_id: Q104399280
