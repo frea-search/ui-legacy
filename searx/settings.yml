@@ -3670,9 +3670,9 @@ engines:
     engine: xpath
     paging: true
     search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
-    results_xpath: //div[@class='result']//p[@class='title fsL1']/a
-    url_xpath: //div[@class='result']//p[@class='title fsL1']/a/@href
-    title_xpath: //div[@class='result']//p[@class='title fsL1']
+    results_xpath: //p[@class='title fsL1']//a
+    url_xpath: //p[@class='title fsL1']//a/@href
+    title_xpath: .
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     suggestion_xpath: //div[@class='words']//a
     first_page_num: 1
