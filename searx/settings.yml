@@ -2066,10 +2066,28 @@ hostname_replace:
   'tanakanews.com': false
   'ochakai-akasaka.com': false
   '(.*\.)?labornetjp\.org': false
-  'tapnewswire.com': false
+  '(.*\.)?tapnewswire\.com': false
   'keen-area.net': false
   '(.*\.)?mag2\.com': false
   '(.*\.)?easeus\.com': false
+  'data-max.co.jp': false
+  'www.data-max.co.jp': false
+  'kamo.ed.jp': false
+  'www.kamo.ed.jp': false
+  '(.*\.)?kodomocorona\.com': false
+  '(.*\.)?corowakunavi\.com': false
+  '(.*\.)?c-shingikai\.com': false
+  'faze724.wixsite.com': false
+  '(.*\.)?honbetsu-cl\.com': false
+  'tohokuishi.localinfo.jp': false
+  '(.*\.)?jcovid\.net': false
+  'xn--pckuax3a7azh6b3bzbe.com': false
+  '(.*\.)?567kyusai\.com': false
+  'covid-vaccine.jp': false
+  '(.*\.)?coronavaccinesue\.jp': false
+  'chugokuishi.wixsite.com': false
+  'tochigipdva-ucw.studio.site': false
+  'cpt123cpt123.wixsite.com': false
   
   # アンチトラッカーを使用すると閲覧できないサイト
   '(.*\.)?hb-plaza\.com': false
@@ -2079,6 +2097,8 @@ hostname_replace:
   '(.*\.)?ameblo\.jp': false
   '(.*\.)?ameba\.jp': false
   '(.*\.)?exblog\.jp': false
+  'sponichi.co.jp': false
+  'www.sponichi.co.jp': false
   'www.nicovideo.jp': false
   'sp.nicovideo.jp': false
   'blog.goo.ne.jp': false
