@@ -2031,6 +2031,11 @@ hostname_replace:
   '(.*\.)?shadan-kun\.com': false
   '(.*\.)?careergarden\.jp': false
   'colorfree-map.com': false
+  '(.*\.)?rico-notes\.com': false
+  '(.*\.)?coliss\.com': false
+  '(.*\.)?deshinon\.com': false
+  '(.*\.)?junpei-sugiyama\.com': false
+  '(.*\.)?webernote\.net': false
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
