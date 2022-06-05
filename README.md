@@ -53,4 +53,19 @@ sudo nginx -s reload
 ```
 cd search
 sudo -H ./utils/searx.sh update searx
+
 ```
+
+### Special thanks
+・SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々<br>
+<br>
+・[kr-tukimi](https://github.com/kr-tukimi) <br>
+ロゴ作成
+<br>
+・[nullcat](https://github.com/nullnyat) <br>
+[404ページ](https://freasearch.org/404)のイラスト提供
+<br>
+・ブラックリストの改善に協力してくれた方々<br>
+
+
+
