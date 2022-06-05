@@ -1,16 +1,16 @@
 ## Frea Search
 信頼性の高い検索結果のみを表示するクリーンな検索エンジンを目指したsearxngのカスタムインスタンス
 
-### ブラックリストについて
+### ブラックリストについて ❌
 `searx/settings.yml`に検索エンジンの設定と検索結果に表示しないサイトの一覧があります。これに追加、削除したいドメインや質問がある場合、issueかPRを開いてください。
 
-### API
+### API 💫
 Frea Searchには完全無償で使えるAPIが付属しています。検索結果をjsonで取得できます。
 ```
 https://freasearch.org/search?q=検索したいワード&format=json
 ```
 
-### インストール方法
+### インストール方法 💿
 予め`curl`と`git`、`nginx`をインストールしてください <br>
 ```
 git clone https://git.sda1.net/frea/search
@@ -48,7 +48,7 @@ server {
 sudo nginx -s reload
 ```
 
-### インスタンスのアップデート方法
+### インスタンスのアップデート方法  🔁
 コマンド一つで自動的にGitリポジトリからの変更がPullされ適用されます。
 ```
 cd search
@@ -56,7 +56,7 @@ sudo -H ./utils/searx.sh update searx
 
 ```
 
-### Special thanks
+### Special thanks 🙏
 ・SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々<br>
 <br>
 ・[kr-tukimi](https://github.com/kr-tukimi) <br>
@@ -65,7 +65,7 @@ sudo -H ./utils/searx.sh update searx
 ・[nullcat](https://github.com/nullnyat) <br>
 [404ページ](https://freasearch.org/404)のイラスト提供 <br>
 <br>
-・ブラックリストの改善に協力してくれた方々<br>
-
+・[HonokaNo](https://github.com/HonokaNo)<br>
+ブラックリストの改善協力
 
 
