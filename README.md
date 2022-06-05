@@ -60,10 +60,10 @@ sudo -H ./utils/searx.sh update searx
 ・SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々<br>
 <br>
 ・[kr-tukimi](https://github.com/kr-tukimi) <br>
-ロゴ作成
+ロゴ作成 <br>
 <br>
 ・[nullcat](https://github.com/nullnyat) <br>
-[404ページ](https://freasearch.org/404)のイラスト提供
+[404ページ](https://freasearch.org/404)のイラスト提供 <br>
 <br>
 ・ブラックリストの改善に協力してくれた方々<br>
 
