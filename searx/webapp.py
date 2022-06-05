@@ -1048,6 +1048,7 @@ def preferences():
             # even if there is no exception
             reliablity = 0
         else:
+            # pylint: disable=consider-using-generator
             reliablity = 100 - sum([error['percentage'] for error in errors if not error.get('secondary')])
 
         reliabilities[e.name] = {
@@ -1163,7 +1164,9 @@ def image_proxy():
                 return '', resp.status_code
             return '', 400
 
-        if not resp.headers.get('Content-Type', '').startswith('image/'):
+        if not resp.headers.get('Content-Type', '').startswith('image/') and not resp.headers.get(
+            'Content-Type', ''
+        ).startswith('binary/octet-stream'):
             logger.debug('image-proxy: wrong content-type: %s', resp.headers.get('Content-Type', ''))
             return '', 400
 
