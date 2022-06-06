@@ -2037,6 +2037,8 @@ hostname_replace:
   '(.*\.)?junpei-sugiyama\.com': false
   '(.*\.)?webernote\.net': false
   '(.*\.)?naka-sys\.okinawa': false
+  '(.*\.)?lifewire\.com': false
+  
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
@@ -2092,6 +2094,7 @@ hostname_replace:
   '(.*\.)?hachinohe99clinic\.jp': false
   'square.umin.ac.jp': false
   'umin.ac.jp': false
+
   
   # アンチトラッカーを使用すると閲覧できないサイト
   '(.*\.)?hb-plaza\.com': false
