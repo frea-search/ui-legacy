@@ -64,7 +64,7 @@ sudo -H ./utils/searx.sh update searx
 <br>
 ・[nullcat](https://github.com/nullnyat) <br>
 [404ページ](https://freasearch.org/404)のイラスト提供 <br>
-
+<br>
 #### ブラックリストの改善協力
 ・[HonokaNo](https://github.com/HonokaNo)<br>
 ・ゆう <br>
