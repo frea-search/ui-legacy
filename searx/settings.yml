@@ -2039,6 +2039,14 @@ hostname_replace:
   '(.*\.)?naka-sys\.okinawa': false
   '(.*\.)?lifewire\.com': false
   '(.*\.)?gofirmware\.com': false
+  '(.*\.)?fenet\.jp': false
+  '(.*\.)?kreisel\.bz': false
+  'pi-pe.co.jp': false
+  'www.pi-pe.co.jp': false
+  'designet.co.jp': false
+  'www.designet.co.jp': false
+  'oomonoyoutubersokuhou.blogo.jp': false
+  'comisoku.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
