@@ -2049,6 +2049,13 @@ hostname_replace:
   'comisoku.com': false
   'business.ntt-east.co.jp': false
   '(.*\.)?baremail\.jp': false
+  '(.*\.)?genchan\.net': false
+  '(.*\.)?engineer-ninaritai\.com': false
+  '(.*\.)?rem-system\.com': false
+  '(.*\.)?affiholic\.com': false
+  '(.*\.)?naifix\.com': false
+  '(.*\.)?lanchesters\.site': false
+  '(.*\.)?expressvpn\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
@@ -2105,6 +2112,7 @@ hostname_replace:
   '(.*\.)?hachinohe99clinic\.jp': false
   'square.umin.ac.jp': false
   'umin.ac.jp': false
+  '(.*\.)?homemate-research-tv-station\.com': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
