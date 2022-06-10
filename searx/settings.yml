@@ -2047,6 +2047,8 @@ hostname_replace:
   'www.designet.co.jp': false
   'oomonoyoutubersokuhou.blogo.jp': false
   'comisoku.com': false
+  'business.ntt-east.co.jp': false
+  '(.*\.)?baremail\.jp': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
