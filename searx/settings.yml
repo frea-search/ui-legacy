@@ -2056,6 +2056,10 @@ hostname_replace:
   '(.*\.)?naifix\.com': false
   '(.*\.)?lanchesters\.site': false
   '(.*\.)?expressvpn\.com': false
+  'wpengine.com': false
+  'briarpatch.co.jp': false
+  'www.briarpatch.co.jp': false
+  '(.*\.)?minitool\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
