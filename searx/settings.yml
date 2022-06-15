@@ -2060,6 +2060,8 @@ hostname_replace:
   'briarpatch.co.jp': false
   'www.briarpatch.co.jp': false
   '(.*\.)?minitool\.com': false
+  '(.*\.)?webdesignblog\.org': false
+  '(.*\.)?naokoku\.net': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
@@ -2117,6 +2119,7 @@ hostname_replace:
   'square.umin.ac.jp': false
   'umin.ac.jp': false
   '(.*\.)?homemate-research-tv-station\.com': false
+  '(.*\.)?epochtimes\.jp': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
