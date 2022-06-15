@@ -228,7 +228,6 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     if _any_language and supported_any_language:
 
         # interpretation is left up to Google (based on whoogle)
-        #
         # - add parameter ``source=lnt``
         # - don't use parameter ``lr``
         # - don't add a ``Accept-Language`` HTTP header.
@@ -245,9 +244,9 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
         # Accept-Language: ja, en-US; q=0.7, en;q=0.3
         ret_val['headers']['Accept-Language'] = ','.join(
             [
-                language,
-                'en-US;' + 'q=0.7,',
-                'en;q=0.3',
+        　　　　　# FIXME: 変数languageを使うと英語の結果のみ返ってくる
+                # language,
+                'ja, en-US; q=0.7, en;q=0.3'
             ]
         )
 
