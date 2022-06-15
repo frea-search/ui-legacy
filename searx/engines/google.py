@@ -244,7 +244,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
         # Accept-Language: ja, en-US; q=0.7, en;q=0.3
         ret_val['headers']['Accept-Language'] = ','.join(
             [
-        　　　　　# FIXME: 変数languageを使うと英語の結果のみ返ってくる
+                # FIXME: 変数languageを使うと英語の結果のみ返ってくる
                 # language,
                 'ja, en-US; q=0.7, en;q=0.3'
             ]
