@@ -2062,6 +2062,7 @@ hostname_replace:
   '(.*\.)?minitool\.com': false
   '(.*\.)?webdesignblog\.org': false
   '(.*\.)?naokoku\.net': false
+  '(.*\.)?programming-world\.net': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
@@ -2124,6 +2125,7 @@ hostname_replace:
   
   # アンチトラッカーを使用すると閲覧できないサイト
   '(.*\.)?hb-plaza\.com': false
+  '(.*\.)?nnahito\.com': false
 
   
   # 投稿された低品質な記事や不適切なコンテンツを放置しているドメイン、もしくは検索結果に出ることが望ましくないドメイン
