@@ -1,0 +1,4 @@
+purge_domain = [
+  "www.sejuku.net",
+  "gadgelog.com",
+]
