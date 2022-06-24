@@ -11,7 +11,7 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ```
 
 ### インストール方法 💿
-予め`curl`と`git`、`nginx`をインストールしてください <br>
+予め`curl`と`git`、`caddy`をインストールしてください <br>
 ```
 git clone https://git.sda1.net/frea/search
 cd search
@@ -20,23 +20,12 @@ sudo -H ./utils/searx.sh install all
 
 <br>
 
-`/etc/nginx/conf.d/frea.conf` に以下の内容を書き込みます。
+`/etc/caddy/Caddyfile` に以下の内容を書き込みます。
 
 ```
-server {
-        server_name [サーバーのIPアドレスもしくはドメイン];
-        listen 80;
-
-        location / {
-                proxy_pass http://127.0.0.1:8888;
-
-                proxy_set_header Host $host;
-                proxy_set_header Connection       $http_connection;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Scheme $scheme;
-                proxy_buffering off;
-        }
-        
+freasearch.org {
+        header Access-Control-Allow-Origin "https://assets.freasearch.org"
+        reverse_proxy localhost:8888
 }
 ```
 
@@ -45,8 +34,18 @@ server {
 最後に変更を適用
 
 ```
-sudo nginx -s reload
+sudo systemctl reload caddy
 ```
+
+#### 他のhttpサーバーでは駄目なのですか？
+Frea Searchではセキュリティとパフォーマンス、設定ファイルの美しさの観点からcaddyを使用することを推奨しています。<br>
+`Access-Control-Allow-Origin`を`https://assets.freasearch.org`に設定し、`localhost:8888`へリバースプロキシを行う設定を書けばnginxやApacheでも同じことが可能ですが、必ずcertbotなどを使用しエンドツーエンドを暗号化してください。
+
+#### assets.freasearch.orgとは何ですか？
+`https://assets.freasearch.org`ではライセンスの関係上このリポジトリには同梱できないフォントやアイコンなどのファイルがホストされています。これらのコンテンツもセルフホストしたい方向けのソリューションは現在準備中です。
+
+#### Cloudflareについて
+CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュやページ書き換えによる不具合を引き起こすためFrea Searchでの使用は推奨しておらず、サポートもされていません。
 
 ### インスタンスのアップデート方法  🔁
 コマンド一つで自動的にGitリポジトリからの変更がPullされ適用されます。
