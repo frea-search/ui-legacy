@@ -69,7 +69,8 @@ sudo -H ./utils/searx.sh update searx
 ・[HonokaNo](https://github.com/HonokaNo)<br>
 ・ゆう <br>
 ・秋山めい <br>
-・松村咲穂
-
-
+・松村咲穂 <br>
+・永田琴乃 <br>
+・島谷直樹 <br>
+・西室涼乃
 
