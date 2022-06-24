@@ -2066,6 +2066,12 @@ hostname_replace:
   '(.*\.)?webdesignblog\.org': false
   '(.*\.)?naokoku\.net': false
   '(.*\.)?programming-world\.net': false
+  '(.*\.)?it-trend\.jp': false
+  '(.*\.)?freshvoice\.net': false
+  '(.*\.)?the-mirai-project\.net': false
+  '(.*\.)?ikedahayato\.com': false
+  '(.*\.)?koregasiritai\.com': false
+  '(.*\.)?entnavi\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反コロナ、反ワクチンなど）の拡散に加担しているドメイン
