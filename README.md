@@ -1,5 +1,9 @@
 ## Frea Search
-信頼性の高い検索結果のみを表示するクリーンな検索エンジンを目指したsearxngのカスタムインスタンス
+信頼性の高い検索結果のみを表示するクリーンな検索エンジンを目指したsearxngのカスタムインスタンス<br>
+
+ - [公式インスタンス](https://freasearch.org/)
+ - [公式onionインスタンス](http://fcy6tvcy5fq7qogwjfovb54kodrgdpf5i6afda3an4oc5ndgbziegyyd.onion/)
+
 
 ### ブラックリストについて 🚫
 `searx/settings.yml`に検索エンジンの設定と検索結果に表示しないサイトの一覧があります。これに追加、削除したいドメインや質問がある場合、issueかPRを開いてください。
@@ -52,7 +56,6 @@ CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュ�
 ```
 cd search
 sudo -H ./utils/searx.sh update searx
-
 ```
 
 ### Special thanks (敬称略・順不同)🙏
