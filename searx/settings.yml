@@ -2085,6 +2085,15 @@ hostname_replace:
   '(.*\.)?kousoku7\.com': false
   '(.*\.)?tr-eblog\.com': false
   '(.*\.)?elog-ch\.net': false
+  '(.*\.)?mirakuru369\.com': false
+  '(.*\.)?kininarukabu\.com': false
+  '(.*\.)?rapt-plusalpha\.com': false
+  '(.*\.)?anke\.jp': false
+  '(.*\.)?1mi10karashi\.com': false
+  '(.*\.)?kamiyasohei\.jp': false
+  'baike.baidu.com': false
+  '(.*\.)?go2senkyo\.com': false
+  '(.*\.)?shift-dimension\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
