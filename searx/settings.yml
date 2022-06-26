@@ -2079,6 +2079,12 @@ hostname_replace:
   '(.*\.)?koukou-hensati\.com': false
   '(.*\.)?nijipoi\.com': false
   '(.*\.)?newsmatomedia\.com': false
+  '(.*\.)?jeffrey\.tokyo': false
+  '(.*\.)?ure-sen\.com': false
+  '(.*\.)?kanochat\.jp': false
+  '(.*\.)?kousoku7\.com': false
+  '(.*\.)?tr-eblog\.com': false
+  '(.*\.)?elog-ch\.net': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2137,6 +2143,8 @@ hostname_replace:
   'umin.ac.jp': false
   '(.*\.)?homemate-research-tv-station\.com': false
   '(.*\.)?epochtimes\.jp': false
+  '(.*\.)?sanseito\.jp': false
+  '5s2l6.hp.peraichi.com': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
@@ -2157,6 +2165,7 @@ hostname_replace:
   'b.hatena.ne.jp': false
   'www.gurutto-koriyama.com': false
   'apps.apple.com': false
+  'plaza.rakuten.co.jp': false
 
 
 
