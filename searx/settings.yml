@@ -2094,6 +2094,7 @@ hostname_replace:
   'baike.baidu.com': false
   '(.*\.)?go2senkyo\.com': false
   '(.*\.)?shift-dimension\.com': false
+  '(.*\.)?kokokarahajimaru123\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2154,6 +2155,8 @@ hostname_replace:
   '(.*\.)?epochtimes\.jp': false
   '(.*\.)?sanseito\.jp': false
   '5s2l6.hp.peraichi.com': false
+  'yonezawa.hateblo.jp': false
+  'join3sei10.hatenablog.com': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
@@ -2175,6 +2178,7 @@ hostname_replace:
   'www.gurutto-koriyama.com': false
   'apps.apple.com': false
   'plaza.rakuten.co.jp': false
+  '(.*\.)?xn--0kqp2e1wcx92a15w\.com': false
 
 
 
