@@ -188,7 +188,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     _lang = params['language']
     _any_language = _lang.lower() == 'all'
     if _any_language:
-        _lang = 'ja-JP'
+        _lang = 'en-US'
     language = match_language(_lang, lang_list, custom_aliases)
     ret_val['language'] = language
 
@@ -242,13 +242,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
         # ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
 
         # Accept-Language: ja, en-US; q=0.7, en;q=0.3
-        ret_val['headers']['Accept-Language'] = ','.join(
-            [
-                # FIXME: 変数languageを使うと英語の結果のみ返ってくる
-                # language,
-                'ja, en-US; q=0.7, en;q=0.3'
-            ]
-        )
+        ret_val['headers']['Accept-Language'] = 'ja,en-US;q=0.7,en;q=0.3'
 
     return ret_val
 
