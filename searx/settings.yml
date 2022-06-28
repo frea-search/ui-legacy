@@ -3829,9 +3829,9 @@ engines:
     engine: xpath
     paging: true
     search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
-    results_xpath: //p[@class='title fsL1']//a
-    url_xpath: //p[@class='title fsL1']//a/@href
-    title_xpath: //p[@class='title fsL1']//a
+    results_xpath: //p[@class='title fsL1']/a
+    url_xpath: //p[@class='title fsL1']/a/@href
+    title_xpath: //p[@class='title fsL1']/a
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     first_page_num: 1
     categories: [general, web]
