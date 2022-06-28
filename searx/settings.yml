@@ -173,6 +173,8 @@ enabled_plugins:
   - 'Open Access DOI rewrite'
   - 'Hostname replace'
   - 'Search on category select'
+  - 'Self Informations'
+  - 'Hash plugin'
 
 # Configuration of the "Hostname replace" plugin:
 hostname_replace:
