@@ -3711,6 +3711,19 @@ article[data-vim-selected].category-videos {
     }
 }
 
+#links_on_top {
+	position: absolute;
+	right: 1.8rem;
+	text-align: right;
+	top: 2.2rem;
+	padding: 0px;
+	border: 0px none;
+	display: flex;
+	align-items: center;
+	font-size: 1em;
+	color: var(--color-search-font);
+}
+
 #main_results div#results.only_template_images {
     margin: 1rem .5rem 0 .5rem;
     display: grid;
@@ -3718,6 +3731,14 @@ article[data-vim-selected].category-videos {
     grid-template-rows: min-content min-content min-content 1fr min-content;
     gap: 0;
     grid-template-areas: "corrections""answers""sidebar""urls""pagination"
+}
+
+.link_on_top_about {
+	display: none;
+}
+
+.link_on_top_donate {
+	display: none;
 }
 
 #main_results div#results.only_template_images #sidebar {
