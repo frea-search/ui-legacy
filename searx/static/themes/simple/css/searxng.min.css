@@ -2107,10 +2107,10 @@ article.result-images .detail {
     top: 7.6rem;
     transition: top 64ms ease-in 0s;
     bottom: 0;
-    background: var(--color-result-detail-background);
-    border: 1px solid var(--color-result-detail-background);
+    background: rgba(0, 0, 0, 0.74) none repeat scroll 0% 0%;
     z-index: 10000;
-    padding: 4rem 3rem 3rem 3rem
+    padding: 4rem 3rem 3rem 3rem;
+    backdrop-filter: blur(32px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
@@ -2185,7 +2185,6 @@ article.result-images .detail {
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels p.result-url:hover {
     position: relative;
     overflow: inherit !important;
-    background: var(--color-result-detail-background);
     text-overflow: inherit !important
 }
 
