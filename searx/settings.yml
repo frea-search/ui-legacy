@@ -175,6 +175,7 @@ enabled_plugins:
   - 'Search on category select'
   - 'Self Informations'
   - 'Hash plugin'
+  - 'Warning snippet'
 
 # Configuration of the "Hostname replace" plugin:
 hostname_replace:
