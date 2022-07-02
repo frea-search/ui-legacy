@@ -1,5 +1,5 @@
 name = "Warning snippet"
-description = gettext("Displays advice and warnings.")
+description = "Displays advice and warnings."
 default_on = True
 
 def post_search(request, search):
