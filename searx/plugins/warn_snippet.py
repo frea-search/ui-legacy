@@ -10,6 +10,6 @@ def post_search(request, search):
     if 'ワクチン' in search.search_query.query:
         message = "新型コロナワクチンに関する信頼できる情報をお求めの場合は、<a href=\"https://v-sys.mhlw.go.jp/\">公的機関のページ</a>が役に立つでしょう。"
     if 'ウクライナ' in search.search_query.query:
-        message = "<a href=\"https://www.unicef.or.jp/kinkyu/ukraine/\">ユニセフの緊急募金</a>に参加しウクライナを支援できます。"
+        message = "\<a href=\"https://www.unicef.or.jp/kinkyu/ukraine/\"\>ユニセフの緊急募金\</a\>に参加しウクライナを支援できます。"
     search.result_container.answers['warning'] = {'answer': message}
     return True
