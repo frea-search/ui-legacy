@@ -49,7 +49,7 @@ Frea Searchではセキュリティとパフォーマンス、設定ファイル
 `https://assets.freasearch.org`ではライセンスの関係上このリポジトリには同梱できないフォントやアイコンなどのファイルがホストされています。これらのコンテンツもセルフホストしたい方向けのソリューションは現在準備中です。
 
 #### Cloudflareについて
-CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュやページ書き換えによる不具合を引き起こすためFrea Searchでの使用は推奨しておらず、サポートもされていません。
+CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュやページ書き換えによる不具合を引き起こすためFrea Searchでの使用は推奨しておらず、サポートもされていません。<br>もし使用する場合は、キャッシュやメールアドレスを隠す機能などページを書き換える機能を無効化するとトラブルが起きにくくなります。
 
 ### インスタンスのアップデート方法  🔁
 コマンド一つで自動的にGitリポジトリからの変更がPullされ適用されます。
@@ -61,7 +61,7 @@ sudo -H ./utils/searx.sh update searx
 ### Special thanks (敬称略・順不同)🙏
 ・SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々<br>
 <br>
-・[kr-tukimi](https://github.com/kr-tukimi) <br>
+・[tukimi](https://github.com/kr-tukimi) <br>
 ロゴ作成 <br>
 <br>
 ・[nullcat](https://github.com/nullnyat) <br>
