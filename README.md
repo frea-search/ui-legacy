@@ -27,7 +27,7 @@ sudo -H ./utils/searx.sh install all
 `/etc/caddy/Caddyfile` に以下の内容を書き込みます。
 
 ```
-freasearch.org {
+yourdomain.com {
         header Access-Control-Allow-Origin "https://assets.freasearch.org"
         reverse_proxy localhost:8888
 }
