@@ -2098,6 +2098,11 @@ hostname_replace:
   '(.*\.)?go2senkyo\.com': false
   '(.*\.)?shift-dimension\.com': false
   '(.*\.)?kokokarahajimaru123\.com': false
+  '(.*\.)?moeasia\.net': false
+  '(.*\.)?anige-labo\.com': false
+  '(.*\.)?vtuber-labo\.com': false
+  '(.*\.)?vtuber-matomeblog\.com': false
+  '(.*\.)?sematome\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
