@@ -2107,10 +2107,10 @@ article.result-images .detail {
     top: 7.6rem;
     transition: top 64ms ease-in 0s;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.74) none repeat scroll 0% 0%;
+    background: rgba(0, 0, 0, 0.48) none repeat scroll 0% 0%;
     z-index: 10000;
     padding: 4rem 3rem 3rem 3rem;
-    backdrop-filter: blur(32px)
+    backdrop-filter: blur(26px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
@@ -3722,6 +3722,12 @@ article[data-vim-selected].category-videos {
 	align-items: center;
 	font-size: 1em;
 	color: var(--color-search-font);
+}
+
+@media screen and (max-width: 50em){
+    #links_on_top {
+        display: none;
+    }    
 }
 
 #main_results div#results.only_template_images {
