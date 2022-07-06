@@ -4,6 +4,7 @@ general:
   privacypolicy_url: false  # https://example.com/privacy
   contact_url: false        # mailto:contact@example.com
   enable_metrics: true      # record stats
+  donation_url: https://docs.searxng.org/donate.html
 
 brand:
   new_issue_url: https://git.sda1.net/frea/search/issues
@@ -2895,6 +2896,12 @@ engines:
     shortcut: loc
     categories: images
     disabled: true
+
+  - name: lingva
+    engine: lingva
+    shortcut: lv
+    # set lingva instance in url, by default it will use the official instance
+    # url: https://lingva.ml
 
   - name: lobste.rs
     engine: xpath
