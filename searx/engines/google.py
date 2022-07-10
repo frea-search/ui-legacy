@@ -216,7 +216,8 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     # Interface Language:
     #   https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages
 
-    ret_val['params']['hl'] = lang_list.get(lang_country, language)
+    # ! comment outed for debug !
+    # ret_val['params']['hl'] = lang_list.get(lang_country, language)
 
     # lr parameter:
     #   The lr (language restrict) parameter restricts search results to
