@@ -2106,6 +2106,26 @@ hostname_replace:
   '(.*\.)?vtuber-labo\.com': false
   '(.*\.)?vtuber-matomeblog\.com': false
   '(.*\.)?sematome\.com': false
+  '(.*\.)?openstandia\.jp': false
+  '(.*\.)?towatowa\.net': false
+  '(.*\.)?okanamochi-tabi\.com': false
+  '(.*\.)?offerbox\.jp': false
+  '(.*\.)?sakonzisuropati\.club': false
+  '(.*\.)?raise-career\.com': false
+  'kikankou.co.jp': false
+  '(.*\.)?agora-web\.jp': false
+  '(.*\.)?tameyo\.jp': false
+  '(.*\.)?stellacreate\.com': false
+  '(.*\.)?kurutopi\.jp': false
+  '(.*\.)?nakano-ipc\.jp': false
+  '(.*\.)?webrtcconference\.jp': false
+  '(.*\.)?dailynewsonline\.jp': false
+  '(.*\.)?lifenews-media\.com': false
+  '(.*\.)?aprico-media\.com': false
+  '(.*\.)?ubackup\.com': false
+  '(.*\.)?partitionwizard\.jp': false
+  '(.*\.)?partitionwizard\.com': false
+  '(.*\.)?diskpart\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
