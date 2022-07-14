@@ -5,7 +5,7 @@
  - [公式onionインスタンス](http://fcy6tvcy5fq7qogwjfovb54kodrgdpf5i6afda3an4oc5ndgbziegyyd.onion/)
 
 
-### ブラックリストについて 🚫
+### ブロックリストについて 🚫
 `searx/settings.yml`に検索エンジンの設定と検索結果に表示しないサイトの一覧があります。これに追加、削除したいドメインや質問がある場合、issueかPRを開いてください。
 
 ### API 💫
@@ -15,7 +15,7 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ```
 
 ### インストール方法 💿
-予め`curl`と`git`、`caddy`をインストールしてください <br>
+予め`curl`と`git`、`caddy`、`redis-server`をインストールしてください <br>
 ```
 git clone https://git.sda1.net/frea/search
 cd search
@@ -61,18 +61,21 @@ sudo -H ./utils/searx.sh update searx
 ### Special thanks (敬称略・順不同)🙏
 ・SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々<br>
 <br>
-・[tukimi](https://github.com/kr-tukimi) <br>
+ - [tukimi](https://github.com/kr-tukimi)
 ロゴ作成 <br>
 <br>
-・[nullcat](https://github.com/nullnyat) <br>
+ - [nullcat](https://github.com/nullnyat)
 [404ページ](https://freasearch.org/404)のイラスト提供 <br>
 <br>
+ - [code-raisan](https://github.com/code-raisan)
+公式インスタンス用の画像プロキシシステム構築、提供
+
 #### ブラックリストの改善協力
-・[HonokaNo](https://github.com/HonokaNo)<br>
-・ゆう <br>
-・秋山めい <br>
-・松村咲穂 <br>
-・永田琴乃 <br>
-・島谷直樹 <br>
-・西室涼乃
+ - [HonokaNo](https://github.com/HonokaNo)
+ - ゆう
+ - 秋山めい
+ - 松村咲穂
+ - 永田琴乃
+ - 島谷直樹
+ - 西室涼乃
 
