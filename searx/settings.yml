@@ -51,7 +51,7 @@ server:
   port: 8888
   bind_address: "127.0.0.1"
   base_url: false  # Possible values: false or "https://example.org/location".
-  limiter: false  # rate limit the number of request on the instance, block some bots
+  limiter: true  # rate limit the number of request on the instance, block some bots
 
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
@@ -73,7 +73,7 @@ server:
 
 redis:
   # https://redis-py.readthedocs.io/en/stable/connections.html#redis.client.Redis.from_url
-  url: unix:///usr/local/searxng-redis/run/redis.sock?db=0
+  url: redis://localhost:6379/0
 
 ui:
   # Custom static path - leave it blank if you didn't change
@@ -2126,6 +2126,7 @@ hostname_replace:
   '(.*\.)?partitionwizard\.jp': false
   '(.*\.)?partitionwizard\.com': false
   '(.*\.)?diskpart\.com': false
+  '(.*\.)?aomei\.jp': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
