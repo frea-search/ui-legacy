@@ -1812,7 +1812,7 @@ input.checkbox-onoff[type=checkbox]:checked::before {
     left: calc(100% - 1.5em);
     content: "\2713";
     color: var(--color-toolkit-checkbox-onoff-on-mark-color);
-    background: var(--color-toolkit-checkbox-onoff-on-mark-background)
+    background: linear-gradient(to left, rgb(7, 138, 125), rgb(63, 234, 123));
 }
 
 @supports (transform:rotate(-45deg)) {
@@ -2435,7 +2435,7 @@ iframe[src^="https://genius.com/songs"] {
 
 #tab-content-query table td,
 #tab-content-query table th {
-    text-align: right !important;
+    text-align: left !important;
     height: 3rem
 }
 
@@ -3046,7 +3046,7 @@ footer p {
 input[type=submit] {
     padding: .7rem;
     display: inline-block;
-    background: var(--color-btn-background);
+    background: linear-gradient(to left, rgb(0, 134, 121), rgb(78, 176, 112));
     color: var(--color-btn-font);
     border-radius: 10px;
     border: 0;
