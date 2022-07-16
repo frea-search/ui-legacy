@@ -2127,6 +2127,7 @@ hostname_replace:
   '(.*\.)?partitionwizard\.com': false
   '(.*\.)?diskpart\.com': false
   '(.*\.)?aomei\.jp': false
+  '(.*\.)?kokopyon\.net': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2216,7 +2217,8 @@ hostname_replace:
   'plaza.rakuten.co.jp': false
   '(.*\.)?xn--0kqp2e1wcx92a15w\.com': false
   'twitter.com': false
-
+  '(.*\.)?truthsocial\.com': false
+  '(.*\.)?sns-sakura\.jp': false
 
 
   
