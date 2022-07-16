@@ -361,8 +361,6 @@
         <th>{{ _('Description') }}</th>
         <th>{{ _('Examples') }}</th>
       </tr>
-      <td></td>
-      <th scope="colgroup" colspan="4">{{ _("This is the list of SearXNG's instant answering modules.") }}</th>
       {% for answerer in answerers %}
       <tr>
         <td></td>
@@ -372,8 +370,6 @@
         <td>{{ answerer.info.examples|join(', ') }}</td>
       </tr>
       {% endfor %}
-      <td></td>
-      <th scope="colgroup" colspan="4">{{ _('This is the list of plugins.') }}</th>
       {%- for plugin in plugins -%}
       {%- if plugin.preference_section == 'query' -%}
       <tr>
