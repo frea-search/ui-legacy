@@ -2128,6 +2128,8 @@ hostname_replace:
   '(.*\.)?diskpart\.com': false
   '(.*\.)?aomei\.jp': false
   '(.*\.)?kokopyon\.net': false
+  '(.*\.)?livescamp\.com': false
+  'blog.packagecloud.io': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2194,6 +2196,8 @@ hostname_replace:
   '(.*\.)?natureasia\.com': false
   '(.*\.)?carenet\.com': false
   '(.*\.)?k-doujou\.com': false
+  '(.*\.)?clinic-toku\.com': false
+  '(.*\.)?gettr\.com': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
