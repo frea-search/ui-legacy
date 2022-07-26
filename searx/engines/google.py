@@ -112,7 +112,7 @@ filter_mapping = {0: 'off', 1: 'medium', 2: 'high'}
 # ------------------------
 
 # google results are grouped into <div class="jtfYYd ..." ../>
-results_xpath = '//div[@class="jtfYYd"]'
+results_xpath = '//div[contains(@class, "jtfYYd")]'
 
 # google *sections* are no usual *results*, we ignore them
 g_section_with_header = './g-section-with-header'
@@ -281,7 +281,6 @@ def request(query, params):
                 'oe': "utf8",
                 'start': offset,
                 'filter': '0',
-                'ucbcb': 1,
                 **additional_parameters,
             }
         )
@@ -293,6 +292,7 @@ def request(query, params):
         query_url += '&' + urlencode({'safe': filter_mapping[params['safesearch']]})
     params['url'] = query_url
 
+    params['cookies']['CONSENT'] = "YES+"
     params['headers'].update(lang_info['headers'])
     if use_mobile_ui:
         params['headers']['Accept'] = '*/*'
