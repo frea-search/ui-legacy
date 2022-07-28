@@ -53,6 +53,14 @@ def is_accepted_request() -> bool:
         if c_burst > 15 or c_10min > 150:
             logger.debug("to many request")  # pylint: disable=undefined-variable
             return False
+        
+        if request.args.get('format', 'html') != 'html':
+            c = incr_sliding_window(redis_client, 'API limit' + x_forwarded_for, 3600)
+            if c > 4:
+                logger.debug("API limit exceeded")  # pylint: disable=undefined-variable
+                return False
+            else:
+                return True
 
         if re_bot.match(user_agent):
             logger.debug("detected bot")  # pylint: disable=undefined-variable
@@ -74,12 +82,6 @@ def is_accepted_request() -> bool:
         if 'text/html' not in request.accept_mimetypes:
             logger.debug("Accept-Encoding misses text/html")  # pylint: disable=undefined-variable
             return False
-
-        if request.args.get('format', 'html') != 'html':
-            c = incr_sliding_window(redis_client, 'API limit' + x_forwarded_for, 3600)
-            if c > 4:
-                logger.debug("API limit exceeded")  # pylint: disable=undefined-variable
-                return False
     return True
 
 
