@@ -3460,6 +3460,7 @@ engines:
   - name: unsplash
     engine: unsplash
     shortcut: us
+    disabled: true
 
   - name: yahoo
     engine: yahoo
