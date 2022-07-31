@@ -59,7 +59,7 @@ NGINX_SEARXNG_SITE="searxng.conf"
 SEARXNG_PACKAGES_debian="\
 python3-dev python3-babel python3-venv
 uwsgi uwsgi-plugin-python3
-git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev redis-server"
+git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev redis"
 
 SEARXNG_BUILD_PACKAGES_debian="\
 firefox graphviz imagemagick texlive-xetex librsvg2-bin
@@ -92,16 +92,22 @@ dejavu-sans-mono-fonts ShellCheck"
 
 case $DIST_ID-$DIST_VERS in
     ubuntu-18.04)
+        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian}"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         APACHE_PACKAGES="$APACHE_PACKAGES libapache2-mod-proxy-uwsgi"
         ;;
     ubuntu-20.04)
+        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         # https://wiki.ubuntu.com/FocalFossa/ReleaseNotes#Python3_by_default
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian} python-is-python3"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         ;;
     ubuntu-*|debian-*)
+        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian}"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         ;;
