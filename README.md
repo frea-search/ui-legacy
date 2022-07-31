@@ -19,7 +19,7 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ```
 git clone https://git.sda1.net/frea/search
 cd search
-sudo -H ./utils/searx.sh install all
+sudo -H ./utils/searxng.sh install all
 ```
 
 <br>
@@ -55,7 +55,7 @@ CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュ�
 コマンド一つで自動的にGitリポジトリからの変更がPullされ適用されます。
 ```
 cd search
-sudo -H ./utils/searx.sh update searx
+sudo -H ./utils/searxng.sh instance update
 ```
 
 ### Special thanks (敬称略・順不同)🙏
