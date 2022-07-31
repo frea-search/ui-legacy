@@ -92,22 +92,16 @@ dejavu-sans-mono-fonts ShellCheck"
 
 case $DIST_ID-$DIST_VERS in
     ubuntu-18.04)
-        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian}"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         APACHE_PACKAGES="$APACHE_PACKAGES libapache2-mod-proxy-uwsgi"
         ;;
     ubuntu-20.04)
-        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         # https://wiki.ubuntu.com/FocalFossa/ReleaseNotes#Python3_by_default
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian} python-is-python3"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         ;;
     ubuntu-*|debian-*)
-        curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-        echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
         SEARXNG_PACKAGES="${SEARXNG_PACKAGES_debian}"
         SEARXNG_BUILD_PACKAGES="${SEARXNG_BUILD_PACKAGES_debian}"
         ;;
@@ -371,8 +365,30 @@ EOF
 }
 
 searxng.install.packages() {
+    case $DIST_ID-$DIST_VERS in
+        ubuntu-*|debian-*)
+            curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+            echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+            ;;
+        arch-*)
+            ;;
+        fedora-*)
+            ;;
+    esac
+
     TITLE="SearXNG -- install packages" pkg_install "${SEARXNG_PACKAGES}"
-    systemctl enable --now redis
+
+    case $DIST_ID-$DIST_VERS in
+        ubuntu-*|debian-*)
+            systemctl enable --now redis-server
+            ;;
+        arch-*)
+            systemctl enable --now redis
+            ;;
+        fedora-*)
+            systemctl enable --now redis
+            ;;
+    esac
 }
 
 searxng.install.buildhost() {
