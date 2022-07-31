@@ -59,7 +59,7 @@ NGINX_SEARXNG_SITE="searxng.conf"
 SEARXNG_PACKAGES_debian="\
 python3-dev python3-babel python3-venv
 uwsgi uwsgi-plugin-python3
-git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev"
+git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev redis-server"
 
 SEARXNG_BUILD_PACKAGES_debian="\
 firefox graphviz imagemagick texlive-xetex librsvg2-bin
@@ -71,7 +71,7 @@ latexmk shellcheck"
 SEARXNG_PACKAGES_arch="\
 python python-pip python-lxml python-babel
 uwsgi uwsgi-plugin-python
-git base-devel libxml2"
+git base-devel libxml2 redis"
 
 SEARXNG_BUILD_PACKAGES_arch="\
 firefox graphviz imagemagick texlive-bin extra/librsvg
@@ -82,7 +82,7 @@ texlive-core texlive-latexextra ttf-dejavu shellcheck"
 SEARXNG_PACKAGES_fedora="\
 python python-pip python-lxml python-babel python3-devel
 uwsgi uwsgi-plugin-python3
-git @development-tools libxml2 openssl"
+git @development-tools libxml2 openssl redis"
 
 SEARXNG_BUILD_PACKAGES_fedora="\
 firefox graphviz graphviz-gd ImageMagick librsvg2-tools
