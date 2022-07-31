@@ -1,11 +1,8 @@
-# SearXNG settings, before editing this file read:
-#
-#     https://docs.searxng.org/admin/engines/settings.html
+# SearXNG settings
 
 use_default_settings: true
 
 general:
-  # Debug mode, only for development
   debug: false
 
 
