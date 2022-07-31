@@ -280,8 +280,8 @@ searxng.install.all() {
     searxng.install.uwsgi
     wait_key
 
-    # rst_title "Redis DB"
-    # searxng.install.redis.db
+    rst_title "Redis DB"
+    searxng.install.redis.db
 
     # rst_title "HTTP Server"
     # searxng.install.http.site
@@ -310,59 +310,6 @@ In your instance, redis DB connector is configured at:
         return
     fi
     rst_para ".. but this redis DB is not installed yet."
-
-    case $DIST_ID-$DIST_VERS in
-        fedora-*)
-            # Fedora runs uWSGI in emperor-tyrant mode: in Tyrant mode the
-            # Emperor will run the vassal using the UID/GID of the vassal
-            # configuration file [1] (user and group of the app .ini file).
-            #
-            # HINT: without option ``emperor-tyrant-initgroups=true`` in
-            # ``/etc/uwsgi.ini`` the process won't get the additional groups,
-            # but this option is not available in 2.0.x branch [2][3] / on
-            # fedora35 there is v2.0.20 installed --> no way to get additional
-            # groups on fedora's tyrant mode.
-            #
-            # ERROR:searx.shared.redis: [searxng (993)] can't connect redis DB ...
-            # ERROR:searx.shared.redis:   Error 13 connecting to unix socket: /usr/local/searxng-redis/run/redis.sock. Permission denied.
-            # ERROR:searx.plugins.limiter: init limiter DB failed!!!
-            #
-            # $ ps -aef | grep '/usr/sbin/uwsgi --ini searxng.ini'
-            # searxng       93      92  0 12:43 ?        00:00:00 /usr/sbin/uwsgi --ini searxng.ini
-            # searxng      186      93  0 12:44 ?        00:00:01 /usr/sbin/uwsgi --ini searxng.ini
-            #
-            # Additional groups:
-            #
-            # $ groups searxng
-            # searxng : searxng searxng-redis
-            #
-            # Here you can see that the additional "Groups" of PID 186 are unset
-            # (missing gid of searxng-redis)
-            #
-            # $ cat /proc/186/task/186/status
-            # ...
-            # Uid:      993     993     993     993
-            # Gid:      993     993     993     993
-            # FDSize:   128
-            # Groups:
-            # ...
-            #
-            # [1] https://uwsgi-docs.readthedocs.io/en/latest/Emperor.html#tyrant-mode-secure-multi-user-hosting
-            # [2] https://github.com/unbit/uwsgi/issues/2099
-            # [3] https://github.com/unbit/uwsgi/pull/752
-
-            rst_para "\
-Fedora uses emperor-tyrant mode / in this mode we had a lot of trouble with
-sockets and permissions of the vasals.  We recommend to setup a redis DB
-and using redis:// TCP protocol in the settings.yml configuration."
-            ;;
-        *)
-            if ask_yn "Do you want to install the redis DB now?" Yn; then
-                searxng.install.redis
-                uWSGI_restart "$SEARXNG_UWSGI_APP"
-            fi
-            ;;
-    esac
 }
 
 searxng.install.http.site() {
