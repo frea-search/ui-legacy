@@ -274,8 +274,8 @@ searxng.install.all() {
     searxng.install.uwsgi
     wait_key
 
-    rst_title "Redis DB"
-    searxng.install.redis.db
+    # rst_title "Redis DB"
+    # searxng.install.redis.db
 
     rst_title "HTTP Server"
     searxng.install.http.site
