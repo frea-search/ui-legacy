@@ -277,8 +277,8 @@ searxng.install.all() {
     # rst_title "Redis DB"
     # searxng.install.redis.db
 
-    rst_title "HTTP Server"
-    searxng.install.http.site
+    # rst_title "HTTP Server"
+    # searxng.install.http.site
 
     rst_title "Finalize installation"
     if ask_yn "Do you want to run some checks?" Yn; then
@@ -419,6 +419,7 @@ EOF
 
 searxng.install.packages() {
     TITLE="SearXNG -- install packages" pkg_install "${SEARXNG_PACKAGES}"
+    systemctl enable --now redis
 }
 
 searxng.install.buildhost() {
