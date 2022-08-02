@@ -217,8 +217,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     # Interface Language:
     #   https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages
 
-    # ! comment outed for debug !
-    # ret_val['params']['hl'] = lang_list.get(lang_country, language)
+    ret_val['params']['hl'] = lang_list.get(lang_country, language)
 
     # lr parameter:
     #   The lr (language restrict) parameter restricts search results to
@@ -230,6 +229,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
     if _any_language and supported_any_language:
 
         # interpretation is left up to Google (based on whoogle)
+        #
         # - add parameter ``source=lnt``
         # - don't use parameter ``lr``
         # - don't add a ``Accept-Language`` HTTP header.
@@ -240,8 +240,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
 
         # restricts search results to documents written in a particular
         # language.
-        # ! comment outed for debug !
-        # ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
+        ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
 
     return ret_val
 
