@@ -3831,16 +3831,19 @@ pre code {
 @font-face {
     font-family: Outfit;
     src: url('https://assets.freasearch.org/assets/webfonts/Outfit-Regular.ttf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: NotoSans;
     src: url('https://assets.freasearch.org/assets/webfonts/NotoSansJP-Medium.otf') format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: NotoSansLight;
     src: url('https://assets.freasearch.org/assets/webfonts/NotoSansJP-Regular.otf') format('truetype');
+    font-display: swap;
 }
 
 
