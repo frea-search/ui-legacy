@@ -45,6 +45,7 @@ categories = ['general', 'web']
 paging = True
 time_range_support = True
 safesearch = True
+send_accept_language_header = True
 use_mobile_ui = False
 supported_languages_url = 'https://www.google.com/preferences?#languages'
 
@@ -241,9 +242,6 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
         # language.
         # ! comment outed for debug !
         # ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
-
-        # Accept-Language: ja, en-US; q=0.7, en;q=0.3
-        ret_val['headers']['Accept-Language'] = 'ja,en-US;q=0.7,en;q=0.3'
 
     return ret_val
 
