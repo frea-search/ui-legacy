@@ -2131,6 +2131,9 @@ hostname_replace:
   '(.*\.)?livescamp\.com': false
   'blog.packagecloud.io': false
   '(.*\.)?medilogmelon\.com': false
+  '(.*\.)?aegpresents\.com': false
+  '(.*\.)?tsunagu-blog\.jp': false
+  '(.*\.)?kodai-growup-blog\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2224,6 +2227,7 @@ hostname_replace:
   'twitter.com': false
   '(.*\.)?truthsocial\.com': false
   '(.*\.)?sns-sakura\.jp': false
+  'freespeech.gaac2.com': false
 
 
   
