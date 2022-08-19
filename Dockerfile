@@ -1,90 +1,39 @@
-FROM alpine:3.16
-ENTRYPOINT ["/sbin/tini","--","/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
-EXPOSE 8080
-VOLUME /etc/searx
-VOLUME /etc/searxng
+FROM debian:stable
 
-ARG SEARXNG_GID=977
-ARG SEARXNG_UID=977
+ENTRYPOINT exec su-exec searxng:searxng uwsgi --master --http-socket 8888 /usr/local/searxng/searxng-src/dockerfiles/uwsgi.ini
 
-RUN addgroup -g ${SEARXNG_GID} searxng && \
-    adduser -u ${SEARXNG_UID} -D -h /usr/local/searxng -s /bin/sh -G searxng searxng
+RUN apt-get update && apt-get install -y \
+    python3-dev python3-babel python3-venv \
+    uwsgi uwsgi-plugin-python3 \
+    git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev
+    
+RUN useradd --shell /bin/bash --system \
+    --home-dir "/usr/local/searxng" \
+    --comment 'Privacy-respecting metasearch engine' \
+    searxng
+    
+RUN mkdir "/usr/local/searxng" && chown -R "searxng:searxng" "/usr/local/searxng"
 
-ENV INSTANCE_NAME=searxng \
-    AUTOCOMPLETE= \
-    BASE_URL= \
-    MORTY_KEY= \
-    MORTY_URL= \
-    SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
-    UWSGI_SETTINGS_PATH=/etc/searxng/uwsgi.ini
 
 WORKDIR /usr/local/searxng
-
-
-COPY requirements.txt ./requirements.txt
-
-RUN apk upgrade --no-cache \
- && apk add --no-cache -t build-dependencies \
-    build-base \
-    py3-setuptools \
-    python3-dev \
-    libffi-dev \
-    libxslt-dev \
-    libxml2-dev \
-    openssl-dev \
-    tar \
-    git \
- && apk add --no-cache \
-    ca-certificates \
-    su-exec \
-    python3 \
-    py3-pip \
-    libxml2 \
-    libxslt \
-    openssl \
-    tini \
-    uwsgi \
-    uwsgi-python3 \
-    brotli \
- && pip3 install --upgrade pip wheel setuptools \
- && pip3 install --no-cache -r requirements.txt \
- && apk del build-dependencies \
- && rm -rf /root/.cache
-
 COPY --chown=searxng:searxng . .
 
-ARG TIMESTAMP_SETTINGS=0
-ARG TIMESTAMP_UWSGI=0
-ARG VERSION_GITCOMMIT=unknown
+RUN su searxng -c "python3 -m venv /usr/local/searxng/searx-pyenv"
 
-RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"; \
-    touch -c --date=@${TIMESTAMP_SETTINGS} searx/settings.yml; \
-    touch -c --date=@${TIMESTAMP_UWSGI} dockerfiles/uwsgi.ini; \
-    find /usr/local/searxng/searx/static -a \( -name '*.html' -o -name '*.css' -o -name '*.js' \
-    -o -name '*.svg' -o -name '*.ttf' -o -name '*.eot' \) \
-    -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
+RUN su searxng -c "echo \". /usr/local/searxng/searx-pyenv/bin/activate\" >> \"/usr/local/searxng/.profile\""  
 
-# Keep these arguments at the end to prevent redundant layer rebuilds
-ARG LABEL_DATE=
-ARG GIT_URL=unknown
-ARG SEARXNG_GIT_VERSION=unknown
-ARG LABEL_VCS_REF=
-ARG LABEL_VCS_URL=
-LABEL maintainer="searxng <${GIT_URL}>" \
-      description="A privacy-respecting, hackable metasearch engine." \
-      version="${SEARXNG_GIT_VERSION}" \
-      org.label-schema.schema-version="1.0" \
-      org.label-schema.name="searxng" \
-      org.label-schema.version="${SEARXNG_GIT_VERSION}" \
-      org.label-schema.url="${LABEL_VCS_URL}" \
-      org.label-schema.vcs-ref=${LABEL_VCS_REF} \
-      org.label-schema.vcs-url=${LABEL_VCS_URL} \
-      org.label-schema.build-date="${LABEL_DATE}" \
-      org.label-schema.usage="https://github.com/searxng/searxng-docker" \
-      org.opencontainers.image.title="searxng" \
-      org.opencontainers.image.version="${SEARXNG_GIT_VERSION}" \
-      org.opencontainers.image.url="${LABEL_VCS_URL}" \
-      org.opencontainers.image.revision=${LABEL_VCS_REF} \
-      org.opencontainers.image.source=${LABEL_VCS_URL} \
-      org.opencontainers.image.created="${LABEL_DATE}" \
-      org.opencontainers.image.documentation="https://github.com/searxng/searxng-docker"
+RUN su searxng -c "pip install -U pip &&
+                   pip install -U setuptools &&
+                   pip install -U wheel &&
+                   pip install -U pyyaml"
+                   
+RUN cd "/usr/local/searxng/searxng-src"
+RUN pip install -e .
+
+RUN mkdir -p "/etc/searxng"
+RUN cp "/usr/local/searxng/searxng-src/utils/templates/etc/searxng/settings.yml" "/etc/searxng/settings.yml"
+RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
+
+RUN cp /usr/local/searxng/searxng-src/dockerfiles/uwsgi.ini /etc/uwsgi/apps-available/searxng.ini
+RUN ln -s /etc/uwsgi/apps-available/searxng.ini /etc/uwsgi/apps-enabled/
+
