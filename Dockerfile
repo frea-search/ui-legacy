@@ -1,9 +1,9 @@
 FROM debian:stable
 
-ENTRYPOINT exec su-exec searxng:searxng uwsgi --master --http-socket 8888 /usr/local/searxng/searxng-src/dockerfiles/uwsgi.ini
+ENTRYPOINT su searxng -c "uwsgi --master --http-socket 8888 /usr/local/searxng/dockerfiles/uwsgi.ini"
 
 RUN apt-get update && apt-get install -y \
-    python3-dev python3-babel python3-venv \
+    python3-pip python3-dev python3-babel python3-venv \
     uwsgi uwsgi-plugin-python3 \
     git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev
     
@@ -27,9 +27,12 @@ RUN su searxng -c "pip install -U pip && \
                    pip install -U wheel && \
                    pip install -U pyyaml"
                    
-RUN cd "/usr/local/searxng/searxng-src"
-RUN pip install -e .
+RUN cd "/usr/local/searxng"
+RUN pip3 install --upgrade pip wheel setuptools
+RUN pip3 install --no-cache -r requirements.txt
+RUN pip3 install -e .
 
 RUN mkdir -p "/etc/searxng"
-RUN cp "/usr/local/searxng/searxng-src/utils/templates/etc/searxng/settings.yml" "/etc/searxng/settings.yml"
-#RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
+RUN cp "/usr/local/searxng/utils/templates/etc/searxng/settings.yml" "/etc/searxng/settings.yml"
+RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
+
