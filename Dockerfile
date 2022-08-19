@@ -22,9 +22,9 @@ RUN su searxng -c "python3 -m venv /usr/local/searxng/searx-pyenv"
 
 RUN su searxng -c "echo \". /usr/local/searxng/searx-pyenv/bin/activate\" >> \"/usr/local/searxng/.profile\""  
 
-RUN su searxng -c "pip install -U pip &&
-                   pip install -U setuptools &&
-                   pip install -U wheel &&
+RUN su searxng -c "pip install -U pip && \
+                   pip install -U setuptools && \
+                   pip install -U wheel && \
                    pip install -U pyyaml"
                    
 RUN cd "/usr/local/searxng/searxng-src"
