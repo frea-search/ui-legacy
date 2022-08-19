@@ -32,8 +32,4 @@ RUN pip install -e .
 
 RUN mkdir -p "/etc/searxng"
 RUN cp "/usr/local/searxng/searxng-src/utils/templates/etc/searxng/settings.yml" "/etc/searxng/settings.yml"
-RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
-
-RUN cp /usr/local/searxng/searxng-src/dockerfiles/uwsgi.ini /etc/uwsgi/apps-available/searxng.ini
-RUN ln -s /etc/uwsgi/apps-available/searxng.ini /etc/uwsgi/apps-enabled/
-
+#RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
