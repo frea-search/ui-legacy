@@ -1,6 +1,6 @@
 FROM debian:stable
 
-ENTRYPOINT su searxng -c "uwsgi --master --http-socket 8888 /usr/local/searxng/dockerfiles/uwsgi.ini"
+ENTRYPOINT su searxng -c "bash /usr/local/frea-server/start.sh"
 
 RUN apt-get update && apt-get install -y \
     python3-pip python3-dev python3-babel python3-venv \
@@ -34,5 +34,5 @@ RUN pip3 install -e .
 
 RUN mkdir -p "/etc/searxng"
 RUN cp "/usr/local/searxng/utils/templates/etc/searxng/settings.yml" "/etc/searxng/settings.yml"
-RUN sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "/etc/searxng/settings.yml"
-
+RUN mkdir "/usr/local/frea-server"
+RUN mv  "/usr/local/searxng/start.sh" "/usr/local/frea-server/start.sh"
