@@ -15,35 +15,22 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ```
 
 ### インストール方法 💿
-予め`curl`と`git`、`caddy`、`redis-server`をインストールしてください <br>
-```
-git clone https://git.sda1.net/frea/search
-cd search
-sudo -H ./utils/searxng.sh install all
-```
+Frea Searcchのインストール方法はスクリプトを使う方式からdocker-composeを使用する方式に置き換わりました。従来のスクリプトは放棄されました。
 
-<br>
+#### step 0
+FreaのコンテナはまだDockerHubにありません。ビルドする必要があります。  
+このリポジトリをcloneし`docker build --tag frea:devel --file Dockerfile .`を実行してください。
 
-`/etc/caddy/Caddyfile` に以下の内容を書き込みます。
+#### step1
+以下のジトリをcloneします。  
+https://git.sda1.net/frea/frea-docker
 
-```
-yourdomain.com {
-        header Access-Control-Allow-Origin "https://assets.freasearch.org"
-        reverse_proxy localhost:8888
-}
-```
+#### step2
+そのまま実行します。  
+`docker-compose up`
 
-<br>
-
-最後に変更を適用
-
-```
-sudo systemctl reload caddy
-```
-
-#### 他のhttpサーバーでは駄目なのですか？
-Frea Searchではセキュリティとパフォーマンス、設定ファイルの美しさの観点からcaddyを使用することを推奨しています。<br>
-`Access-Control-Allow-Origin`を`https://assets.freasearch.org`に設定し、`localhost:8888`へリバースプロキシを行う設定を書けばnginxやApacheでも同じことが可能ですが、必ずcertbotなどを使用しエンドツーエンドを暗号化してください。
+###  よくありそうな質問
+他にあればissueまで
 
 #### assets.freasearch.orgとは何ですか？
 `https://assets.freasearch.org`ではライセンスの関係上このリポジトリには同梱できないフォントやアイコンなどのファイルがホストされています。これらのコンテンツもセルフホストしたい方向けのソリューションは現在準備中です。
