@@ -38,12 +38,6 @@ https://git.sda1.net/frea/frea-docker
 #### Cloudflareについて
 CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュやページ書き換えによる不具合を引き起こすためFrea Searchでの使用は推奨しておらず、サポートもされていません。<br>もし使用する場合は、キャッシュやメールアドレスを隠す機能などページを書き換える機能を無効化するとトラブルが起きにくくなります。
 
-### インスタンスのアップデート方法  🔁
-コマンド一つで自動的にGitリポジトリからの変更がPullされ適用されます。
-```
-cd search
-sudo -H ./utils/searxng.sh instance update
-```
 
 ### Special thanks (敬称略・順不同)🙏
  - SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々
