@@ -1,6 +1,6 @@
 FROM debian:stable
 
-ENTRYPOINT su searxng -c "bash /usr/local/frea-server/start.sh"
+ENTRYPOINT bash /usr/local/frea-server/start.sh
 
 RUN apt-get update && apt-get install -y \
     python3-pip python3-dev python3-babel python3-venv \
