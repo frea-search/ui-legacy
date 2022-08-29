@@ -5,8 +5,8 @@
 */*/*/*/*~
 
 # Git
-.git
-.gitignore
+#.git
+#.gitignore
 
 # CI
 .codeclimate.yml
