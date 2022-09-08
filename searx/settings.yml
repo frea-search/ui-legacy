@@ -2575,14 +2575,6 @@ engines:
   #   #show_metadata: false
   #   disabled: true
 
-  - name: wikidata
-    engine: wikidata
-    shortcut: wd
-    timeout: 3.0
-    weight: 2
-    tests: *tests_infobox
-    disabled: true
-
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
@@ -3531,7 +3523,7 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: false
+    disabled: true
 
   - name: yahoo news
     engine: yahoo_news
