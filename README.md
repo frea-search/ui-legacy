@@ -17,9 +17,8 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ### インストール方法 💿
 Frea Searcchのインストール方法はスクリプトを使う方式からdocker-composeを使用する方式に置き換わりました。従来のスクリプトは放棄されました。Dockerに馴染みがない私のような方のためにdocker-composeのヘルパーである[niagara](https://git.sda1.net/frea/niagara)もありますのでお試しください。
 
-#### step 0
-FreaのコンテナはまだDockerHubにありません。ビルドする必要があります。  
-このリポジトリをcloneし`docker build --tag frea:devel --file Dockerfile .`を実行してください。
+#### step 0 (通常は不要な手順)
+手動でビルドする場合は、このリポジトリをcloneし`docker build --tag frea:latest --file Dockerfile .`を実行してください。
 
 #### step1
 以下のジトリをcloneします。  
