@@ -25,8 +25,18 @@ Frea Searcchのインストール方法はスクリプトを使う方式からdo
 https://git.sda1.net/frea/frea-docker
 
 #### step2
-そのまま実行します。  
+必要に応じて、cloneしたリポジトリに含まれるsettings.yml内の以下の値を編集します。
+
+ - `privacypolicy_url` インスタンスにプライバシーポリシーが存在する場合、そのURLを指定します。
+ - `debug` デバッグモードを有効にするかどうか。
+ - `formats` `json`を追加するとAPIが有効になります。
+
+#### step3
+実行します。  
 `docker-compose up`
+
+#### step4
+適当なhttpサーバーをシステムにインストールし、`localhost:8888`へリバースプロキシするように設定します。https化するのを忘れないでください。
 
 ###  よくありそうな質問
 他にあればissueまで
