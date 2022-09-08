@@ -25,6 +25,7 @@ Frea Searcchのインストール方法はスクリプトを使う方式からdo
 https://git.sda1.net/frea/frea-docker
 
 #### step2
+`sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "settings.yml"`を実行しサーバーのシークレットキーを設定します。  
 必要に応じて、cloneしたリポジトリに含まれるsettings.yml内の以下の値を編集します。
 
  - `privacypolicy_url` インスタンスにプライバシーポリシーが存在する場合、そのURLを指定します。

@@ -10,3 +10,4 @@ if grep -q ultrasecretkey /etc/searxng/settings.yml; then
 fi
 
 su searxng -c "uwsgi --master --http-socket 0.0.0.0:8888 /etc/searxng/uwsgi.ini"
+

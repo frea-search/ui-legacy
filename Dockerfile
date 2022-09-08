@@ -1,8 +1,6 @@
 FROM alpine:3.16
 ENTRYPOINT ["/sbin/tini","--","/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
 EXPOSE 8080
-VOLUME /etc/searx
-VOLUME /etc/searxng
 
 ARG SEARXNG_GID=977
 ARG SEARXNG_UID=977
@@ -62,6 +60,7 @@ RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"; \
     -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
 
 RUN chmod +x "/usr/local/searxng/dockerfiles/docker-entrypoint.sh"
+RUN mkdir /etc/searxng
 RUN apk add git
 
 # Keep these arguments at the end to prevent redundant layer rebuilds
