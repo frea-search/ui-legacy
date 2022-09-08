@@ -686,7 +686,7 @@ template {
     --color-backtotop-border: #ddd;
     --color-backtotop-background: #fff;
     --color-btn-background: #2b2b2b;
-    --color-btn-font: #fff;
+    --color-btn-font: #0b0b0b;
     --color-show-btn-background: #bbb;
     --color-show-btn-font: #222;
     --color-search-border: #bbb;
@@ -743,7 +743,7 @@ template {
     --color-toolkit-tabs-section-border: #ddd;
     --color-toolkit-select-background: #f7f7f7;
     --color-toolkit-select-border: #ddd;
-    --color-toolkit-select-background-hover: #bbb;
+    --color-toolkit-select-background-hover: #ddd;
     --color-toolkit-input-text-font: #222;
     --color-toolkit-checkbox-onoff-off-background: #ddd;
     --color-toolkit-checkbox-onoff-on-background: #ddd;
@@ -1812,7 +1812,7 @@ input.checkbox-onoff[type=checkbox]:checked::before {
     left: calc(100% - 1.5em);
     content: "\2713";
     color: var(--color-toolkit-checkbox-onoff-on-mark-color);
-    background: rgba(0, 0, 0, 0) linear-gradient(to left, rgb(7, 138, 125), rgb(28, 217, 94)) repeat scroll 0% 0%;
+    background: rgb(55, 174, 68);
 }
 
 @supports (transform:rotate(-45deg)) {
@@ -2587,7 +2587,7 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 #main_preferences .preferences_back {
-    background: repeat scroll 0 0 linear-gradient(to left, #9291b7, #b2bbd0);
+    background: #ddd;    
     color: var(--color-btn-font);
     border: 0 none;
     border-radius: 10px;
@@ -3046,7 +3046,7 @@ footer p {
 input[type=submit] {
     padding: .7rem;
     display: inline-block;
-    background: linear-gradient(to left, #9291b7, #b2bbd0);
+    background: #ddd;    
     color: var(--color-btn-font);
     border-radius: 10px;
     border: 0;
