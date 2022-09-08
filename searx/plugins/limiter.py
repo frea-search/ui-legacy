@@ -56,7 +56,7 @@ def is_accepted_request() -> bool:
         
         if request.args.get('format', 'html') != 'html':
             c = incr_sliding_window(redis_client, 'API limit' + x_forwarded_for, 3600)
-            if c > 4:
+            if c > 51:
                 logger.debug("API limit exceeded")  # pylint: disable=undefined-variable
                 return False
             else:
