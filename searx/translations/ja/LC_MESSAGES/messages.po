@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-23 14:08+0000\n"
-"PO-Revision-Date: 2022-09-08 13:50+0900\n"
+"PO-Revision-Date: 2022-09-08 13:59+0900\n"
 "Last-Translator: tents <remendne@pentrens.jp>\n"
 "Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/"
 ">\n"
@@ -412,7 +412,7 @@ msgstr "検索ページ"
 
 #: searx/templates/simple/base.html:46
 msgid "About"
-msgstr "関連情報"
+msgstr "Frea Search について"
 
 #: searx/templates/simple/base.html:50
 msgid "Donate"
