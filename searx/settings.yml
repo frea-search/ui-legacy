@@ -2144,6 +2144,14 @@ hostname_replace:
   '(.*\.)?daytradenet\.com': false
   '(.*\.)?adr-kouganzai\.com': false
   '(.*\.)?rui\.jp': false
+  '(.*\.)?anycodings\.com': false
+  'www.modis.co.jp': false
+  'modis.co.jp': false
+  '(.*\.)?feeld-uni\.com': false
+  '(.*\.)?gan911\.com': false
+  'anond.hatelabo.jp': false
+  '(.*\.)?meaning-words\.com': false
+  
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
   'girlschannel.net': false
