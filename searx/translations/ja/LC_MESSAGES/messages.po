@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-07-23 14:08+0000\n"
-"PO-Revision-Date: 2022-09-08 12:44+0900\n"
+"PO-Revision-Date: 2022-09-08 13:50+0900\n"
 "Last-Translator: tents <remendne@pentrens.jp>\n"
 "Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/"
 ">\n"
@@ -706,15 +706,15 @@ msgstr "画像の結果をFrea Search経由でプロキシする"
 
 #: searx/templates/simple/preferences.html:281
 msgid "Query in the page's title"
-msgstr "ページのタイトルでクエリを実行する"
+msgstr "クエリを検索結果ページのタイトルに表示する"
 
 #: searx/templates/simple/preferences.html:288
 msgid ""
 "When enabled, the result page's title contains your query. Your browser can "
 "record this title"
 msgstr ""
-"有効にすると、検索結果ページのタイトルにクエリが含まれます。お使いのブラウザはこ"
-"のタイトルを記録できます"
+"有効にすると、検索結果ページのタイトルに検索されたワードが含まれるようになりま"
+"す。お使いのブラウザはこのタイトルを記録できます"
 
 #: searx/templates/simple/preferences.html:294
 msgid "Engines"
