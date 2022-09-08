@@ -3,7 +3,7 @@ general:
   instance_name: "Frea Search"  # displayed name
   privacypolicy_url: false  # https://example.com/privacy
   contact_url: false        # mailto:contact@example.com
-  enable_metrics: true      # record stats
+  enable_metrics: false      # record stats
   donation_url: false
 
 brand:
