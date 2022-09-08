@@ -19,3 +19,10 @@ gh-pages/
 
 /package-lock.json
 /node_modules/
+
+utils/*.sh
+utils/lxc-searxng.env
+utils/makefile*
+Makefile
+SECURITY.md
+.github
