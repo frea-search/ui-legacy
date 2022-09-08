@@ -2151,6 +2151,8 @@ hostname_replace:
   '(.*\.)?gan911\.com': false
   'anond.hatelabo.jp': false
   '(.*\.)?meaning-words\.com': false
+  '(.*\.)?masanaka\.net': false
+  '(.*\.)?bloglifer\.net': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
