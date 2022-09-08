@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+    command: redis-server --save "" --appendonly "no"
+    networks:
+      - frea
+    tmpfs:
+      - /var/lib/redis
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    logging:
+      driver: journald
+      options:
+        tag: "{{.Name}}"
+
+  frea:
+    container_name: frea
+    image: nexryai/frea:latest
+    networks:
+      - frea
+    ports:
+     - "127.0.0.1:8888:8888"
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    logging:
+      driver: journald
+      options:
+        tag: "{{.Name}}"
+        
+      
+networks:
+  frea:
+    ipam:
+      driver: default
