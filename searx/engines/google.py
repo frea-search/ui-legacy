@@ -233,7 +233,7 @@ def get_lang_info(params, lang_list, custom_aliases, supported_any_language):
 
         # restricts search results to documents written in a particular
         # language.
-        ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
+        # ret_val['params']['lr'] = "lang_" + lang_list.get(lang_country, language)
 
     return ret_val
 
