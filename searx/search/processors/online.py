@@ -64,7 +64,7 @@ class OnlineProcessor(EngineProcessor):
         if self.engine.send_accept_language_header and search_query.locale:
             ac_lang = search_query.locale.language
             if search_query.locale.territory:
-                ac_lang = "%s-%s,%s;q=0.9,*;q=0.5" % (
+                ac_lang = "%s-%s,%s;q=0.9,en;q=0.5" % (
                     search_query.locale.language,
                     search_query.locale.territory,
                     search_query.locale.language,
