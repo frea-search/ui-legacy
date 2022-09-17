@@ -3743,10 +3743,6 @@ article[data-vim-selected].category-videos {
 	display: none;
 }
 
-.link_on_top_donate {
-	display: none;
-}
-
 #main_results div#results.only_template_images #sidebar {
     display: none
 }

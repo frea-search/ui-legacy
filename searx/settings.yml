@@ -4,7 +4,7 @@ general:
   privacypolicy_url: false  # https://example.com/privacy
   contact_url: false        # mailto:contact@example.com
   enable_metrics: false      # record stats
-  donation_url: false
+  donation_url: https://donate.ferasearch.org
 
 brand:
   new_issue_url: https://git.sda1.net/frea/search/issues
