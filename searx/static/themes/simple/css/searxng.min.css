@@ -3730,6 +3730,16 @@ article[data-vim-selected].category-videos {
     }    
 }
 
+#links_on_top a, #links_on_top a:active *, #links_on_top a:hover *, #links_on_top a:link *, #links_on_top a:visited * {
+	color: var(--color-search-font);
+}
+
+#links_on_top a {
+	display: flex;
+	align-items: center;
+	margin-left: 1em;
+}
+
 #main_results div#results.only_template_images {
     margin: 1rem .5rem 0 .5rem;
     display: grid;
