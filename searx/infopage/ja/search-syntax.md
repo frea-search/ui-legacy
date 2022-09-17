@@ -5,9 +5,8 @@
 "設定 → 検索 → 規定の検索エンジン" でFrea Searchを選択します。
 
 ### Firefoxの場合
- 1. Frea Searchのトップページにアクセスします。
- 2. アドレスバーを右クリックし"Frea Searchを追加"をクリックします。
- 3. "設定 → 検索 → 規定の検索エンジン" でFrea Searchを選択します。
+ 1. [このアドオン](https://addons.mozilla.org/ja/firefox/addon/frea-search/)をインストールします。
+ 2. "設定 → 検索 → 規定の検索エンジン" でFrea Searchを選択します。
 
 ### Google Chrome、Chromiumの場合
  1. Frea Searchで何か検索を行います。
