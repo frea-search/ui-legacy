@@ -23,7 +23,6 @@ gh-pages/
 utils/*.sh
 utils/lxc-searxng.env
 utils/makefile*
-Makefile
 SECURITY.md
 .github
 manage
