@@ -2057,6 +2057,7 @@ th:hover .engine-tooltip {
 .autocomplete.open {
     display: block;
     backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
     color: var(--color-autocomplete-font);
     border: 1px solid var(--color-autocomplete-border);
     max-height: 32rem;
@@ -2104,7 +2105,8 @@ article.result-images .detail {
     background: rgba(0, 0, 0, 0.48) none repeat scroll 0% 0%;
     z-index: 10000;
     padding: 4rem 3rem 3rem 3rem;
-    backdrop-filter: blur(26px)
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
