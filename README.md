@@ -2,7 +2,6 @@
 信頼性の高い検索結果のみを表示するクリーンな検索エンジンを目指したsearxngのカスタムインスタンス<br>
 
  - [公式インスタンス](https://freasearch.org/)
- - [公式onionインスタンス](http://fcy6tvcy5fq7qogwjfovb54kodrgdpf5i6afda3an4oc5ndgbziegyyd.onion/)
 
 
 ### ブロックリストについて 🚫
@@ -15,7 +14,8 @@ https://freasearch.org/search?q=検索したいワード&format=json
 ```
 
 ### インストール方法 💿
-Frea Searcchのインストール方法はスクリプトを使う方式からdocker-composeを使用する方式に置き換わりました。従来のスクリプトは放棄されました。Dockerに馴染みがない私のような方のためにdocker-composeのヘルパーである[niagara](https://git.sda1.net/frea/niagara)もありますのでお試しください。
+Frea Searcchのインストール方法はスクリプトを使う方式からdocker-composeを使用する方式に置き換わりました。従来のスクリプトは放棄されました。Dockerに馴染みがない私のような方のためにdocker-composeのヘルパーである[niagara](https://git.sda1.net/frea/niagara)もありますのでお試しください。  
+また定期的なアップデートを強く推奨します。
 
 #### step 0 (通常は不要な手順)
 手動でビルドする場合は、このリポジトリをcloneし`docker build --tag frea:latest --file Dockerfile .`を実行してください。
@@ -39,14 +39,9 @@ https://git.sda1.net/frea/frea-docker
 #### step4
 適当なhttpサーバーをシステムにインストールし、`localhost:8888`へリバースプロキシするように設定します。https化するのを忘れないでください。
 
-###  よくありそうな質問
-他にあればissueまで
 
-#### assets.freasearch.orgとは何ですか？
-`https://assets.freasearch.org`ではライセンスの関係上このリポジトリには同梱できないフォントやアイコンなどのファイルがホストされています。これらのコンテンツもセルフホストしたい方向けのソリューションは現在準備中です。
-
-#### Cloudflareについて
-CloudflareはSSLのトラストモデルを破壊し、さらにキャッシュやページ書き換えによる不具合を引き起こすためFrea Searchでの使用は推奨しておらず、サポートもされていません。  
+### Cloudflareについて
+Cloudflareはキャッシュやページ書き換えによる不具合を引き起こし、SSLのトラストモデルが破壊されるため Frea Search での使用は推奨しておらず、サポートもされていません。  
 もし使用する場合は、キャッシュやメールアドレスを隠す機能などページを書き換える機能を無効化するとトラブルが起きにくくなります。
 
 
