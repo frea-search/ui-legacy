@@ -2392,7 +2392,7 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 .index .title {
-    background: url(../img/searxng.png) no-repeat;
+    background: url(../img/logo.png) no-repeat;
     min-height: 4rem;
     margin: 4rem auto;
     background-position: center;
