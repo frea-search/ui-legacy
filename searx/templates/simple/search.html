@@ -14,11 +14,6 @@
     {% set display_tooltip = true %}
     {% include 'simple/categories.html' %}
   </div>
-  <div class="search_filters">
-    {% include 'simple/filters/languages.html' %}
-    {% include 'simple/filters/time_range.html' %}
-    {% include 'simple/filters/safesearch.html' %}
-  </div>
   <input type="hidden" name="theme" value="{{ theme }}" >
   {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
 </form>

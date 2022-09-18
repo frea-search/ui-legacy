@@ -16,19 +16,19 @@
 # Markus Heiser <markus.heiser@darmarit.de>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version:  searx\n"
+"Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-09-04 09:33+0000\n"
-"PO-Revision-Date: 2022-07-29 07:17+0000\n"
+"PO-Revision-Date: 2022-09-19 06:40+0900\n"
 "Last-Translator: tents <remendne@pentrens.jp>\n"
+"Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/>\n"
 "Language: ja\n"
-"Language-Team: Japanese "
-"<https://weblate.bubu1.eu/projects/searxng/searxng/ja/>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.10.3\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. CONSTANT_NAMES['DEFAULT_GROUP_NAME']
 #: searx/searxng.msg
@@ -202,8 +202,8 @@ msgstr "サーバー API エラー"
 msgid "No item found"
 msgstr "アイテムが見つかりません"
 
-#: searx/engines/qwant.py:217
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:365
+#: searx/engines/qwant.py:217 searx/templates/simple/result_templates/images.html:20
+#: searx/webapp.py:365
 msgid "Source"
 msgstr "ソース"
 
@@ -273,16 +273,18 @@ msgstr "チャンネル"
 
 #: searx/engines/tineye.py:40
 msgid ""
-"Could not read that image url. This may be due to an unsupported file "
-"format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
-" WebP."
-msgstr "この画像URLは読み取ることができません。サポートされていないフォーマットだと考えられます。TinEyeはJPEG、PNG、GIF、BMP、TIFF、WebPの画像のみサポートしています。"
+"Could not read that image url. This may be due to an unsupported file format. TinEye only supports "
+"images that are JPEG, PNG, GIF, BMP, TIFF or WebP."
+msgstr ""
+"この画像URLは読み取ることができません。サポートされていないフォーマットだと考えられます。TinEyeは"
+"JPEG、PNG、GIF、BMP、TIFF、WebPの画像のみサポートしています。"
 
 #: searx/engines/tineye.py:46
 msgid ""
-"The image is too simple to find matches. TinEye requires a basic level of"
-" visual detail to successfully identify matches."
-msgstr "画像がマッチするものが多すぎます。TinEyeは基本的に視覚情報の詳細が一致することで成功しやすいです。"
+"The image is too simple to find matches. TinEye requires a basic level of visual detail to "
+"successfully identify matches."
+msgstr ""
+"画像がマッチするものが多すぎます。TinEyeは基本的に視覚情報の詳細が一致することで成功しやすいです。"
 
 #: searx/engines/tineye.py:52
 msgid "The image could not be downloaded."
@@ -303,19 +305,16 @@ msgstr "検索結果の最適化"
 #: searx/plugins/hostname_replace.py:10
 msgid "Rewrite result hostnames or remove results based on the hostname"
 msgstr ""
-"プログラミングスクールのブログなど検索を妨害するサイト、検索結果に出す必要性が低"
-"いサイト（Pinterestなど）、その他信頼性の低いサイトを検索結果から除外する"
+"プログラミングスクールのブログなど検索を妨害するサイト、検索結果に出す必要性が低いサイト（Pinterestな"
+"ど）、その他信頼性の低いサイトを検索結果から除外する"
 
 #: searx/plugins/oa_doi_rewrite.py:9
 msgid "Open Access DOI rewrite"
 msgstr "オープンアクセス DOI の書き換え"
 
 #: searx/plugins/oa_doi_rewrite.py:10
-msgid ""
-"Avoid paywalls by redirecting to open-access versions of publications when "
-"available"
-msgstr ""
-"可能ならば オープンアクセス版の出版物へリダイレクトし、有料出版物を回避する"
+msgid "Avoid paywalls by redirecting to open-access versions of publications when available"
+msgstr "可能ならば オープンアクセス版の出版物へリダイレクトし、有料出版物を回避する"
 
 #: searx/plugins/search_on_category_select.py:19
 msgid "Search on category select"
@@ -323,11 +322,11 @@ msgstr "カテゴリ選択したら検索を実行"
 
 #: searx/plugins/search_on_category_select.py:20
 msgid ""
-"Perform search immediately if a category selected. Disable to select multiple "
-"categories. (JavaScript required)"
+"Perform search immediately if a category selected. Disable to select multiple categories. "
+"(JavaScript required)"
 msgstr ""
-"カテゴリが選択されたときに検索を実行します。複数のカテゴリを選択する場合は無効に"
-"します。(JavaScript が必要です)"
+"カテゴリが選択されたときに検索を実行します。複数のカテゴリを選択する場合は無効にします。(JavaScript "
+"が必要です)"
 
 #: searx/plugins/self_info.py:20
 msgid "Self Informations"
@@ -335,11 +334,10 @@ msgstr "自分の情報"
 
 #: searx/plugins/self_info.py:21
 msgid ""
-"Displays your IP if the query is \"ip\" and your user agent if the query "
-"contains \"user agent\"."
+"Displays your IP if the query is \"ip\" and your user agent if the query contains \"user agent\"."
 msgstr ""
-"クエリが \"ip\" の場合にあなたのIPを、クエリに \"user agent\" が含まれる場合にあ"
-"なたのユーザーエージェントを表示します。"
+"クエリが \"ip\" の場合にあなたのIPを、クエリに \"user agent\" が含まれる場合にあなたのユーザーエー"
+"ジェントを表示します。"
 
 #: searx/plugins/tor_check.py:25
 msgid "Tor check plugin"
@@ -347,16 +345,14 @@ msgstr "Tor 確認プラグイン"
 
 #: searx/plugins/tor_check.py:28
 msgid ""
-"This plugin checks if the address of the request is a TOR exit node, and "
-"informs the user if it is, like check.torproject.org but from searxng."
+"This plugin checks if the address of the request is a TOR exit node, and informs the user if it is, "
+"like check.torproject.org but from searxng."
 msgstr ""
-"このプラグインはsearxngからTOR exit node "
-"にアドレスを要求したとき、check.torproject.orgサイトのように、ユーザーに通知します。"
+"このプラグインはsearxngからTOR exit node にアドレスを要求したとき、check.torproject.orgサイトのよう"
+"に、ユーザーに通知します。"
 
 #: searx/plugins/tor_check.py:62
-msgid ""
-"The TOR exit node list (https://check.torproject.org/exit-addresses) is "
-"unreachable."
+msgid "The TOR exit node list (https://check.torproject.org/exit-addresses) is unreachable."
 msgstr "TOR exit node のリスト(https://check.torproject.org/exit-addresses)に到達できません。"
 
 #: searx/plugins/tor_check.py:78
@@ -381,11 +377,11 @@ msgstr "Vim 風のホットキー"
 
 #: searx/plugins/vim_hotkeys.py:4
 msgid ""
-"Navigate search results with Vim-like hotkeys (JavaScript required). Press \"h"
-"\" key on main or result page to get help."
+"Navigate search results with Vim-like hotkeys (JavaScript required). Press \"h\" key on main or "
+"result page to get help."
 msgstr ""
-"検索結果をVim 風のホットキーで操作します(JavaScript が必要)。メインページまたは"
-"検索結果ページで \"h\" キーを押してヘルプを表示します。"
+"検索結果をVim 風のホットキーで操作します(JavaScript が必要)。メインページまたは検索結果ページで \"h"
+"\" キーを押してヘルプを表示します。"
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -432,8 +428,7 @@ msgstr "課題報告"
 msgid "Engine stats"
 msgstr "検索エンジンの状態"
 
-#: searx/templates/simple/base.html:69
-#: searx/templates/simple/messages/no_results.html:15
+#: searx/templates/simple/base.html:69 searx/templates/simple/messages/no_results.html:15
 msgid "Public instances"
 msgstr "パブリック インスタンス"
 
@@ -453,8 +448,7 @@ msgstr "虫めがねをクリックして検索します"
 msgid "Length"
 msgstr "長さ"
 
-#: searx/templates/simple/macros.html:37
-#: searx/templates/simple/result_templates/images.html:18
+#: searx/templates/simple/macros.html:37 searx/templates/simple/result_templates/images.html:18
 msgid "Author"
 msgstr "作者"
 
@@ -490,25 +484,20 @@ msgstr "Githubで情報を含めて新たな問題を提起"
 msgid "No HTTPS"
 msgstr "No HTTPS"
 
-#: searx/templates/simple/messages/no_results.html:10
-#: searx/templates/simple/preferences.html:31
-#: searx/templates/simple/preferences.html:32
-#: searx/templates/simple/results.html:49
+#: searx/templates/simple/messages/no_results.html:10 searx/templates/simple/preferences.html:31
+#: searx/templates/simple/preferences.html:32 searx/templates/simple/results.html:49
 msgid "View error logs and submit a bug report"
 msgstr "エラーログを表示し、バグレポートを送信します"
 
-#: searx/templates/simple/preferences.html:53
-#: searx/templates/simple/stats.html:64
+#: searx/templates/simple/preferences.html:53 searx/templates/simple/stats.html:64
 msgid "Median"
 msgstr "中央値"
 
-#: searx/templates/simple/preferences.html:54
-#: searx/templates/simple/stats.html:70
+#: searx/templates/simple/preferences.html:54 searx/templates/simple/stats.html:70
 msgid "P80"
 msgstr "P80"
 
-#: searx/templates/simple/preferences.html:55
-#: searx/templates/simple/stats.html:76
+#: searx/templates/simple/preferences.html:55 searx/templates/simple/stats.html:76
 msgid "P95"
 msgstr "P95"
 
@@ -528,13 +517,11 @@ msgstr "一般"
 msgid "Default categories"
 msgstr "デフォルトのカテゴリ"
 
-#: searx/templates/simple/filters/languages.html:1
-#: searx/templates/simple/preferences.html:115
+#: searx/templates/simple/filters/languages.html:1 searx/templates/simple/preferences.html:115
 msgid "Search language"
 msgstr "検索の言語"
 
-#: searx/templates/simple/filters/languages.html:2
-#: searx/templates/simple/preferences.html:118
+#: searx/templates/simple/filters/languages.html:2 searx/templates/simple/preferences.html:118
 msgid "Default language"
 msgstr "デフォルトの言語"
 
@@ -550,27 +537,21 @@ msgstr "自動補完"
 msgid "Find stuff as you type"
 msgstr "自動補完に使う検索エンジン"
 
-#: searx/templates/simple/filters/safesearch.html:1
-#: searx/templates/simple/filters/safesearch.html:2
-#: searx/templates/simple/filters/safesearch.html:3
-#: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences.html:143
-#: searx/templates/simple/preferences.html:311
+#: searx/templates/simple/filters/safesearch.html:1 searx/templates/simple/filters/safesearch.html:2
+#: searx/templates/simple/filters/safesearch.html:3 searx/templates/simple/filters/safesearch.html:4
+#: searx/templates/simple/preferences.html:143 searx/templates/simple/preferences.html:311
 msgid "SafeSearch"
 msgstr "セーフサーチ"
 
-#: searx/templates/simple/filters/safesearch.html:2
-#: searx/templates/simple/preferences.html:146
+#: searx/templates/simple/filters/safesearch.html:2 searx/templates/simple/preferences.html:146
 msgid "Strict"
 msgstr "厳重"
 
-#: searx/templates/simple/filters/safesearch.html:3
-#: searx/templates/simple/preferences.html:147
+#: searx/templates/simple/filters/safesearch.html:3 searx/templates/simple/preferences.html:147
 msgid "Moderate"
 msgstr "標準"
 
-#: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences.html:148
+#: searx/templates/simple/filters/safesearch.html:4 searx/templates/simple/preferences.html:148
 msgid "None"
 msgstr "オフ"
 
@@ -583,11 +564,8 @@ msgid "Open Access DOI resolver"
 msgstr "オープンアクセス DOI リゾルバー"
 
 #: searx/templates/simple/preferences.html:167
-msgid ""
-"Redirect to open-access versions of publications when available (plugin "
-"required)"
-msgstr ""
-"利用可能な場合(プラグインが必要)、オープンアクセス版の出版物にリダイレクトする"
+msgid "Redirect to open-access versions of publications when available (plugin required)"
+msgstr "利用可能な場合(プラグインが必要)、オープンアクセス版の出版物にリダイレクトする"
 
 #: searx/templates/simple/preferences.html:171
 msgid "Engine tokens"
@@ -629,14 +607,12 @@ msgstr "「自動」を選択すると、ブラウザの設定に従います"
 msgid "Center Alignment"
 msgstr "中央揃え"
 
-#: searx/templates/simple/preferences.html:220
-#: searx/templates/simple/preferences.html:232
+#: searx/templates/simple/preferences.html:220 searx/templates/simple/preferences.html:232
 #: searx/templates/simple/preferences.html:244
 msgid "On"
 msgstr "有効"
 
-#: searx/templates/simple/preferences.html:221
-#: searx/templates/simple/preferences.html:233
+#: searx/templates/simple/preferences.html:221 searx/templates/simple/preferences.html:233
 #: searx/templates/simple/preferences.html:245
 msgid "Off"
 msgstr "無効"
@@ -672,24 +648,20 @@ msgstr "HTTPメソッド"
 #: searx/templates/simple/preferences.html:264
 msgid ""
 "Change how forms are submited, <a href=\"http://en.wikipedia.org/wiki/"
-"Hypertext_Transfer_Protocol#Request_methods\" rel=\"external\">learn more about "
-"request methods</a>"
+"Hypertext_Transfer_Protocol#Request_methods\" rel=\"external\">learn more about request methods</a>"
 msgstr ""
-"フォームの送信方法を変更します。<a href=\"https://ja.wikipedia.org/wiki/"
-"Hypertext_Transfer_Protocol#リクエストメソッド\" rel=\"external\">リクエストメ"
-"ソッドってなに？</a>"
+"フォームの送信方法を変更します。<a href=\"https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#"
+"リクエストメソッド\" rel=\"external\">リクエストメソッドってなに？</a>"
 
 #: searx/templates/simple/preferences.html:269
 msgid "Image proxy"
 msgstr "画像プロキシ"
 
-#: searx/templates/simple/preferences.html:272
-#: searx/templates/simple/preferences.html:284
+#: searx/templates/simple/preferences.html:272 searx/templates/simple/preferences.html:284
 msgid "Enabled"
 msgstr "有効"
 
-#: searx/templates/simple/preferences.html:273
-#: searx/templates/simple/preferences.html:285
+#: searx/templates/simple/preferences.html:273 searx/templates/simple/preferences.html:285
 msgid "Disabled"
 msgstr "無効"
 
@@ -702,12 +674,10 @@ msgid "Query in the page's title"
 msgstr "クエリを検索結果ページのタイトルに表示する"
 
 #: searx/templates/simple/preferences.html:288
-msgid ""
-"When enabled, the result page's title contains your query. Your browser can "
-"record this title"
+msgid "When enabled, the result page's title contains your query. Your browser can record this title"
 msgstr ""
-"有効にすると、検索結果ページのタイトルに検索されたワードが含まれるようになりま"
-"す。お使いのブラウザはこのタイトルを記録できます"
+"有効にすると、検索結果ページのタイトルに検索されたワードが含まれるようになります。お使いのブラウザは"
+"このタイトルを記録できます"
 
 #: searx/templates/simple/preferences.html:294
 msgid "Engines"
@@ -719,19 +689,14 @@ msgstr "現在使用中の検索エンジン"
 
 #: searx/templates/simple/preferences.html:302
 msgid ""
-"This tab does not show up for search results, but you can search the engines "
-"listed here via bangs."
-msgstr ""
-"このタブは検索結果には表示されませんが、ここにリストされているエンジンをbangで検"
-"索できます。"
+"This tab does not show up for search results, but you can search the engines listed here via bangs."
+msgstr "このタブは検索結果には表示されませんが、ここにリストされているエンジンをbangで検索できます。"
 
-#: searx/templates/simple/preferences.html:307
-#: searx/templates/simple/preferences.html:358
+#: searx/templates/simple/preferences.html:307 searx/templates/simple/preferences.html:358
 msgid "Allow"
 msgstr "許可する"
 
-#: searx/templates/simple/preferences.html:308
-#: searx/templates/simple/stats.html:25
+#: searx/templates/simple/preferences.html:308 searx/templates/simple/stats.html:25
 msgid "Engine name"
 msgstr "検索エンジン名"
 
@@ -743,13 +708,11 @@ msgstr "ショートカット"
 msgid "Supports selected language"
 msgstr "選択された言語のサポート"
 
-#: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences.html:312
+#: searx/templates/simple/filters/time_range.html:1 searx/templates/simple/preferences.html:312
 msgid "Time range"
 msgstr "時間範囲"
 
-#: searx/templates/simple/preferences.html:313
-#: searx/templates/simple/stats.html:28
+#: searx/templates/simple/preferences.html:313 searx/templates/simple/stats.html:28
 msgid "Response time"
 msgstr "応答時間"
 
@@ -757,8 +720,7 @@ msgstr "応答時間"
 msgid "Max time"
 msgstr "最大時間"
 
-#: searx/templates/simple/preferences.html:315
-#: searx/templates/simple/stats.html:29
+#: searx/templates/simple/preferences.html:315 searx/templates/simple/stats.html:29
 msgid "Reliability"
 msgstr "信頼性"
 
@@ -795,11 +757,8 @@ msgid "Cookies"
 msgstr "クッキー"
 
 #: searx/templates/simple/preferences.html:395
-msgid ""
-"This is the list of cookies and their values SearXNG is storing on your "
-"computer."
-msgstr ""
-"これはクッキーのリストで、これらの値はあなたのコンピュータに保存されています。"
+msgid "This is the list of cookies and their values SearXNG is storing on your computer."
+msgstr "これはクッキーのリストで、これらの値はあなたのコンピュータに保存されています。"
 
 #: searx/templates/simple/preferences.html:396
 msgid "With that list, you can assess SearXNG transparency."
@@ -819,11 +778,11 @@ msgstr "現在保存されている設定の検索 URL"
 
 #: searx/templates/simple/preferences.html:418
 msgid ""
-"Note: specifying custom settings in the search URL can reduce privacy by "
-"leaking data to the clicked result sites."
+"Note: specifying custom settings in the search URL can reduce privacy by leaking data to the clicked "
+"result sites."
 msgstr ""
-"注意: 検索 URL にカスタム設定を指定すると、クリックした結果サイトにデータが漏洩"
-"し、プライバシーが低下する恐れがあります。"
+"注意: 検索 URL にカスタム設定を指定すると、クリックした結果サイトにデータが漏洩し、プライバシーが低下"
+"する恐れがあります。"
 
 #: searx/templates/simple/preferences.html:419
 msgid "URL to restore your preferences in another browser"
@@ -831,25 +790,20 @@ msgstr "このURLで違うブラウザに設定を復活"
 
 #: searx/templates/simple/preferences.html:423
 msgid ""
-"Specifying custom settings in the preferences URL can be used to sync "
-"preferences across devices."
+"Specifying custom settings in the preferences URL can be used to sync preferences across devices."
 msgstr "初期設定URLを使うことで、特別な設定をデバイスをまたいで同期できる。"
 
 #: searx/templates/simple/preferences.html:428
-msgid ""
-"These settings are stored in your cookies, this allows us not to store this "
-"data about you."
+msgid "These settings are stored in your cookies, this allows us not to store this data about you."
 msgstr ""
-"これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保"
-"存するわけではありません。"
+"これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保存するわけではありま"
+"せん。"
 
 #: searx/templates/simple/preferences.html:430
-msgid ""
-"These cookies serve your sole convenience, we don't use these cookies to track "
-"you."
+msgid "These cookies serve your sole convenience, we don't use these cookies to track you."
 msgstr ""
-"クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを"
-"追跡するためにクッキーを使うことはありません。"
+"クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを追跡するためにクッ"
+"キーを使うことはありません。"
 
 #: searx/templates/simple/preferences.html:433
 msgid "Save"
@@ -871,8 +825,7 @@ msgstr "回答"
 msgid "Number of results"
 msgstr "通知の数"
 
-#: searx/templates/simple/messages/no_results.html:6
-#: searx/templates/simple/results.html:46
+#: searx/templates/simple/messages/no_results.html:6 searx/templates/simple/results.html:46
 msgid "Error!"
 msgstr "エラー"
 
@@ -912,18 +865,15 @@ msgstr "次のページ"
 msgid "Display the front page"
 msgstr "フロントページを表示する"
 
-#: searx/templates/simple/search.html:9
-#: searx/templates/simple/simple_search.html:5
+#: searx/templates/simple/search.html:9 searx/templates/simple/simple_search.html:5
 msgid "Search for..."
 msgstr "検索する..."
 
-#: searx/templates/simple/search.html:10
-#: searx/templates/simple/simple_search.html:6
+#: searx/templates/simple/search.html:10 searx/templates/simple/simple_search.html:6
 msgid "clear"
 msgstr "消す"
 
-#: searx/templates/simple/search.html:11
-#: searx/templates/simple/simple_search.html:7
+#: searx/templates/simple/search.html:11 searx/templates/simple/simple_search.html:7
 msgid "search"
 msgstr "検索"
 
@@ -1040,11 +990,8 @@ msgid "Sorry!"
 msgstr "すみません"
 
 #: searx/templates/simple/messages/no_results.html:21
-msgid ""
-"we didn't find any results. Please use another query or search in more "
-"categories."
-msgstr ""
-"検索結果はありませんでした。別カテゴリで、他のクエリまたは検索を試してください。"
+msgid "we didn't find any results. Please use another query or search in more categories."
+msgstr "検索結果はありませんでした。別カテゴリで、他のクエリまたは検索を試してください。"
 
 #: searx/templates/simple/result_templates/default.html:6
 msgid "show media"
@@ -1148,12 +1095,11 @@ msgstr "動画を隠す"
 #~ msgstr "可能ならば HTTP リンクを HTTPS リンクに書き換える"
 
 #~ msgid ""
-#~ "Results are opened in the same window by default. This plugin overwrites the "
-#~ "default behaviour to open links on new tabs/windows. (JavaScript required)"
+#~ "Results are opened in the same window by default. This plugin overwrites the default behaviour to "
+#~ "open links on new tabs/windows. (JavaScript required)"
 #~ msgstr ""
-#~ "デフォルトでは結果は同じウィンドウで開きます。このプラグインはデフォルトの動"
-#~ "作を書き換えて新しいタブ/ウィンドウで開くようにします。(JavaScript が必要で"
-#~ "す)"
+#~ "デフォルトでは結果は同じウィンドウで開きます。このプラグインはデフォルトの動作を書き換えて新しいタ"
+#~ "ブ/ウィンドウで開くようにします。(JavaScript が必要です)"
 
 #~ msgid "Color"
 #~ msgstr "色"
@@ -1212,12 +1158,8 @@ msgstr "動画を隠す"
 #~ msgid "This is the list of searx's instant answering modules."
 #~ msgstr "これは searx の即席回答モジュールのリストです。"
 
-#~ msgid ""
-#~ "This is the list of cookies and their values searx is storing on your "
-#~ "computer."
-#~ msgstr ""
-#~ "これはクッキーのリストで、これらの値はあなたのコンピュータに保存されていま"
-#~ "す。"
+#~ msgid "This is the list of cookies and their values searx is storing on your computer."
+#~ msgstr "これはクッキーのリストで、これらの値はあなたのコンピュータに保存されています。"
 
 #~ msgid "With that list, you can assess searx transparency."
 #~ msgstr "このリストによって、あなたは searx の透明性を評価できます。"
@@ -1350,4 +1292,3 @@ msgstr "動画を隠す"
 
 #~ msgid "Scores per result"
 #~ msgstr "検索結果当たりスコア"
-

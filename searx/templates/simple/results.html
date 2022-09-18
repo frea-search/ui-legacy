@@ -20,7 +20,8 @@
 
 <div id="results" class="{{ only_template }}">
     {% if answers -%}
-    <div id="answers" role="complementary" aria-labelledby="answers-title"><h4 class="title" id="answers-title">{{ _('Answers') }} : </h4>
+    {%- from 'simple/icons.html' import icon_big -%}
+    <div id="answers" role="complementary" aria-labelledby="answers-title"><h4 class="title" id="answers-title">{{ icon_big('information-circle-outline') }} INFORMATION</h4>
         {%- for answer in answers.values() -%}
         <div class="answer">
               {% if answer.url %}
