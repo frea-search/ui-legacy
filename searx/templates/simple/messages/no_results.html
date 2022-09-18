@@ -7,7 +7,7 @@
     {% for engine_name, error_type in unresponsive_engines %}
     <p>{{- '' -}}
       {{- engine_name }} (
-      <a href="{{ url_for('stats', engine=engine_name|e) }}" title="{{ _('View error logs and submit a bug report') }}">
+      <a href="{{ url_for('stats', engine=engine_name|e) }}">
         {{- error_type -}}
       </a> ){{- '' -}}
     </p>
@@ -21,6 +21,6 @@
    <p>{{ _("we didn't find any results. Please use another query or search in more categories.") }}</p>
 </div>
 <br>
-<img height="148px" width="auto" src="https://assets.freasearch.org/assets/img/404.png">
+<img height="148px" width="auto" src="{{ url_for('static', filename='img/404.png') }}">
 
 {% endif %}

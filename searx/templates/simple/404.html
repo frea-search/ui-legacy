@@ -3,7 +3,7 @@
 <div class="center">
     <h1>404 not found....</h1>
     {% autoescape false %}
-    <a href="https://ku-rechan.ablaze.one/"><img height="125px" width="auto" src="https://assets.freasearch.org/assets/img/404.png"></a>
+    <a href="https://ku-rechan.ablaze.one/"><img height="125px" width="auto" src="{{ url_for('static', filename='img/404.png') }}"></a>
     <br>
     <p>来てくれてありがとう！！ でもURLを間違えてるっぽいにゃ...</p>
     <p>▶ {{ _('Go to %(search_page)s.', search_page='<a href="{}">{}</a>'.format(url_for('index'), _('search page'))) }}</p>
