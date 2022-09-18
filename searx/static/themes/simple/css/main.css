@@ -702,9 +702,9 @@ template {
     --color-categories-item-selected-font: #ce3d3d;
     --color-categories-item-border-selected: #ce3d3d;
     --color-autocomplete-font: #000;
-    --color-autocomplete-border: #bbb;
+    --color-autocomplete-border: #cfcfcf;
     --color-autocomplete-background: #fff;
-    --color-autocomplete-background-hover: #f7f7f7;
+    --color-autocomplete-background-hover: #f7f7f79c;
     --color-answer-border: #ddd;
     --color-answer-font: #444;
     --color-answer-background: #eee;
@@ -797,7 +797,7 @@ template {
         --color-autocomplete-font: #fff;
         --color-autocomplete-border: #555;
         --color-autocomplete-background: #222;
-        --color-autocomplete-background-hover: #181818;
+        --color-autocomplete-background-hover: #181818b2;
         --color-answer-border: #333;
         --color-answer-font: #bbb;
         --color-answer-background: #181818;
@@ -890,7 +890,7 @@ template {
     --color-autocomplete-font: #fff;
     --color-autocomplete-border: #555;
     --color-autocomplete-background: #222;
-    --color-autocomplete-background-hover: #181818;
+    --color-autocomplete-background-hover: #181818b2;
     --color-answer-border: #333;
     --color-answer-font: #bbb;
     --color-answer-background: #181818;
@@ -2013,12 +2013,6 @@ th:hover .engine-tooltip {
     border-radius: 10px
 }
 
-.autocomplete:active,
-.autocomplete:focus,
-.autocomplete:hover {
-    background-color: var(--color-autocomplete-background)
-}
-
 .autocomplete:empty {
     display: none
 }
@@ -2062,7 +2056,7 @@ th:hover .engine-tooltip {
 
 .autocomplete.open {
     display: block;
-    background-color: var(--color-autocomplete-background);
+    backdrop-filter: blur(13px);
     color: var(--color-autocomplete-font);
     border: 1px solid var(--color-autocomplete-border);
     max-height: 32rem;
