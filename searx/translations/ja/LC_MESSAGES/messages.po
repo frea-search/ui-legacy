@@ -1345,12 +1345,6 @@ msgstr "動画を隠す"
 #~ msgid "Get image"
 #~ msgstr "画像を取得する"
 
-#~ msgid "Center Alignment"
-#~ msgstr ""
-
-#~ msgid "Displays results in the center of the page (Oscar layout)."
-#~ msgstr ""
-
 #~ msgid "preferences"
 #~ msgstr "設定"
 
