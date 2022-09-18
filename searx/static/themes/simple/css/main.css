@@ -2383,6 +2383,10 @@ iframe[src^="https://genius.com/songs"] {
     border-radius: 5px
 }
 
+.info-page a:visited {
+    color: var(--color-url-font);
+}
+
 #main_index {
     margin-top: 26vh
 }
@@ -3036,6 +3040,10 @@ footer {
 
 footer p {
     font-size: .9em
+}
+
+footer a:visited {
+    color: var(--color-url-font);
 }
 
 .page_with_header .logo {
