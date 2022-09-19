@@ -2595,7 +2595,7 @@ engines:
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
-    disabled: true
+    disabled: false
 
   - name: duckduckgo images
     engine: duckduckgo_images
@@ -3284,7 +3284,7 @@ engines:
     engine: qwant
     shortcut: qw
     categories: [general, web]
-    disabled: true
+    disabled: false
     additional_tests:
       rosebud: *test_rosebud
 
@@ -3999,6 +3999,7 @@ engines:
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     first_page_num: 0
     categories: [general, web]
+    language: ja
     timeout: 5.0
     disabled: false
     about:
