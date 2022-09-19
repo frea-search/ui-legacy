@@ -3999,6 +3999,7 @@ engines:
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     first_page_num: 0
     categories: [general, web]
+    timeout: 5.0
     disabled: false
     about:
       website: https://search.goo.ne.jp
