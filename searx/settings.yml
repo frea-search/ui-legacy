@@ -2595,7 +2595,7 @@ engines:
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
-    disabled: false
+    disabled: true
 
   - name: duckduckgo images
     engine: duckduckgo_images
@@ -2766,7 +2766,7 @@ engines:
     shortcut: go
     # see https://docs.searxng.org/src/searx.engines.google.html#module-searx.engines.google
     use_mobile_ui: true
-    weigth: 3
+    weigth: 2
     # additional_tests:
     #   android: *test_android
 
@@ -3439,8 +3439,7 @@ engines:
   - name: startpage
     engine: startpage
     shortcut: sp
-    timeout: 6.0
-    weigth: 3
+    timeout: 3.0
     disabled: false
     additional_tests:
       rosebud: *test_rosebud
@@ -3992,6 +3991,7 @@ engines:
   - name: goo
     shortcut: goo
     engine: xpath
+    weigth: 2
     paging: true
     search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
     url_xpath: //div[@class="result"]/p[@class='title fsL1']/a/@href
