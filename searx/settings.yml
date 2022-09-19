@@ -3997,7 +3997,7 @@ engines:
     url_xpath: //div[@class="result"]/p[@class='title fsL1']/a/@href
     title_xpath: //div[@class="result"]/p[@class='title fsL1']/a
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
-    first_page_num: 1
+    first_page_num: 0
     categories: [general, web]
     disabled: false
     about:
