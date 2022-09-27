@@ -72,7 +72,6 @@ server:
     Referrer-Policy: no-referrer
 
 redis:
-  # https://redis-py.readthedocs.io/en/stable/connections.html#redis.client.Redis.from_url
   url: redis://redis:6379/0
 
 ui:
@@ -2156,6 +2155,8 @@ hostname_replace:
   '(.*\.)?bloglifer\.net': false
   'tech-blog.rakus.co.jp': false
   '(.*\.)?amg-solution\.jp': false
+  '(.*\.)?maketecheasier\.com': false
+  '(.*\.)?rayobyte\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2311,7 +2312,9 @@ categories_as_tabs:
   videos:
   news:
   it:
+  map:
   social media:
+  
 
 engines:
   - name: 9gag
@@ -2525,7 +2528,7 @@ engines:
     engine: currency_convert
     categories: general
     shortcut: cc
-    disabled: true
+    disabled: false
 
   - name: deezer
     engine: deezer
@@ -2556,7 +2559,7 @@ engines:
     engine: docker_hub
     shortcut: dh
     categories: [it, packages]
-    disabled: true
+    disabled: false
 
   - name: erowid
     engine: xpath
@@ -2602,11 +2605,17 @@ engines:
     shortcut: ddi
     timeout: 3.0
     disabled: true
+    
+  - name: duckduckgo weather
+    engine: duckduckgo_weather
+    categories: general
+    shortcut: weather
+    disabled: true
 
   - name: apple maps
     engine: apple_maps
     shortcut: apm
-    disabled: true
+    disabled: false
     timeout: 5.0
 
   - name: emojipedia
@@ -3161,7 +3170,7 @@ engines:
   - name: openstreetmap
     engine: openstreetmap
     shortcut: osm
-    disabled: true
+    disabled: false
 
   - name: openrepos
     engine: xpath
@@ -3284,7 +3293,7 @@ engines:
     engine: qwant
     shortcut: qw
     categories: [general, web]
-    disabled: false
+    disabled: true
     additional_tests:
       rosebud: *test_rosebud
 
@@ -3916,6 +3925,12 @@ engines:
       require_api_key: false
       results: HTML
       language: fr
+ 
+  - name: wttr.in
+    engine: wttr
+    categories: general
+    shortcut: wttr
+    timeout: 9.0
 
   - name: brave
     shortcut: brave
