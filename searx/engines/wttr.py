@@ -15,7 +15,11 @@ about = {
     "results": "JSON",
 }
 
+<<<<<<< HEAD
 categories = []
+=======
+categories = ["others"]
+>>>>>>> 94c4cc126b16d4cd1653c410df63af4bc0a4e998
 
 url = "https://wttr.in/{query}?format=j1&lang={lang}"
 
