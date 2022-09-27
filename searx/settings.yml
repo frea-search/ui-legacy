@@ -3929,6 +3929,7 @@ engines:
   - name: wttr.in
     engine: wttr
     categories: general
+    disabled: true
     shortcut: wttr
     timeout: 9.0
 
