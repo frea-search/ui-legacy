@@ -13,5 +13,9 @@ def post_search(request, search):
         message = "サル痘に関する情報をお求めの場合は、厚生労働省のwebサイト(https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou/kekkaku-kansenshou19/monkeypox_00001.html)をご確認ください。"
     if 'ウクライナ' in search.search_query.query:
         message = "ユニセフの緊急募金(https://www.unicef.or.jp/kinkyu/ukraine/)に参加しウクライナを支援できます。"
-    search.result_container.answers['warning'] = {'answer': message}
-    return True
+    
+    if len(message) == 0:
+        return True
+    else:
+        search.result_container.answers['warning'] = {'answer': message}
+        return True

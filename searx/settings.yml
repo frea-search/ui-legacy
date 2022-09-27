@@ -2594,13 +2594,7 @@ engines:
     
   - name: duckduckgo weather
     engine: duckduckgo_weather
-    categories: general
     shortcut: weather
-    disabled: true
-
-  - name: duckduckgo weather
-    engine: duckduckgo_weather
-    shortcut: ddw
     disabled: true
 
   - name: apple maps
@@ -3916,13 +3910,7 @@ engines:
  
   - name: wttr.in
     engine: wttr
-    categories: general
     disabled: true
-    shortcut: wttr
-    timeout: 9.0
-
-  - name: wttr.in
-    engine: wttr
     shortcut: wttr
     timeout: 9.0
 

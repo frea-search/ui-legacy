@@ -17,11 +17,7 @@ about = {
     "results": "JSON",
 }
 
-<<<<<<< HEAD
-categories = []
-=======
 categories = ["others"]
->>>>>>> 94c4cc126b16d4cd1653c410df63af4bc0a4e998
 
 url = "https://duckduckgo.com/js/spice/forecast/{query}/{lang}"
 
