@@ -3,13 +3,13 @@
 <div>
   <!--{{ icon_big('warning') }}-->
   <div>
-    <p><h3>{{ icon_big('warning') }}  INTERNAL SERVER ERROR</h3></p> <br> <p>{{ _('Engines cannot retrieve results.') }}</p>
+    <h3>{{ icon_big('warning') }}  INTERNAL SERVER ERROR</h3> <br> <p>{{ _('Engines cannot retrieve results.') }}</p>
     {% for engine_name, error_type in unresponsive_engines %}
     <p><small>{{- '' -}}
-      ↳{{- engine_name }} (
-      <!--<a href="{{ url_for('stats', engine=engine_name|e) }}">-->
-        {{- error_type -}}
-      <!--</a>--> ){{- '' -}}
+      {{ icon_small('close') }}  
+      {{- engine_name }}
+      （{{- error_type -}}）
+      {{- '' -}}
     </small></p>
     {%- endfor %}
     <p><br>{{ _('Please, try again later or find another SearXNG instance.') }}</p>
