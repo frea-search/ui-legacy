@@ -2184,6 +2184,14 @@ hostname_replace:
   '(.*\.)?akanekai\.net': false
   '(.*\.)?pandavpnpro\.com': false
   '(.*\.)?vpnmentor\.com': false
+  '(.*\.)?kirari-media\.net': false
+  '(.*\.)?a8e2385\.com': false
+  '(.*\.)?forzaxbox\.net': false
+  '(.*\.)?donblog\.net': false
+  '(.*\.)?femimatsu\.com': false
+  '(.*\.)?bibi-star\.jp': false
+  '(.*\.)?pouchs\.jp': false
+  '(.*\.)?mikobito\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2295,6 +2303,8 @@ hostname_replace:
   'store.shopping.yahoo.co.jp': false
   'www.amazon.co.jp': false
   '(.*\.)?womanslabo\.com': false
+  '(.*\.)?with2\.net': false
+  '(.*\.)?note\.com': false
 
 
   
