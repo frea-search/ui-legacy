@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-09-21 15:58+0000\n"
-"PO-Revision-Date: 2022-07-29 07:17+0000\n"
+"PO-Revision-Date: 2022-10-02 08:31+0900\n"
 "Last-Translator: tents <remendne@pentrens.jp>\n"
 "Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/>\n"
 "Language: ja\n"
@@ -831,7 +831,7 @@ msgstr "エラー"
 
 #: searx/templates/simple/results.html:46
 msgid "Engines cannot retrieve results"
-msgstr "エンジンは結果を取得できません"
+msgstr "一部のエンジンから結果を取得できませんでした。結果の精度が低下している可能性があります。"
 
 #: searx/templates/simple/results.html:68
 msgid "Suggestions"
@@ -979,11 +979,12 @@ msgstr "現在、クッキーは定義されていません。"
 
 #: searx/templates/simple/messages/no_results.html:6
 msgid "Engines cannot retrieve results."
-msgstr "エンジンは結果を取得できません。"
+msgstr "リクエストの処理に失敗しました。"
 
 #: searx/templates/simple/messages/no_results.html:15
 msgid "Please, try again later or find another SearXNG instance."
-msgstr "後でやり直すか、別の Frea Search インスタンスを試してみて下さい。"
+msgstr ""
+"サーバーに何らかの問題が発生しています。後でやり直すか、インスタンスの管理者に連絡してください。"
 
 #: searx/templates/simple/messages/no_results.html:20
 msgid "Sorry!"
@@ -1295,4 +1296,3 @@ msgstr "動画を隠す"
 
 #~ msgid "a privacy-respecting, hackable metasearch engine"
 #~ msgstr "プライバシー保護を重視した、ハッカブルなメタ検索エンジン"
-

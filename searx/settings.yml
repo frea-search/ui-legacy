@@ -2229,6 +2229,7 @@ hostname_replace:
   '(.*\.)?hakkosui\.com': false
   '(.*\.)?princess-biz\.com': false
   '(.*\.)?hosaka-n\.jp': false
+  '(.*\.)?shizen-kyosei\.jp': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
