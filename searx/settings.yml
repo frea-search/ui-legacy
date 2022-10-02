@@ -2157,6 +2157,33 @@ hostname_replace:
   '(.*\.)?amg-solution\.jp': false
   '(.*\.)?maketecheasier\.com': false
   '(.*\.)?rayobyte\.com': false
+  '(.*\.)?oreranitsuite\.com': false
+  '(.*\.)?4videosoft\.jp': false
+  '(.*\.)?isofter\.jp': false
+  '(.*\.)?anymp4\.jp': false
+  '(.*\.)?leawo\.org': false
+  'dvdfab.co.jp': false
+  '(.*\.)?cyberlink\.com': false
+  '(.*\.)?iremove\.tools': false
+  '(.*\.)?techrechard\.com': false
+  '(.*\.)?wondershare\.com': false
+  '(.*\.)?imobie\.jp': false
+  '(.*\.)?gadgetsdr\.com': false
+  '(.*\.)?imei\.org': false
+  '(.*\.)?ngbaze\.com': false
+  '(.*\.)?fwpkrynica\.pl': false
+  '(.*\.)?electronicgadgets\.shop': false
+  '(.*\.)?divadendesigns\.shop': false
+  '(.*\.)?autohelp\.fr': false
+  '(.*\.)?bhdesign\.fr': false
+  '(.*\.)?freenom\.com': false
+  '(.*\.)?freenom\.world': false
+  '(.*\.)?lancork\.net': false
+  '(.*\.)?finddelicacy\.com': false
+  '(.*\.)?anycodings\.com': false
+  '(.*\.)?akanekai\.net': false
+  '(.*\.)?pandavpnpro\.com': false
+  '(.*\.)?vpnmentor\.com': false
   
   
   # 犯罪行為を肯定する、もしくは現実世界に危害を与える根拠のない陰謀論（Qアノンや反ワクチンなど）の拡散に加担しているドメイン
@@ -2230,6 +2257,8 @@ hostname_replace:
   '(.*\.)?princess-biz\.com': false
   '(.*\.)?hosaka-n\.jp': false
   '(.*\.)?shizen-kyosei\.jp': false
+  '(.*\.)?mitasu\.me': false
+  '(.*\.)?kaneshiro-honest-clinic\.com': false
 
   
   # アンチトラッカーを使用すると閲覧できないサイト
@@ -2253,9 +2282,19 @@ hostname_replace:
   'plaza.rakuten.co.jp': false
   '(.*\.)?xn--0kqp2e1wcx92a15w\.com': false
   'twitter.com': false
+  'tiktok.com': false
+  'www.tiktok.com': false
   '(.*\.)?truthsocial\.com': false
   '(.*\.)?sns-sakura\.jp': false
   'freespeech.gaac2.com': false
+  '(.*\.)?teratail\.com': false
+  '(.*\.)?4chan\.org': false
+  'nazca.co.jp': false
+  'web2.nazca.co.jp': false
+  '(.*\.)?kaizaemon\.com': false
+  'store.shopping.yahoo.co.jp': false
+  'www.amazon.co.jp': false
+  '(.*\.)?womanslabo\.com': false
 
 
   
