@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 name = "Warning snippet"
 description = "Displays advice and warnings."
 default_on = True
