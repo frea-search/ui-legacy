@@ -182,6 +182,7 @@ enabled_plugins:
   - 'Hash plugin'
   - 'Warning snippet'
   - 'Result Cleaner'
+  - 'Intelligence Engine'
 
 # Configuration of the "Hostname replace" plugin:
 hostname_replace:
