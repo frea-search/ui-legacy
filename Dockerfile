@@ -1,12 +1,12 @@
-FROM alpine:3.16
-ENTRYPOINT ["/sbin/tini","--","/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
+FROM fedora:latest
+ENTRYPOINT ["/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
 EXPOSE 8080
 
 ARG SEARXNG_GID=977
 ARG SEARXNG_UID=977
 
-RUN addgroup -g ${SEARXNG_GID} searxng && \
-    adduser -u ${SEARXNG_UID} -D -h /usr/local/searxng -s /bin/sh -G searxng searxng
+ENV PYTHONIOENCODING utf-8
+
 ENV INSTANCE_NAME=FreaSearch \
     AUTOCOMPLETE= \
     BASE_URL= \
@@ -17,51 +17,70 @@ ENV INSTANCE_NAME=FreaSearch \
 
 WORKDIR /usr/local/searxng
 
-
 COPY requirements.txt ./requirements.txt
 
-RUN apk upgrade --no-cache \
- && apk add --no-cache -t build-dependencies \
-    build-base \
-    py3-setuptools \
-    python3-dev \
-    libffi-dev \
-    libxslt-dev \
-    libxml2-dev \
-    openssl-dev \
-    tar \
-    git \
-    bash \
- && apk add --no-cache \
+RUN dnf update -y \
+ && dnf install -y \
     ca-certificates \
-    su-exec \
     python3 \
-    py3-pip \
+    python3-pip \
     libxml2 \
     libxslt \
     openssl \
     tini \
     uwsgi \
-    uwsgi-python3 \
+    uwsgi-plugin-python3 \
     brotli \
+    boost \
+    mecab-ipadic \
+    sqlite \
+    git \
+ && dnf install -y \
+    make automake gcc gcc-c++ \
+    python3-setuptools \
+    python3-devel \
+    libffi-devel \
+    libxslt-devel \
+    libxml2-devel \
+    openssl-devel \
+    boost-devel \
+    mecab-devel \
+    sqlite-devel \
+    tar \
+    bash \
+    
+ # Install pip packages
+ && cd /usr/local/searxng \
  && pip3 install --upgrade pip wheel setuptools \
  && pip3 install --no-cache -r requirements.txt \
- && apk del build-dependencies \
- && rm -rf /root/.cache
+ && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata \
+ 
+ # clean up
+ && dnf remove -y \
+    make automake gcc gcc-c++ \
+    python3-setuptools \
+    python3-devel \
+    libffi-devel \
+    libxslt-devel \
+    libxml2-devel \
+    openssl-devel \
+    boost-devel \
+    mecab-devel \
+    sqlite-devel \
+ && dnf autoremove -y \
+ && rm -rf /root/.cache /tmp/mecab-[0-9]* /tmp/mecab-ipadic-*
 
+RUN groupadd -g ${SEARXNG_GID} searxng && \
+    adduser -u ${SEARXNG_UID} -d /usr/local/searxng -s /bin/sh -g searxng searxng
+    
 COPY --chown=searxng:searxng . .
-
 
 ARG VERSION_GITCOMMIT=unknown
 
-RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"; \
-    find /usr/local/searxng/searx/static -a \( -name '*.html' -o -name '*.css' -o -name '*.js' \
-    -o -name '*.svg' -o -name '*.ttf' -o -name '*.eot' \) \
-    -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
+RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"
 
 RUN chmod +x "/usr/local/searxng/dockerfiles/docker-entrypoint.sh"
 RUN mkdir /etc/searxng
-RUN apk add git
 
 # Keep these arguments at the end to prevent redundant layer rebuilds
 ARG LABEL_DATE=
