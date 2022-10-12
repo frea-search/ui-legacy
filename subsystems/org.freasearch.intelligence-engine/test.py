@@ -10,7 +10,7 @@ class Client:
         for idx in range(2):
             s = self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
             s.connect(self.socket_path)
-            message = "東京 天気"
+            message = "小田急"
             sys.stdout.write("send to server ({}): {}\n".format(idx, message))
             s.send(message.encode())
             data = s.recv(1024)
@@ -19,7 +19,7 @@ class Client:
 
 
 def main():
-    client = Client('/tmp/org.freasearch.intelligence-engine/weather.sock')
+    client = Client('/tmp/org.freasearch.intelligence-engine/train.sock')
     client.start()
 
 if __name__ == '__main__':

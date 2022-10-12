@@ -22,22 +22,19 @@ import sys
 import os
 import datetime
 import requests
-import json
 import ast
 import socket
-import urllib
 import dbm
-import pygeonlp.api
+import feedparser
 
 socket_dir = '/tmp/org.freasearch.intelligence-engine'
-socket_path = '/tmp/org.freasearch.intelligence-engine/weather.sock'
+socket_path = '/tmp/org.freasearch.intelligence-engine/train.sock'
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0'
 header = {
 	'User-Agent': user_agent
 }
 
-db = dbm.open('cache', 'c')
-pygeonlp.api.init()
+db = dbm.open('train_cache', 'c')
 
 
 class Server:
@@ -61,44 +58,19 @@ class Server:
         data = connection.recv(1024)
         sys.stdout.write("receive from client: {}\n".format(data.decode()))
         
-        get_location = pygeonlp.api.geoparse(format(data.decode()))
+        query = format(data.decode())
 
-        try:
-            get_location[0]['geometry']['coordinates']
-        except:
-            connection.send(b'NO_DATA')
-            return
-        
-        lon = get_location[0]['geometry']['coordinates'][0]
-        lat = get_location[0]['geometry']['coordinates'][1]
-        cache_key = str(lat) + '_' +  str(lon)
-        
-        get_date = datetime.datetime.now()
-        now_date = get_date.strftime('%Y%m%d%H')
+        feed_data = feedparser.parse('http://api.tetsudo.com/traffic/atom.xml')
 
-        # check cache
-        try: 
-            cache_date = db[cache_key + '.date'].decode('utf-8')
-        except:
-            cache_date = 'unavailable'
+        for entry in feed_data.entries:
+            train_name = entry.title
+            info_url = entry.link
 
-        if cache_date == now_date:
-            # use cache
-            sys.stdout.write('Use cache!  data:' + str(now_date) + ' cache_date:' + str(cache_date) +'\n')
-            cache_content = db[cache_key + '.content'].decode('utf-8')
-            weather_json = ast.literal_eval(cache_content)
-        else:
-            # get weather data from met norway
-            met_api_request_url = "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=" + str(lat) + "&lon=" + str(lon)
-            met_api_response = requests.get (met_api_request_url,  headers=header)
-            weather_json = met_api_response.json()
-
-            # make cache
-            sys.stdout.write('Save cache!\n')
-            db[cache_key + '.content'] = str(weather_json)
-            db[cache_key + '.date'] = str(now_date)
-
-        result = str(weather_json['properties']['timeseries'][0]['data'])
+            if query in entry.title:
+                result = "true"
+                break
+            else:
+                result = "false"
 
         connection.send(result.encode())
         return
