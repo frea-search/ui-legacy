@@ -1,5 +1,5 @@
 FROM fedora:latest
-ENTRYPOINT ["/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/libexec/init-server.sh"]
 EXPOSE 8080
 
 ARG SEARXNG_GID=977
@@ -79,7 +79,8 @@ ARG VERSION_GITCOMMIT=unknown
 
 RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"
 
-RUN chmod +x "/usr/local/searxng/dockerfiles/docker-entrypoint.sh"
+RUN mv "/usr/local/searxng/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
+RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng
 
 # Keep these arguments at the end to prevent redundant layer rebuilds
