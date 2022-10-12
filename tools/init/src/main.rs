@@ -33,12 +33,14 @@ fn start_server(cmd: &str, arg: &str, restart_limit: i32) {
     
 }
 
-fn main() {
-
+fn start_subsystem_py(path: &str) {
+    println!("[INFO] Starting subsystem \"{}\"...", path);
     thread::spawn(|| {
-        start_server("ls", "./", 5);
+        start_server("python3", path, 5);
     });
+}
 
-    println!("Starting main server...");
+fn main() {
+    println!("[INFO] Starting main server...");
     start_server("sleep", "15", 3);
 }
