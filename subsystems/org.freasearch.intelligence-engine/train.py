@@ -67,10 +67,10 @@ class Server:
             info_url = entry.link
 
             if query in entry.title:
-                result = "true"
+                result = entry.link
                 break
             else:
-                result = "false"
+                result = "NO_DATA"
 
         connection.send(result.encode())
         return
