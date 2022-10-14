@@ -172,8 +172,6 @@ outgoing:
 #   - ...
 
 # Comment or un-comment plugin to activate / deactivate by default.
-#
-<<<<<<< HEAD
 enabled_plugins:
   - 'Tracker URL remover'
   - 'Open Access DOI rewrite'
@@ -184,20 +182,6 @@ enabled_plugins:
   - 'Warning snippet'
   - 'Result Cleaner'
   - 'Intelligence Engine'
-=======
-# enabled_plugins:
-#   # these plugins are enabled if nothing is configured ..
-#   - 'Hash plugin'
-#   - 'Search on category select'
-#   - 'Self Information'
-#   - 'Tracker URL remover'
-#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
-#   # these plugins are disabled if nothing is configured ..
-#   - 'Hostname replace'  # see hostname_replace configuration below
-#   - 'Open Access DOI rewrite'
-#   - 'Vim-like hotkeys'
-#   - 'Tor check plugin'
->>>>>>> 72f6367e2323b2c57b2bb479dbadccd5b690a986
 
 # Configuration of the "Hostname replace" plugin:
 hostname_replace:
