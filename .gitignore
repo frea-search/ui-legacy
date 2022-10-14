@@ -21,6 +21,7 @@ gh-pages/
 /node_modules/
 
 docs/dev/
+docs/admin/
 utils/*.sh
 utils/lxc-searxng.env
 utils/makefile*

@@ -47,7 +47,7 @@ search:
 
 server:
   # If you change port, bind_address or base_url don't forget to rebuild
-  # instance's enviroment (make buildenv)
+  # instance's environment (make buildenv)
   port: 8888
   bind_address: "127.0.0.1"
   base_url: false  # Possible values: false or "https://example.org/location".
@@ -129,7 +129,7 @@ outgoing:
   request_timeout: 3.0
   # the maximum timeout in seconds
   # max_request_timeout: 10.0
-  # suffix of searx_useragent, could contain informations like an email address
+  # suffix of searx_useragent, could contain information like an email address
   # to the administrator
   useragent_suffix: ""
   # The maximum number of concurrent connections that may be established.
@@ -173,6 +173,7 @@ outgoing:
 
 # Comment or un-comment plugin to activate / deactivate by default.
 #
+<<<<<<< HEAD
 enabled_plugins:
   - 'Tracker URL remover'
   - 'Open Access DOI rewrite'
@@ -183,6 +184,20 @@ enabled_plugins:
   - 'Warning snippet'
   - 'Result Cleaner'
   - 'Intelligence Engine'
+=======
+# enabled_plugins:
+#   # these plugins are enabled if nothing is configured ..
+#   - 'Hash plugin'
+#   - 'Search on category select'
+#   - 'Self Information'
+#   - 'Tracker URL remover'
+#   - 'Ahmia blacklist'  # activation depends on outgoing.using_tor_proxy
+#   # these plugins are disabled if nothing is configured ..
+#   - 'Hostname replace'  # see hostname_replace configuration below
+#   - 'Open Access DOI rewrite'
+#   - 'Vim-like hotkeys'
+#   - 'Tor check plugin'
+>>>>>>> 72f6367e2323b2c57b2bb479dbadccd5b690a986
 
 # Configuration of the "Hostname replace" plugin:
 hostname_replace:
@@ -4180,10 +4195,7 @@ doi_resolvers:
   doi.org: 'https://doi.org/'
   doai.io: 'https://dissem.in/'
   sci-hub.se: 'https://sci-hub.se/'
-  sci-hub.do: 'https://sci-hub.do/'
-  scihubtw.tw: 'https://scihubtw.tw/'
   sci-hub.st: 'https://sci-hub.st/'
-  sci-hub.bar: 'https://sci-hub.bar/'
-  sci-hub.it.nf: 'https://sci-hub.it.nf/'
+  sci-hub.ru: 'https://sci-hub.ru/'
 
 default_doi_resolver: 'oadoi.org'
