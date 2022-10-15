@@ -1,9 +1,8 @@
 FROM fedora:latest
 ENTRYPOINT ["/usr/libexec/init-server.sh"]
-EXPOSE 8080
 
-ARG SEARXNG_GID=977
-ARG SEARXNG_UID=977
+ARG SEARXNG_GID=1000
+ARG SEARXNG_UID=1000
 
 ENV PYTHONIOENCODING utf-8
 
@@ -15,7 +14,7 @@ ENV INSTANCE_NAME=FreaSearch \
     SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
     UWSGI_SETTINGS_PATH=/etc/searxng/uwsgi.ini
 
-WORKDIR /usr/local/searxng
+WORKDIR /var/frea
 
 COPY requirements.txt ./requirements.txt
 
@@ -50,7 +49,7 @@ RUN dnf update -y \
     bash \
     
  # Install pip packages
- && cd /usr/local/searxng \
+ && cd /var/frea \
  && pip3 install --upgrade pip wheel setuptools \
  && pip3 install --no-cache -r requirements.txt \
  && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata \
@@ -70,22 +69,15 @@ RUN dnf update -y \
  && dnf autoremove -y \
  && rm -rf /root/.cache /tmp/mecab-[0-9]* /tmp/mecab-ipadic-*
 
-RUN groupadd -g ${SEARXNG_GID} searxng && \
-    adduser -u ${SEARXNG_UID} -d /usr/local/searxng -s /bin/sh -g searxng searxng
+RUN groupadd -g ${SEARXNG_GID} frea && \
+    adduser -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
     
-COPY --chown=searxng:searxng . .
+COPY --chown=frea:frea . .
 
 ARG VERSION_GITCOMMIT=unknown
 
-RUN su searxng -c "/usr/bin/python3 -m compileall -q searx"
+RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
 
-RUN mv "/usr/local/searxng/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
+RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng
-
-# Keep these arguments at the end to prevent redundant layer rebuilds
-ARG LABEL_DATE=
-ARG GIT_URL=unknown
-ARG SEARXNG_GIT_VERSION=unknown
-ARG LABEL_VCS_REF=
-ARG LABEL_VCS_URL=
