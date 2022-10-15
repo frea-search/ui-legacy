@@ -3484,7 +3484,7 @@ engines:
     engine: startpage
     shortcut: sp
     timeout: 3.0
-    disabled: false
+    disabled: true
     additional_tests:
       rosebud: *test_rosebud
 
