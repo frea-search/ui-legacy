@@ -4,8 +4,8 @@ services:
 
   redis:
     container_name: redis
-    image: "redis:alpine"
-    command: redis-server --save "" --appendonly "no"
+    image: "clearlinux/redis:latest"
+    command: redis-server --save "" --appendonly "no" --protected-mode no
     networks:
       - frea
     tmpfs:

@@ -13,4 +13,6 @@ def post_search(request, search):
         return True
     if '天気' in search.search_query.query:
         #ToDo
+        pass
+        
     return True
