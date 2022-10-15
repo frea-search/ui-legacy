@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM clearlinux:base
 ENTRYPOINT ["/usr/libexec/init-server.sh"]
 
 ARG SEARXNG_GID=1000
@@ -18,61 +18,31 @@ WORKDIR /var/frea
 
 COPY requirements.txt ./requirements.txt
 
-RUN dnf update -y \
- && dnf install -y \
-    ca-certificates \
-    python3 \
-    python3-pip \
-    libxml2 \
-    libxslt \
-    openssl \
-    tini \
-    uwsgi \
-    uwsgi-plugin-python3 \
-    brotli \
-    boost \
-    mecab-ipadic \
-    sqlite \
-    git \
- && dnf install -y \
-    make automake gcc gcc-c++ \
-    python3-setuptools \
-    python3-devel \
-    libffi-devel \
-    libxslt-devel \
-    libxml2-devel \
-    openssl-devel \
-    boost-devel \
-    mecab-devel \
-    sqlite-devel \
-    tar \
-    bash \
-    
- # Install pip packages
- && cd /var/frea \
+# install packages
+RUN swupd bundle-add uwsgi python3-basic openssl runtime-libs-boost git sqlite \
+ && swupd bundle-add make devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-boost devpkg-openssl devpkg-sqlite-autoconf  python-basic-dev c-basic dnf 
+ 
+# install rpm packages
+COPY ./prebuilts/* /tmp/
+RUN rpm -U --nodeps /tmp/*.rpm \
+ && rm -r /tmp/*.rpm
+ 
+# Install pip packages
+RUN cd /var/frea \
  && pip3 install --upgrade pip wheel setuptools \
  && pip3 install --no-cache -r requirements.txt \
- && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata \
+ && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata
  
- # clean up
- && dnf remove -y \
-    make automake gcc gcc-c++ \
-    python3-setuptools \
-    python3-devel \
-    libffi-devel \
-    libxslt-devel \
-    libxml2-devel \
-    openssl-devel \
-    boost-devel \
-    mecab-devel \
-    sqlite-devel \
- && dnf autoremove -y \
- && rm -rf /root/.cache /tmp/mecab-[0-9]* /tmp/mecab-ipadic-*
+# clean up
+RUN rpm -e mecab-devel \
+ && swupd bundle-remove -R devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-boost devpkg-openssl devpkg-sqlite-autoconf  python-basic-dev dnf \
+ && rm -rf /root/.cache
 
 RUN groupadd -g ${SEARXNG_GID} frea && \
-    adduser -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
+    useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
     
 COPY --chown=frea:frea . .
+RUN rm -r ./prebuilts
 
 ARG VERSION_GITCOMMIT=unknown
 
