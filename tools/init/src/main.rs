@@ -33,14 +33,22 @@ fn start_server(cmd: &str, arg: &str, restart_limit: i32) {
     
 }
 
-fn start_subsystem_py(path: &str) {
-    println!("[INFO] Starting subsystem \"{}\"...", path);
-    thread::spawn(|| {
-        start_server("python3", path, 5);
-    });
-}
-
 fn main() {
+    println!("[INFO] Starting subsystem org.freasearch.intelligence-engine/weather...");
+    thread::spawn(|| {
+        start_server("python3", "/var/frea/subsystems/org.freasearch.intelligence-engine/weather.py", 5);
+    });
+
+    println!("[INFO] Starting subsystem org.freasearch.intelligence-engine/train...");
+    thread::spawn(|| {
+        start_server("python3", "/var/frea/subsystems/org.freasearch.intelligence-engine/train.py", 5);
+    });
+
+    println!("[INFO] Starting subsystem init_db...");
+    thread::spawn(|| {
+        start_server("python3", "/var/frea/subsystems/org.freasearch.innocence-force/init_db.py", 5);
+    });
+
     println!("[INFO] Starting main server...");
-    start_server("sleep", "15", 3);
+    start_server("/usr/libexec/init-server.sh", "15", 3);
 }
