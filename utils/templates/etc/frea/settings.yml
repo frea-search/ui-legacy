@@ -18,9 +18,6 @@ search:
   formats:
     - html
     - json
-
-server:
-  secret_key: "ultrasecretkey"  # change this!
   
   # Proxying image results through SearXNG
   image_proxy: false
