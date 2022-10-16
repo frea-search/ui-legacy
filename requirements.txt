@@ -19,3 +19,4 @@ typing_extensions==4.3.0
 pygeonlp
 feedparser
 numba
+psycopg2

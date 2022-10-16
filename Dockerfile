@@ -1,5 +1,5 @@
 FROM clearlinux:base
-ENTRYPOINT ["/usr/libexec/init-server.sh"]
+ENTRYPOINT ["/usr/libexec/init"]
 
 ARG SEARXNG_GID=1000
 ARG SEARXNG_UID=1000
@@ -15,7 +15,7 @@ COPY requirements.txt ./requirements.txt
 
 # install packages
 RUN swupd bundle-add uwsgi python3-basic openssl runtime-libs-boost git sqlite \
- && swupd bundle-add make devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-boost devpkg-openssl devpkg-sqlite-autoconf  python-basic-dev c-basic dnf 
+ && swupd bundle-add make devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-boost devpkg-openssl devpkg-sqlite-autoconf devpkg-postgresql python-basic-dev c-basic rust-basic dnf 
  
 # install rpm packages
 COPY ./prebuilts/* /tmp/
@@ -27,11 +27,6 @@ RUN cd /var/frea \
  && pip3 install --upgrade pip wheel setuptools \
  && pip3 install --no-cache -r requirements.txt \
  && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata
- 
-# clean up
-RUN rpm -e mecab-devel \
- && swupd bundle-remove -R devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-boost devpkg-openssl devpkg-sqlite-autoconf  python-basic-dev dnf \
- && rm -rf /root/.cache
 
 RUN groupadd -g ${SEARXNG_GID} frea && \
     useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
@@ -42,6 +37,21 @@ RUN rm -r ./prebuilts
 ARG VERSION_GITCOMMIT=unknown
 
 RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
+
+RUN cd ./subsystems/org.freasearch.innocence-force/chk_db \
+ && cargo build --release \
+ && cd /var/frea \
+ && mv ./subsystems/org.freasearch.innocence-force/chk_db/target/release/chk_db ./subsystems/org.freasearch.innocence-force/bin/
+ 
+RUN cd ./tools/init \
+ && cargo build --release \
+ && cd /var/frea \
+ && mv ./tools/init/target/release/init /usr/libexec/init
+
+# clean up
+RUN rpm -e mecab-devel \
+ && swupd bundle-remove -R devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-sqlite-autoconf  python-basic-dev rust-basic dnf \
+ && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools/init
 
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
