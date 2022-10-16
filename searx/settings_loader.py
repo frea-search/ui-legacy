@@ -38,7 +38,7 @@ def get_user_settings_path() -> Optional[str]:
     """Get an user settings file.
     By descending priority:
     1. ``environ['SEARXNG_SETTINGS_PATH']``
-    2. ``/etc/searxng/settings.yml`` except if ``SEARXNG_DISABLE_ETC_SETTINGS`` is ``true`` or ``1``
+    2. ``/etc/frea/settings.yml`` except if ``SEARXNG_DISABLE_ETC_SETTINGS`` is ``true`` or ``1``
     3. ``None``
     """
 
@@ -51,9 +51,9 @@ def get_user_settings_path() -> Optional[str]:
     if environ.get('SEARXNG_DISABLE_ETC_SETTINGS', '').lower() in ('1', 'true'):
         return None
 
-    # check /etc/searxng/settings.yml
+    # check /etc/frea/settings.yml
     # (continue with other locations if the file is not found)
-    return existing_filename_or_none('/etc/searxng/settings.yml')
+    return existing_filename_or_none('/etc/frea/settings.yml')
 
 
 def update_dict(default_dict, user_dict):

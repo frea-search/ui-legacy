@@ -139,17 +139,17 @@ def apply_schema(settings, schema, path_list):
 SCHEMA = {
     'general': {
         'debug': SettingsValue(bool, False, 'SEARXNG_DEBUG'),
-        'instance_name': SettingsValue(str, 'SearXNG'),
+        'instance_name': SettingsValue(str, 'Frea Search'),
         'privacypolicy_url': SettingsValue((None, False, str), None),
         'contact_url': SettingsValue((None, False, str), None),
-        'donation_url': SettingsValue((bool, str), "https://docs.searxng.org/donate.html"),
+        'donation_url': SettingsValue((bool, str), "https://donate.freasearch.org"),
         'enable_metrics': SettingsValue(bool, True),
     },
     'brand': {
-        'issue_url': SettingsValue(str, 'https://github.com/searxng/searxng/issues'),
-        'new_issue_url': SettingsValue(str, 'https://github.com/searxng/searxng/issues/new'),
-        'docs_url': SettingsValue(str, 'https://docs.searxng.org'),
-        'public_instances': SettingsValue((False, str), 'https://searx.space'),
+        'issue_url': SettingsValue(str, 'https://git.sda1.net/frea/search/issues'),
+        'new_issue_url': SettingsValue(str, 'https://git.sda1.net/frea/search/issues'),
+        'docs_url': SettingsValue(str, 'https://git.sda1.net/frea/search#frea-search'),
+        'public_instances': SettingsValue((False, str), 'https://freasearch.org/'),
         'wiki_url': SettingsValue(str, 'https://github.com/searxng/searxng/wiki'),
     },
     'search': {
@@ -170,11 +170,11 @@ SCHEMA = {
         'base_url': SettingsValue((False, str), False, 'SEARXNG_BASE_URL'),
         'image_proxy': SettingsValue(bool, False),
         'http_protocol_version': SettingsValue(('1.0', '1.1'), '1.0'),
-        'method': SettingsValue(('POST', 'GET'), 'POST'),
+        'method': SettingsValue(('POST', 'GET'), 'GET'),
         'default_http_headers': SettingsValue(dict, {}),
     },
     'redis': {
-        'url': SettingsValue(str, 'unix:///usr/local/searxng-redis/run/redis.sock?db=0'),
+        'url': SettingsValue(str, 'redis://redis:6379/0'),
     },
     'ui': {
         'static_path': SettingsDirectoryValue(str, os.path.join(searx_dir, 'static')),
