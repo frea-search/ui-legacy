@@ -16,8 +16,9 @@ def post_search(request, search):
     if 'ウクライナ' in search.search_query.query:
         message = "ユニセフの緊急募金(https://www.unicef.or.jp/kinkyu/ukraine/)に参加しウクライナを支援できます。"
     
-    if len(message) == 0:
-        return True
-    else:
+    if 'message' in locals():
         search.result_container.answers['warning'] = {'answer': message}
-        return True
+    
+    return True
+        
+        

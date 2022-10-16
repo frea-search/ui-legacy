@@ -1,6 +1,8 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 name = "Result Cleaner"
 description = "Clean results."
-default_on = True
+default_on = False
 
 def is_included_in_list(title, words_list):
     for detect_word in words_list:
@@ -9,7 +11,6 @@ def is_included_in_list(title, words_list):
         return False
 
 def on_result(request, search, result):
-
     result_title=result['title']
 
     detect_words_1=['コロナ', 'ワクチン', 'マスク']
@@ -21,10 +22,8 @@ def on_result(request, search, result):
             return False
         else:
             return True
-
     elif is_included_in_list(result_title, block_words):
         return False
-
     else:
         return True
 
