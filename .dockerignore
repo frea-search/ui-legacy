@@ -42,3 +42,6 @@ dist/
 local/
 gh-pages/
 *.egg-info/
+
+dev_servers/
+db_data
