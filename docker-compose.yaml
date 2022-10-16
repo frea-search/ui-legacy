@@ -1,13 +1,34 @@
 version: '3.7'
 
 services:
+  db:
+    container_name: db
+    image: postgres:alpine
+    restart: always
+    networks:
+      - frea_db
+    environment:
+      POSTGRES_DB: freasearch
+      POSTGRES_USER: freasearch
+      POSTGRES_PASSWORD: freasearch
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_READ_SEARCH
+      - FOWNER
+      - SETGID
+      - SETUID
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
 
   redis:
     container_name: redis
-    image: "clearlinux/redis:latest"
+    image: redis:alpine
+    restart: always
     command: redis-server --save "" --appendonly "no" --protected-mode no
     networks:
-      - frea
+      - frea_db
     tmpfs:
       - /var/lib/redis
     cap_drop:
@@ -16,16 +37,19 @@ services:
       - SETGID
       - SETUID
       - DAC_OVERRIDE
-    logging:
-      driver: journald
-      options:
-        tag: "{{.Name}}"
 
   frea:
     container_name: frea
     image: nexryai/frea:latest
+    restart: always
     networks:
-      - frea
+      - external_network
+      - frea_db
+    environment:
+      POSTGRESQL_HOST: db
+      POSTGRESQL_USER: freasearch
+      POSTGRESQL_PASSWORD: freasearch
+      COUNT_USERS: "true"
     ports:
      - "127.0.0.1:8888:8888"
     cap_drop:
@@ -35,13 +59,8 @@ services:
       - SETGID
       - SETUID
       - DAC_OVERRIDE
-    logging:
-      driver: journald
-      options:
-        tag: "{{.Name}}"
         
-      
 networks:
-  frea:
-    ipam:
-      driver: default
+  frea_db:
+    internal: true
+  external_network:

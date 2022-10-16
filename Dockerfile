@@ -4,15 +4,10 @@ ENTRYPOINT ["/usr/libexec/init-server.sh"]
 ARG SEARXNG_GID=1000
 ARG SEARXNG_UID=1000
 
-ENV PYTHONIOENCODING utf-8
-
-ENV INSTANCE_NAME=FreaSearch \
-    AUTOCOMPLETE= \
-    BASE_URL= \
-    MORTY_KEY= \
-    MORTY_URL= \
-    SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
-    UWSGI_SETTINGS_PATH=/etc/searxng/uwsgi.ini
+ENV POSTGRESQL_HOST=db \
+    POSTGRESQL_USER=freasearch \
+    POSTGRESQL_PASSWORD=freasearch \
+    COUNT_USERS=true
 
 WORKDIR /var/frea
 
