@@ -1,13 +1,13 @@
 import sys
+import os
 import yaml
 import psycopg2
 
+db_host = os.environ['POSTGRESQL_HOST']
+db_user = os.environ['POSTGRESQL_USER']
+db_password = os.environ['POSTGRESQL_PASSWORD']
 
-conn = psycopg2.connect(database="freasearch",
-                                                      host="db",
-                                                      user="freasearch",
-                                                      password="freasearch",
-                                                      port="5432")
+conn = psycopg2.connect(database="freasearch", host=db_host, user=db_user, password=db_password, port="5432")
 
 cur = conn.cursor() 
 
