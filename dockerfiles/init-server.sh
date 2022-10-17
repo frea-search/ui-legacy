@@ -9,7 +9,7 @@ if [ -e /etc/searxng/settings.yml ]; then
 fi
 
 if [ ! -e /etc/frea/settings.yml ]; then
-  cp /var/frea/utils/templates/etc/frea/settings.yml /etc/frea/settings.yml
+  mv /var/frea/utils/templates/etc/frea/settings.yml /etc/frea/settings.yml
 fi
 
 if grep -q ultrasecretkey /var/frea/searx/settings.yml; then

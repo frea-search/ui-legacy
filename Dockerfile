@@ -25,8 +25,7 @@ RUN rpm -U --nodeps /tmp/*.rpm \
 # Install pip packages
 RUN cd /var/frea \
  && pip3 install --upgrade pip wheel setuptools \
- && pip3 install --no-cache -r requirements.txt \
- && python3 -m pygeonlp.api setup /usr/pygeonlp_basedata
+ && pip3 install --no-cache -r requirements.txt
 
 RUN groupadd -g ${SEARXNG_GID} frea && \
     useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
@@ -36,8 +35,10 @@ RUN rm -r ./prebuilts
 
 ARG VERSION_GITCOMMIT=unknown
 
-RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
- 
+RUN su frea -c "/usr/bin/python3 -m compileall -q searx" && \
+    stat --format="%a %U %G %n" /var/frea/* && \
+    su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
+
 RUN cd ./tools/init \
  && cargo build --release \
  && cd /var/frea \

@@ -36,7 +36,7 @@ header = {
 	'User-Agent': user_agent
 }
 
-db = dbm.open('weather_cache', 'c')
+db = dbm.open('/tmp/weather_cache', 'c')
 pygeonlp.api.init()
 
 

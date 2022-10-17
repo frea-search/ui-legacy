@@ -7,15 +7,13 @@ class Client:
         self.socket_path = socket_path
 
     def start(self):
-        for idx in range(2):
-            s = self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-            s.connect(self.socket_path)
-            message = "小田急"
-            sys.stdout.write("send to server ({}): {}\n".format(idx, message))
-            s.send(message.encode())
-            data = s.recv(1024)
-            sys.stdout.write("receive from server: {}\n".format(data.decode()))
-            s.close()
+        s = self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        s.connect(self.socket_path)
+        message = "小田急"
+        s.send(message.encode())
+        data = s.recv(1024)
+        sys.stdout.write("receive from server: {}\n".format(data.decode()))
+        s.close()
 
 
 def main():

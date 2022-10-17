@@ -36,7 +36,7 @@ fn start_server(cmd: &str, arg: &str, restart_limit: i32) {
 fn main() {
     println!("[INFO] Starting subsystem org.freasearch.intelligence-engine/weather...");
     thread::spawn(|| {
-        start_server("python3", "/var/frea/subsystems/org.freasearch.intelligence-engine/weather.py", 5);
+        start_server("bash", " /var/frea/subsystems/org.freasearch.intelligence-engine/init/weather.sh", 5);
     });
 
     println!("[INFO] Starting subsystem org.freasearch.intelligence-engine/train...");
