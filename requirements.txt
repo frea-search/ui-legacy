@@ -20,3 +20,4 @@ pygeonlp
 feedparser
 numba
 psycopg2
+aiohttp
