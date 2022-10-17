@@ -37,11 +37,6 @@ RUN rm -r ./prebuilts
 ARG VERSION_GITCOMMIT=unknown
 
 RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
-
-RUN cd ./subsystems/org.freasearch.innocence-force/chk_db \
- && cargo build --release \
- && cd /var/frea \
- && mv ./subsystems/org.freasearch.innocence-force/chk_db/target/release/chk_db ./subsystems/org.freasearch.innocence-force/bin/
  
 RUN cd ./tools/init \
  && cargo build --release \
