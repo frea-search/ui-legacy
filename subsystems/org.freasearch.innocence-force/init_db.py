@@ -3,13 +3,6 @@ import os
 import yaml
 import psycopg2
 
-db_host = os.environ['POSTGRESQL_HOST']
-db_user = os.environ['POSTGRESQL_USER']
-db_password = os.environ['POSTGRESQL_PASSWORD']
-
-conn = psycopg2.connect(database="freasearch", host=db_host, user=db_user, password=db_password, port="5432")
-
-cur = conn.cursor() 
 
 def msg_info(message):
     sys.stdout.write("\033[32m[INFO]\033[0m " + str(message) + "\n")
@@ -23,11 +16,24 @@ def fetal_error(message):
     msg_error("=================================")
     sys.exit (1)
 
+
+try:
+    db_host = os.environ['POSTGRESQL_HOST'] 
+    db_user = os.environ['POSTGRESQL_USER']
+    db_password = os.environ['POSTGRESQL_PASSWORD']
+except KeyError as e:
+    fetal_error("Environment variable " + str(e) + " is undefined")
+except Exception as e:
+    fetal_error(e)
+
+conn = psycopg2.connect(database="freasearch", host=db_host, user=db_user, password=db_password, port="5432")
+cur = conn.cursor() 
+
+
 def db_error(message):
     cur.execute("ROLLBACK")
     msg_error ("[ERROR] DB error occurred!")
     fetal_error(message)
-
 
 def detect_sql_injection(query):
     if "'" in query:
