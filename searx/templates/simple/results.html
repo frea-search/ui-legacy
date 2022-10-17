@@ -28,19 +28,19 @@
               {% if answer.url %}
                 <a href="{{ answer.url }}">{{ answer.answer }}</a>
               {% elif  answer.weather%}
-               <div style="float: left;"><img  width="auto" height="100px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon }}.svg"></div>
+               <div style="float: left;"><img  width="auto" height="90px" src="/static/themes/simple/img/weathericon/{{ answer.weather_icon }}.svg"></div>
                <div style="float: left;padding-left: 10px;"><h2><br>{{ answer.weather_temp}}℃</h2></div>
                <div style="float: right;">
                 <table>
                   <tr>
                     <th><p>明日</p></th>
-                    <th><img  width="auto" height="40px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon_2d }}.svg"></th>
-                    <th><h4>{{ answer.weather_temp_2d}}℃</h4></th>
+                    <th><img  width="auto" height="40px" src="/static/themes/simple/img/weathericon/{{ answer.weather_icon_2d }}.svg"></th>
+                    <th><p>{{ answer.weather_temp_2d}}℃</p></th>
                   </tr>
                   <tr>
                     <th><p>明後日</p></th>
-                    <th><img  width="auto" height="40px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon_3d }}.svg"></th>
-                    <th><h4>{{ answer.weather_temp_3d}}℃</h4></th>
+                    <th><img  width="auto" height="40px" src="/static/themes/simple/img/weathericon/{{ answer.weather_icon_3d }}.svg"></th>
+                    <th><p>{{ answer.weather_temp_3d}}℃</p></th>
                   </tr>
                 </table>
               </div>
