@@ -2,7 +2,8 @@
 
 import sys
 import socket
-import json
+import ast
+import chardet
 
 name = "Intelligence Engine"
 description = "Displays useful informations."
@@ -26,15 +27,16 @@ def post_search(request, search):
     if search.search_query.pageno > 1:
         return True
     if '天気' in search.search_query.query:
-        client = Client('/tmp/org.freasearch.intelligence-engine/weather.sock')
+        client = Client('/var/frea/tmp/org.freasearch.intelligence-engine/weather.sock')
         api_result = client.request(search.search_query.query)
-        result = json.load(api_result)
-        message="現在の天気: " + api_result['next_1_hours']['summary']['symbol_code']
+        result = ast.literal_eval(api_result)
+        #print(chardet.detect(result))
+        message="現在の天気: " + result['next_1_hours']['summary']['symbol_code']
 
-        search.result_container.answers['weather'] = {'answer': result}
+        search.result_container.answers['weather'] = {'answer': message}
         
     return True
 
 if __name__ == '__main__':
-    client = Client('/tmp/org.freasearch.intelligence-engine/weather.sock')
+    client = Client('/var/frea/tmp/org.freasearch.intelligence-engine/weather.sock')
     print(client.request('東京　天気'))

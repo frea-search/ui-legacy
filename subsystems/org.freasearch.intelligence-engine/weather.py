@@ -29,15 +29,19 @@ import urllib
 import dbm
 import pygeonlp.api
 
-socket_dir = '/tmp/org.freasearch.intelligence-engine'
-socket_path = '/tmp/org.freasearch.intelligence-engine/weather.sock'
+socket_dir = '/var/frea/tmp/org.freasearch.intelligence-engine'
+socket_path = '/var/frea/tmp/org.freasearch.intelligence-engine/weather.sock'
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0'
 header = {
 	'User-Agent': user_agent
 }
 
-db = dbm.open('/tmp/weather_cache', 'c')
 pygeonlp.api.init()
+
+if not os.path.exists(socket_dir):
+    os.makedirs(socket_dir)
+
+db = dbm.open('/var/frea/tmp/weather_cache', 'c')
 
 
 class Server:
@@ -105,9 +109,6 @@ class Server:
 
 
 def main():
-    if not os.path.exists(socket_dir):
-        os.makedirs(socket_dir)
-    
     server = Server(socket_path)
     server.start()
 

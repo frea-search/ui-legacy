@@ -87,7 +87,5 @@ def close_db():
 init_db()
 load_blocklist("main")
 
-load_all_records()
-
 close_db()
 sys.exit(0)

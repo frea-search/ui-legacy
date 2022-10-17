@@ -36,7 +36,7 @@ RUN rm -r ./prebuilts
 ARG VERSION_GITCOMMIT=unknown
 
 RUN su frea -c "/usr/bin/python3 -m compileall -q searx" && \
-    stat --format="%a %U %G %n" /var/frea/* && \
+    chown -R frea:frea /var/frea && \
     su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
 
 RUN cd ./tools/init \
