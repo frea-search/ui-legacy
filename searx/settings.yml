@@ -3086,7 +3086,9 @@ engines:
 
   - name: neeva
     engine: xpath
+    send_accept_language_header: true
     shortcut: nv
+    weigth: 3
     time_range_support: true
     time_range_url: '&alf%5Bfreshness%5D={time_range_val}'
     time_range_map:
@@ -4043,7 +4045,7 @@ engines:
   - name: goo
     shortcut: goo
     engine: xpath
-    weigth: 2
+    weigth: 3
     paging: true
     search_url: https://search.goo.ne.jp/web.jsp?MT={query}&FR={pageno}0
     url_xpath: //div[@class="result"]/p[@class='title fsL1']/a/@href
@@ -4051,13 +4053,14 @@ engines:
     content_xpath: //p[contains(@class,'url fsM')]/following-sibling::p
     first_page_num: 0
     categories: [general, web]
-    timeout: 5.0
+    timeout: 4.0
     disabled: false
     about:
       website: https://search.goo.ne.jp
       use_official_api: false
       require_api_key: false
       results: HTML
+      language: ja
 
   - name: lib.rs
     shortcut: lrs
