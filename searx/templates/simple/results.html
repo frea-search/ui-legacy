@@ -21,17 +21,35 @@
 <div id="results" class="{{ only_template }}">
     {% if answers -%}
     {%- from 'simple/icons.html' import icon_big -%}
-    <div id="answers" role="complementary" aria-labelledby="answers-title"><h4 class="title" id="answers-title">{{ icon_big('information-circle-outline') }} INFORMATION</h4>
-        {%- for answer in answers.values() -%}
+    {%- for answer in answers.values() -%}
+    <div id="answers" role="complementary" aria-labelledby="answers-title"> 
+     {% if answer.hide_icon != 'true' %}<h4 class="title" id="answers-title">{{ icon_big('information-circle-outline') }} INFORMATION</h4>{% endif %}
         <div class="answer">
               {% if answer.url %}
                 <a href="{{ answer.url }}">{{ answer.answer }}</a>
+              {% elif  answer.weather%}
+               <div style="float: left;"><img  width="auto" height="100px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon }}.svg"></div>
+               <div style="float: left;padding-left: 10px;"><h2><br>{{ answer.weather_temp}}℃</h2></div>
+               <div style="float: right;">
+                <table>
+                  <tr>
+                    <th><p>明日</p></th>
+                    <th><img  width="auto" height="40px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon_2d }}.svg"></th>
+                    <th><h4>{{ answer.weather_temp_2d}}℃</h4></th>
+                  </tr>
+                  <tr>
+                    <th><p>明後日</p></th>
+                    <th><img  width="auto" height="40px" src="https://api.met.no/images/weathericons/svg/{{ answer.weather_icon_3d }}.svg"></th>
+                    <th><h4>{{ answer.weather_temp_3d}}℃</h4></th>
+                  </tr>
+                </table>
+              </div>
               {% else %}
                 <span>{{ answer.answer }}</span>
               {% endif %}
         </div>
-        {%- endfor -%}
     </div>
+    {%- endfor -%}
     {%- endif %}
 
     <div id="sidebar">

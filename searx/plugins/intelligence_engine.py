@@ -33,7 +33,15 @@ def post_search(request, search):
         #print(chardet.detect(result))
         message="現在の天気: " + result['next_1_hours']['summary']['symbol_code']
 
-        search.result_container.answers['weather'] = {'answer': message}
+        search.result_container.answers['weather'] = {'answer': message, 
+                                                                                                       'weather': 'MET Norway', 
+                                                                                                       'hide_icon': 'true',
+                                                                                                       'weather_icon': result['next_12_hours']['summary']['symbol_code'],
+                                                                                                       'weather_temp': result['instant']['details']['air_temperature'],
+                                                                                                       'weather_icon_2d': result['next_12_hours']['summary']['symbol_code'],
+                                                                                                       'weather_temp_2d': result['instant']['details']['air_temperature'],
+                                                                                                       'weather_icon_3d': result['next_12_hours']['summary']['symbol_code'],
+                                                                                                       'weather_temp_3d': result['instant']['details']['air_temperature']}
         
     return True
 
