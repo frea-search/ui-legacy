@@ -29,6 +29,12 @@ def db_error(message):
     fetal_error(message)
 
 
+def detect_sql_injection(query):
+    if "'" in query:
+        return True
+    else:
+        return False
+
 def init_db():
     try: 
         cur.execute("CREATE TABLE blocklist (url  varchar(100), src  varchar(30), reason  varchar(100))")
@@ -43,6 +49,10 @@ def init_db():
         conn.commit()
 
 def add_record(url, src, reason):
+    if detect_sql_injection(url) or detect_sql_injection(src) or detect_sql_injection(reason):
+        fetal_error("SQL injection detected !!!!!!!")
+        sys.exit(1)
+
     try:
         cur.execute(f"INSERT INTO blocklist VALUES ('{url}', '{src}', '{reason}')")
     except Exception as e:
