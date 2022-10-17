@@ -3105,7 +3105,7 @@ engines:
     content_html_to_text: true
     suggestion_xpath: //span[@class="result-related-searches__link-2ho_u"]
     paging: true
-    disabled: true
+    disabled: false
     categories: [general, web]
     timeout: 5.0
     soft_max_redirects: 2
