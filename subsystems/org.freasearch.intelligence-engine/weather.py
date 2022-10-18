@@ -128,7 +128,7 @@ class Server:
 
         def get_max_temp(day):
             max_temp = -99999
-            for i in range(7):
+            for i in range(23):
                 day_index = i + (24 * day - date_hour)
                 i_temp = weather_json['properties']['timeseries'][day_index]['data']['instant']['details']['air_temperature']
                 if max_temp < i_temp:
@@ -138,7 +138,7 @@ class Server:
 
         def get_min_temp(day):
             min_temp = 99999
-            for i in range(7):
+            for i in range(23):
                 day_index = i + (24 * day - date_hour)
                 i_temp = weather_json['properties']['timeseries'][day_index]['data']['instant']['details']['air_temperature']
                 if min_temp > i_temp:
