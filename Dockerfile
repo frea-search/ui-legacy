@@ -29,15 +29,16 @@ RUN cd /var/frea \
 
 RUN groupadd -g ${SEARXNG_GID} frea && \
     useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
-    
+
+RUN chown -R frea:frea /var/frea && \
+    su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
+
 COPY --chown=frea:frea . .
 RUN rm -r ./prebuilts
 
 ARG VERSION_GITCOMMIT=unknown
 
-RUN su frea -c "/usr/bin/python3 -m compileall -q searx" && \
-    chown -R frea:frea /var/frea && \
-    su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
+RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
 
 RUN cd ./tools/init \
  && cargo build --release \
