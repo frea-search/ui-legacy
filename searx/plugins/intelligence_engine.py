@@ -31,17 +31,19 @@ def post_search(request, search):
         api_result = client.request(search.search_query.query)
         result = ast.literal_eval(api_result)
         #print(chardet.detect(result))
-        message="現在の天気: " + result['next_1_hours']['summary']['symbol_code']
+        message="現在の天気: " + result['weather']
 
         search.result_container.answers['weather'] = {'answer': message, 
                                                                                                        'weather': 'MET Norway', 
                                                                                                        'hide_icon': 'true',
-                                                                                                       'weather_icon': result['next_12_hours']['summary']['symbol_code'],
-                                                                                                       'weather_temp': result['instant']['details']['air_temperature'],
-                                                                                                       'weather_icon_2d': result['next_12_hours']['summary']['symbol_code'],
-                                                                                                       'weather_temp_2d': result['instant']['details']['air_temperature'],
-                                                                                                       'weather_icon_3d': result['next_12_hours']['summary']['symbol_code'],
-                                                                                                       'weather_temp_3d': result['instant']['details']['air_temperature']}
+                                                                                                       'weather_icon': result['weather'],
+                                                                                                       'weather_temp': result['temp_now'],
+                                                                                                       'weather_icon_2d': result['weather_d2'],
+                                                                                                       'weather_temp_2d': result['maxtemp_d2'],
+                                                                                                       'weather_icon_3d': result['weather_d3'],
+                                                                                                       'weather_temp_3d': result['maxtemp_d3'],
+                                                                                                       'd2_disp': result['d2_disp'],
+                                                                                                       'd3_disp': result['d3_disp']}
         
     return True
 
