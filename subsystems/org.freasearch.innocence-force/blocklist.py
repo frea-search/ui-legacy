@@ -30,6 +30,7 @@ def chk_domain(domain):
     cur = conn.cursor() 
 
     cur.execute(f"SELECT url FROM blocklist WHERE url='{domain}'")
+    cur.execute(f"SELECT url FROM blocklist WHERE url='{domain.replace('www.', '')}'")
     result=cur.fetchall()
 
     if len(result) == 0 :

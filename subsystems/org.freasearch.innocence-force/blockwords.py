@@ -1,11 +1,3 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-name = "Result Cleaner"
-description = "Clean results."
-default_on = False
-
-parsed = 'parsed_url'
-
 def is_included_in_list(title, words_list):
     for detect_word in words_list:
         if detect_word in title:
@@ -31,4 +23,3 @@ def on_result(request, search, result):
         return False
     else:
         return True
-
