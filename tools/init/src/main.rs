@@ -44,6 +44,11 @@ fn main() {
         start_server("python3", "/var/frea/subsystems/org.freasearch.intelligence-engine/train.py", 5);
     });
 
+    println!("[INFO] Starting subsystem org.freasearch.intelligence-engine/tsunami...");
+    thread::spawn(|| {
+        start_server("bash", "/var/frea/subsystems/org.freasearch.intelligence-engine/init/tsunami.sh", 5);
+    });
+
     println!("[INFO] Starting subsystem init_db...");
     thread::spawn(|| {
         start_server("python3", "/var/frea/subsystems/org.freasearch.innocence-force/init_db.py", 5);
