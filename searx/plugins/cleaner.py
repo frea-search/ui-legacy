@@ -4,6 +4,8 @@ name = "Result Cleaner"
 description = "Clean results."
 default_on = False
 
+parsed = 'parsed_url'
+
 def is_included_in_list(title, words_list):
     for detect_word in words_list:
         if detect_word in title:
@@ -11,7 +13,10 @@ def is_included_in_list(title, words_list):
         return False
 
 def on_result(request, search, result):
-    result_title=result['title']
+    if parsed in result:
+        result_title = result['title']
+    else:
+         return True
 
     detect_words_1=['コロナ', 'ワクチン', 'マスク']
     detect_words_2=['強制', '強要', '陰謀']

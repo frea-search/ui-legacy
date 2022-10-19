@@ -22,7 +22,6 @@ _url_fields = ['iframe_src', 'audio_src']
 
 def on_result(request, search, result):
     for (pattern, replacement) in replacements.items():
-
         if parsed in result:
             if pattern.search(result[parsed].netloc):
                 # to keep or remove this result from the result list depends
