@@ -676,7 +676,7 @@ template {
     --color-base-background: #fff;
     --color-url-font: #29314d;
     --color-url-visited-font: #80b;
-    --color-header-background: #fff;
+    --color-header-background: #f7f7f7;
     --color-header-border: #ddd;
     --color-footer-background: #f7f7f7;
     --color-footer-border: #ddd;
@@ -690,9 +690,9 @@ template {
     --color-show-btn-background: #bbb;
     --color-show-btn-font: #222;
     --color-search-border: #bbb;
-    --color-search-background: #f0f0f0;
+    --color-search-background: #fff;
     --color-search-font: #222;
-    --color-search-background-hover: #4a4a4a;
+    --color-search-background-hover: #ce3d3d;
     --color-error: #db3434;
     --color-error-background: #fae1e1;
     --color-warning: #dbba34;
@@ -702,8 +702,8 @@ template {
     --color-categories-item-selected-font: #ce3d3d;
     --color-categories-item-border-selected: #ce3d3d;
     --color-autocomplete-font: #000;
-    --color-autocomplete-border: #cfcfcf;
-    --color-autocomplete-background: #fff;
+    --color-autocomplete-border: #e8e8e8;
+    --color-autocomplete-background: #ffffff6e;
     --color-autocomplete-background-hover: #f7f7f79c;
     --color-answer-border: #ddd;
     --color-answer-font: #444;
@@ -711,7 +711,7 @@ template {
     --color-result-border: #ddd;
     --color-result-url-font: #000;
     --color-result-vim-selected: #f7f7f7;
-    --color-result-vim-arrow: #000bbb;
+    --color-result-vim-arrow: #eaeaea;
     --color-result-description-highlight-font: #000;
     --color-result-link-font: #000bbb;
     --color-result-link-font-highlight: #000bbb;
@@ -721,13 +721,13 @@ template {
     --color-result-search-url-border: #ddd;
     --color-result-search-url-font: #000;
     --color-result-image-span-font: #444;
-    --color-result-image-span-font-selected: #fff;
+    --color-result-image-span-font-selected: #333;
     --color-result-image-background: #fff;
     --color-settings-tr-hover: #f7f7f7;
     --color-settings-engine-description-font: #909090;
     --color-settings-engine-group-background: #0001;
-    --color-result-detail-font: #fff;
-    --color-result-detail-label-font: lightgray;
+    --color-result-detail-font: #353535;
+    --color-result-detail-label-font: #515151;
     --color-result-detail-background: #000;
     --color-result-detail-hr: #555;
     --color-result-detail-link: #8af;
@@ -759,7 +759,8 @@ template {
     --color-toolkit-loader-border: rgba(0, 0, 0, 0.2);
     --color-toolkit-loader-borderleft: rgba(255, 255, 255, 0);
     --color-doc-code: #300;
-    --color-doc-code-background: #fdd
+    --color-doc-code-background: #fdd;
+
 }
 
 @media (prefers-color-scheme:dark) {
@@ -769,7 +770,7 @@ template {
         --color-base-background: #222;
         --color-url-font: #8af;
         --color-url-visited-font: #96b;
-        --color-header-background: #222;
+        --color-header-background: #2f2f2f;
         --color-header-border: #333;
         --color-footer-background: #181818;
         --color-footer-border: #333;
@@ -783,9 +784,9 @@ template {
         --color-show-btn-background: #555;
         --color-show-btn-font: #bbb;
         --color-search-border: #555;
-        --color-search-background: #353535;
+        --color-search-background: #3e3d3d;
         --color-search-font: #fff;
-        --color-search-background-hover: #58f;
+        --color-search-background-hover: #ce3d3d;
         --color-error: #f55b5b;
         --color-error-background: #390a0a;
         --color-warning: #f1d561;
@@ -804,7 +805,7 @@ template {
         --color-result-border: #333;
         --color-result-url-font: #fff;
         --color-result-vim-selected: #181818;
-        --color-result-vim-arrow: #8af;
+        --color-result-vim-arrow: #484848;
         --color-result-description-highlight-font: #fff;
         --color-result-link-font: #8af;
         --color-result-link-font-highlight: #8af;
@@ -813,8 +814,8 @@ template {
         --color-result-engines-font: #888;
         --color-result-search-url-border: #555;
         --color-result-search-url-font: #fff;
-        --color-result-detail-font: #fff;
-        --color-result-detail-label-font: lightgray;
+        --color-result-detail-font: #353535;;
+        --color-result-detail-label-font: #515151;
         --color-result-detail-background: #000;
         --color-result-detail-hr: #555;
         --color-result-detail-link: #8af;
@@ -1961,8 +1962,9 @@ th:hover .engine-tooltip {
 
 .autocomplete.open {
     display: block;
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    background: var(--color-autocomplete-background);
     color: var(--color-autocomplete-font);
     border: 1px solid var(--color-autocomplete-border);
     max-height: 32rem;
@@ -2007,11 +2009,11 @@ article.result-images .detail {
     top: 7.6rem;
     transition: top 64ms ease-in 0s;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.48) none repeat scroll 0% 0%;
+    background: #d5d1d16e none repeat scroll 0% 0%;
     z-index: 10000;
     padding: 4rem 3rem 3rem 3rem;
-    backdrop-filter: blur(26px);
-    -webkit-backdrop-filter: blur(26px)
+    backdrop-filter: blur(17.5px);
+    -webkit-backdrop-filter: blur(17.5px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
@@ -2159,9 +2161,7 @@ article.result-images .detail {
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-previous:active,
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-previous:hover,
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-previous:visited {
-    color: var(--color-result-detail-font);
-    background: var(--color-result-detail-background);
-    border: 1px solid var(--color-result-detail-font)
+    color: black;
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-close:focus,
@@ -2191,27 +2191,26 @@ article.result-images .detail {
     max-height: calc(100vh - 25rem)
 }
 
-@media screen and (max-width:79.75em) {
-    #results.image-detail-open article.result-images[data-vim-selected] .detail {
-        top: 0;
-        left: 0
-    }
-
-    #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
-        display: flex;
-        flex-direction: column;
-        justify-content: center
-    }
-
-    #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source img {
-        width: 100%;
-        max-height: calc(100vh - 24rem)
-    }
-
-    #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-next {
-        right: 1rem
-    }
+#results.image-detail-open article.result-images[data-vim-selected] .detail {
+    top: 0;
+    left: 0
 }
+
+#results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+#results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source img {
+    width: 100%;
+    max-height: calc(100vh - 24rem)
+}
+
+#results.image-detail-open article.result-images[data-vim-selected] .detail a.result-detail-next {
+    right: 1rem
+}
+
 
 @media screen and (max-width:50em) {
     #results.image-detail-open article.result-images[data-vim-selected] .detail {
@@ -2492,14 +2491,29 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 #main_preferences .preferences_back {
-    background: #ddd;    
+    background: #ececec;    
     color: var(--color-btn-font);
     border: 0 none;
-    border-radius: 10px;
+    border-radius: 100px;
     cursor: pointer;
     display: inline-block;
     margin: 2px 4px;
     padding: .7em
+}
+
+#main_preferences .preferences_clear {
+    background: #ff4e4e;
+	color: white;
+    border: 0 none;
+    border-radius: 100px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 4px;
+    padding: .7em
+}
+
+#main_preferences .preferences_clear a {
+	color: white;
 }
 
 #main_preferences .preferences_back a {
@@ -2525,6 +2539,7 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 #search {
+    background: var(--color-header-background);
     padding-top: 40px;
     padding-right: 5px;
     margin: 0
@@ -2666,7 +2681,7 @@ html.no-js #clear_search.hide_if_nojs {
     width: 100%;
     padding-left: 1rem;
     padding-right: 0 !important;
-    border-radius: 8px 0 0 8px
+    border-radius: 100px 0 0 100px
 }
 
 #q::-ms-clear,
@@ -2675,7 +2690,7 @@ html.no-js #clear_search.hide_if_nojs {
 }
 
 #send_search {
-    border-radius: 0 8px 8px 0
+    border-radius: 0 100px 100px 0
 }
 
 #send_search:hover {
@@ -2955,9 +2970,9 @@ footer a:visited {
 input[type=submit] {
     padding: .7rem;
     display: inline-block;
-    background: #ddd;    
+    background: #ececec;    
     color: var(--color-btn-font);
-    border-radius: 10px;
+    border-radius: 100px;
     border: 0;
     cursor: pointer
 }
@@ -3856,8 +3871,15 @@ h1 {
         display: none;
     }
 
-    #search_header {
-        background: #222;
-    }
+}
 
+
+.index_endpoint {
+    background: #f2f2f2
+}
+
+@media (prefers-color-scheme: dark) {
+    .index_endpoint {
+        background: #2b2b2b
+    }
 }
