@@ -27,7 +27,7 @@
         <div class="answer">
               {% if answer.url %}
                 <a href="{{ answer.url }}">{{ answer.answer }}</a>
-              {% elif  answer.weather%}
+              {% elif  answer.weather %}
                <div style="float: left;"><img  width="auto" height="90px" src="/static/themes/simple/img/weathericon/{{ answer.weather_icon }}.svg"></div>
                <div style="float: left;padding-left: 10px;"><h2><br>{{ answer.weather_temp}}℃</h2></div>
                <div style="float: right;">
@@ -44,6 +44,10 @@
                   </tr>
                 </table>
               </div>
+              {% elif  answer.tsunami %}
+                <h2 style="color: #dd1717;">！ 津波情報</h2>
+                <span>{{ answer.message }}</span><br>
+                <br><a href="https://www.nhk.or.jp/kishou-saigai/tsunami/">↳ 詳細情報（NHK）</a>
               {% else %}
                 <span>{{ answer.answer }}</span>
               {% endif %}
