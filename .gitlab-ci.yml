@@ -1,9 +1,8 @@
 stages:
-  -  main-runner 
+  - docker-build 
 
 build:
-  stage: main-runner
+  stage: docker-build
   image: alpine:latest
   script:
     - docker build --tag nexryai/frea:devel --file Dockerfile .
-
