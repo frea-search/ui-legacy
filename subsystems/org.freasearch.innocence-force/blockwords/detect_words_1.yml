@@ -1,0 +1,6 @@
+level: "detect_words_1"
+reason: "undefined"
+blockwords:
+  - コロナ
+  - ワクチン
+  - マスク
