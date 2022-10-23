@@ -1,8 +1,8 @@
 stages:
-  -  main-runner 
+  -  runner.git.freasearch.org
 
 build:
-  stage: main-runner
+  stage: runner.git.freasearch.org
   image: alpine:latest
   script:
     - docker build --tag nexryai/frea:devel --file Dockerfile .
