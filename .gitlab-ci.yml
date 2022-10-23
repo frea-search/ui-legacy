@@ -7,7 +7,7 @@ build:
   rules:
     - if: $CI_COMMIT_BRANCH == "devel"
   script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     - docker build --tag $CI_REGISTRY_IMAGE:devel --file Dockerfile .
     - docker push $CI_REGISTRY_IMAGE:devel
   tags:
