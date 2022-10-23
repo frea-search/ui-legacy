@@ -72,7 +72,7 @@ class Server:
                 elif grade == "Warning":
                     grade_disp = "津波警報"
                 elif grade == "MajorWarning":
-                    grade_disp = "津波警報"
+                    grade_disp = "大津波警報"
                 else:
                     grade_disp = "津波に関する情報"
             
