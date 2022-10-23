@@ -1,0 +1,86 @@
+{% extends "simple/page_with_header.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/crypto-js.min.js') }}"></script>
+ 
+<script type="text/javascript">
+function upload() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("pwd").value;
+    const pin = document.getElementById("pin").value;
+    const new_account = document.getElementById('new_account').checked;
+    const pw_hash = CryptoJS.SHA512(password);
+
+    // 設定暗号化
+    const config = document.cookie; 
+    const cfg_ecnrypted = CryptoJS.AES.encrypt(config, pin);
+    console.log('Crypto :' + cfg_ecnrypted);
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "{{ url_for('sync/upload') }}");
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({
+        "username": username,
+        "password": pw_hash,
+        "new_account": new_account,
+        "data": cfg_ecnrypted
+    }));
+}
+
+function download() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("pwd").value;
+    const pin = document.getElementById("pin").value;
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "{{ url_for('sync/download') }}");
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({
+        "username": username,
+        "password": password
+    }));
+    xhr.onreadystatechange = function(){
+        if ((xhr.readyState == 4) && (xhr.status == 200)) {
+            const cfg_ecnrypted = JSON.parse(xhr.responseText);
+            const cfg_decrypted = CryptoJS.AES.decrypt(cfg_ecnrypted, pin);
+            const config = cfg_decrypted.toString(CryptoJS.enc.Utf8);
+            document.cookie = config;
+        }
+    };
+    
+}
+</script>
+
+<div class="sync">
+    <h1>Sync settings</h1>
+    <p>Frea Search の設定をサーバー上に保存します。データはエンドツーエンドで暗号化されます。サーバー管理者であってもあなたの設定を知ることは不可能です。</p>
+    
+    <div>
+        <h2>user name</h2>
+        <p>ユーザー名</p>
+        <input id="username" minlength="4" maxlength="20" /> 
+    </div>
+    <div>
+        <h2>password</h2>
+        <p>パスワードはサーバー側でのデータの暗号化とアカウントの認証に使用されます。</p>
+        <input type="password" id="pwd" maxlength="80" />
+    </div>
+    <div>
+        <h2>PIN</h2>
+        <p>PINはクライアント側でのデータ暗号化に使用されます。PINはサーバーに送信されません。</p>
+        <input type="password" id="pin" minlength="4" maxlength="8" />
+    </div>
+    <div>
+        <br>
+        <p>設定をサーバーにアップロード</p>
+        <button onclick="upload();">Upload config</button> <label><input id="new_account" type="checkbox">アカウントを新規に作成</label>
+    </div>
+    <div>
+        <br>
+        <p>サーバーに保存された設定を復元</p>
+        <button onclick="download();">Download config</button>
+    </div>
+    
+</div>
+{% endblock %}

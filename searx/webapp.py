@@ -1361,6 +1361,24 @@ def config():
     )
 
 
+@app.route('/sync')
+def sync():
+    return render('sync.html')
+
+
+@app.route('/sync/upload', methods=["POST"])
+def config_upload():
+    config_data = request.form[data]
+    user_password = request.form[password]
+    user_id = request.form[username]
+    return render('sync.html')
+
+
+@app.route('/sync/download', methods=["POST"])
+def config_download():
+    return render('sync.html')
+
+
 @app.errorhandler(404)
 def page_not_found(_e):
     return render('404.html'), 404
