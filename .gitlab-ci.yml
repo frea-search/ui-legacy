@@ -5,6 +5,6 @@ build:
   stage: docker-build
   image: docker:latest
   script:
-    - docker build --tag nexryai/frea:devel --file Dockerfile .
+    - docker build --tag frea:devel --file Dockerfile .
   tags:
     - docker-build
