@@ -4,22 +4,17 @@ def is_included_in_list(title, words_list):
             return True
         return False
 
-def on_result(request, search, result):
-    if parsed in result:
-        result_title = result['title']
-    else:
-         return True
-
+def chk_title(title):
     detect_words_1=['コロナ', 'ワクチン', 'マスク']
     detect_words_2=['強制', '強要', '陰謀']
     block_words=['現役エンジニア', '徹底解説', '枠珍']
 
-    if is_included_in_list(result_title, detect_words_1):
-        if is_included_in_list(result_title, detect_words_2):
+    if is_included_in_list(title, detect_words_1):
+        if is_included_in_list(title, detect_words_2):
             return False
         else:
             return True
-    elif is_included_in_list(result_title, block_words):
+    elif is_included_in_list(title, block_words):
         return False
     else:
         return True
