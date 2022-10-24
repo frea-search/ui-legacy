@@ -15,8 +15,8 @@ build:
     - docker-build
 
 include:
-    - template: Jobs/Secret-Detection.gitlab-ci.yml
-    - template: Jobs/SAST.gitlab-ci.yml
+    - template: Security/Secret-Detection.gitlab-ci.yml
+    - template: Security/SAST.gitlab-ci.yml
 
 sast:
   stage: test
