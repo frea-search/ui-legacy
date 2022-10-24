@@ -20,7 +20,7 @@ include:
   - template: Security/Container-Scanning.gitlab-ci.yml
   - template: Jobs/SAST-IaC.gitlab-ci.yml
 
-security-check:
+sast:
   stage: test
   artifacts:
     paths:
