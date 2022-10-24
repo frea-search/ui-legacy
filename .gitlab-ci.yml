@@ -20,6 +20,12 @@ include:
   - template: Security/Container-Scanning.gitlab-ci.yml
   - template: Jobs/SAST-IaC.gitlab-ci.yml
 
-sast:
+security-check:
   stage: test
+  artifacts:
+    paths:
+      - gl-container-scanning-report.json
+      - gl-sast-report.json
+      - gl-secret-detection-report.json
+
 
