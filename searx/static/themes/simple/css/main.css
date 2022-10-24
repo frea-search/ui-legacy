@@ -3886,4 +3886,8 @@ h1 {
     .index_endpoint {
         background: #2b2b2b
     }
+
+    .index_endpoint footer{
+        background-color: #262626
+    }
 }
