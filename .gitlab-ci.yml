@@ -1,6 +1,6 @@
 stages:
-  - test
   - docker-build 
+  - test
 
 build:
   stage: docker-build
@@ -23,4 +23,7 @@ include:
 sast:
   stage: test
 
+container_scanning:
+  variables:
+    CS_IMAGE: docker.io/nexryai/frea:devel
 
