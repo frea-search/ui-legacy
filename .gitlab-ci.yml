@@ -12,3 +12,5 @@ build:
     - docker push $CI_REGISTRY_IMAGE:devel
   tags:
     - docker-build
+  include:
+    - template: Jobs/Secret-Detection.gitlab-ci.yml
