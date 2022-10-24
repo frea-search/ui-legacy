@@ -27,12 +27,8 @@ import socket
 import dbm
 import feedparser
 
-socket_dir = '/tmp/org.freasearch.intelligence-engine'
-socket_path = '/tmp/org.freasearch.intelligence-engine/train.sock'
-user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0'
-header = {
-	'User-Agent': user_agent
-}
+socket_dir = '/var/frea/tmp/org.freasearch.intelligence-engine'
+socket_path = '/var/frea/tmp/org.freasearch.intelligence-engine/train.sock'
 
 db = dbm.open('train_cache', 'c')
 

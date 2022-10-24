@@ -10,7 +10,6 @@ function upload() {
     const password = document.getElementById("pwd").value;
     const pin = document.getElementById("pin").value;
     const new_account = document.getElementById('new_account').checked;
-    const pw_hash = CryptoJS.SHA512(password);
 
     // 設定暗号化
     const config = document.cookie; 
@@ -22,7 +21,7 @@ function upload() {
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify({
         "username": username,
-        "password": pw_hash,
+        "password": password,
         "new_account": new_account,
         "data": cfg_ecnrypted
     }));

@@ -10,7 +10,7 @@ def detect_sql_injection(query):
     else:
         return False
 
-def chk_domain(domain):
+def chk_domain(root_domain, domain):
     if detect_sql_injection(domain):
         msg.fetal_error("SQL injection detected !!!!!!!")
         return False
@@ -29,7 +29,7 @@ def chk_domain(domain):
     conn = psycopg2.connect(database="freasearch", host=db_host, user=db_user, password=db_password, port="5432")
     cur = conn.cursor() 
 
-    cur.execute(f"SELECT url FROM blocklist WHERE url='{domain}'")
+    cur.execute(f"SELECT url FROM blocklist WHERE url='{root_domain}'")
     cur.execute(f"SELECT url FROM blocklist WHERE url='{domain.replace('www.', '')}'")
     result=cur.fetchall()
 
