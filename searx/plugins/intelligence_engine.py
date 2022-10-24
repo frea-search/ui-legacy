@@ -35,6 +35,24 @@ def post_search(request, search):
 
     if search.search_query.pageno > 1:
         return True
+
+    if '遅延' in search.search_query.query:
+        query = search.search_query.query
+        if '　' in query:
+            query_split = query.split("　")
+            train_name = query_split[0]
+        else:
+            query_split = query.split()
+            train_name = query_split[0]
+
+        train_info_client = Client('/var/frea/tmp/org.freasearch.intelligence-engine/weather.sock')
+        api_result = train_info_client.request(train_name)
+
+        if api_result != "NO_DATA":
+            message = "/"" + train_name + "/"が遅延しています。"
+            search.result_container.answers['train_info'] = {'answer': message, 'url': api_result}
+            return True
+
     if '天気' in search.search_query.query:
         weather_client = Client('/var/frea/tmp/org.freasearch.intelligence-engine/weather.sock')
         api_result = weather_client.request(search.search_query.query)
