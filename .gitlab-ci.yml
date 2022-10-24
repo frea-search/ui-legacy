@@ -22,10 +22,5 @@ include:
 
 sast:
   stage: test
-  artifacts:
-    paths:
-      - gl-container-scanning-report.json
-      - gl-sast-report.json
-      - gl-secret-detection-report.json
 
 
