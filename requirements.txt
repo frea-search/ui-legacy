@@ -18,7 +18,8 @@ markdown-it-py==2.1.0
 typing_extensions==4.3.0
 pygeonlp
 feedparser
-numba
 psycopg2
 aiohttp
 tzdata
+pycrypto
+tldextract

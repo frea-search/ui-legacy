@@ -95,7 +95,7 @@ def load_blockwords(listname):
         msg_error("[ERROR] faild to load blockwords")
         fetal_error(e)
     else:
-        for block_word in blockwords["blocklist"]:
+        for block_word in blockwords["blockwords"]:
             add_record("blockwords", block_word, blockwords["level"], blockwords["reason"])
 
 def load_all_records():
@@ -109,9 +109,9 @@ def close_db():
 
 init_db()
 load_blocklist("main")
-load_blockwords("block_words.yml")
-load_blockwords("detect_words_1.yml")
-load_blockwords("detect_words_2.yml")
+#load_blockwords("block_words")
+#load_blockwords("detect_words_1")
+#load_blockwords("detect_words_2")
 
 close_db()
 sys.exit(0)

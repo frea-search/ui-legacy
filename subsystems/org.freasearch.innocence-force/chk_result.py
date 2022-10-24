@@ -4,17 +4,19 @@ import msg
 import blocklist
 import blockwords
 from aiohttp import web
-
+import tldextract
 
 
 
 def chk_result(result):
-    domain = result["parsed_url"][1]
+    url = result["url"]
     title = result["title"]
+    extracted = tldextract.extract(url)
+    domain = "{}.{}".format(extracted.domain, extracted.suffix)
     
     if blocklist.chk_domain(domain):
         return False
-    elif blockwords.chk_title(title)
+    elif blockwords.chk_title(title):
         return False
     else:
         return True
