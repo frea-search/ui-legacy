@@ -53,3 +53,5 @@ RUN rpm -e mecab-devel \
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng
+
+
