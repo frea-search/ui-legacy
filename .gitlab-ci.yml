@@ -1,5 +1,6 @@
 stages:
-  - docker-build 
+  - docker-build
+  - deploy-docs
   - test
 
 build:
@@ -13,6 +14,19 @@ build:
     - docker push $CI_REGISTRY_IMAGE:devel
   tags:
     - docker-build
+
+build_pages:
+  variables:
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
+    CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
+  stage: deploy-docs
+  image: alpine:latest
+  script:
+    - apk add py3-pip python3-dev nodejs npm
+    - pip install mkdocs-material
+    - mkdocs build --strict --verbose
+    - npm install -g wrangler --unsafe-perm=true
+    - wrangler pages publish ./public --project-name=frea-dev-docs
 
 include:
   - template: Security/Secret-Detection.gitlab-ci.yml

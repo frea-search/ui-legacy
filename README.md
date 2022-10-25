@@ -1,49 +1,25 @@
-# Frea Search
-信頼性の高い検索結果のみを表示するクリーンな検索エンジンを目指したsearxngのカスタムインスタンス<br>
+<div align="center">
+<img src="docs/assets/logo.png" alt="Frea Search" width="60%"><br><br>
+<p><a href="https://git.freasearch.org/frea/search/"><img src="https://img.shields.io/badge/frea%2Fsearch-master-lightgrey?style=for-the-badge&amp;logo=gitlab" alt="repo: frea/search"></a>
+<a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge" alt="License: AGPL v3"></a>
+<a href="https://hub.docker.com/r/nexryai/frea"><img src="https://img.shields.io/badge/get%20on%20docker%20hub-EEE?style=for-the-badge&amp;logo=docker" alt="docker-hub"></a>
 
- - [公式インスタンス](https://freasearch.org/)
+<br></p>
+<p>Powered by</p>
+<p><a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-EEE?style=for-the-badge&amp;logo=python" alt="python"></a>
+<a href="https://palletsprojects.com/p/flask/"><img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&amp;logo=flask" alt="flask"></a>
+<a href="https://jquery.com/"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&amp;logo=jquery" alt="jquery"></a></p>
 
+<br>
+信頼性の高い検索結果のみを表示するクリーンな検索エンジン<br>
+<br>
+<ul>
+<li><a href="https://freasearch.org/">公式インスタンス</a></li>
+<li><a href="https://docs.freasearch.org/setup/">インスタンスを建てる</a></li>
+<li><a href="https://docs.freasearch.org/">ドキュメント</a></li>
+</ul>
 
-## ブロックリストについて 🚫
-`subsystems/org.freasearch.innocence-force/blocklists`に検索結果に表示しないサイトの一覧があります。これに追加、削除したいドメインや質問がある場合、issueかPRを開いてください。
-
-## API 💫
-Frea Searchには完全無償で使えるAPIが付属しています。検索結果をjsonで取得できます。
-```
-https://freasearch.org/search?q=検索したいワード&format=json
-```
-
-## インストール方法 💿
-Frea Searcchのインストール方法はスクリプトを使う方式からdocker-composeを使用する方式に置き換わりました。従来のスクリプトは放棄されました。Dockerに馴染みがない私のような方のためにdocker-composeのヘルパーである[niagara](https://git.sda1.net/frea/niagara)もありますのでお試しください。  
-また定期的なアップデートを強く推奨します。
-
-### step 0 (通常は不要な手順)
-手動でビルドする場合は、このリポジトリをcloneし`docker build --tag frea:latest --file Dockerfile .`を実行してください。
-
-### step1
-以下のジトリをcloneします。  
-https://git.sda1.net/frea/frea-docker
-
-### step2
-`sed -i -e "s/ultrasecretkey/$(openssl rand -hex 16)/g" "settings.yml"`を実行しサーバーのシークレットキーを設定します。  
-必要に応じて、cloneしたリポジトリに含まれるsettings.yml内の以下の値を編集します。
-
- - `privacypolicy_url` インスタンスにプライバシーポリシーが存在する場合、そのURLを指定します。
- - `debug` デバッグモードを有効にするかどうか。
- - `formats` `json`を追加するとAPIが有効になります。
-
-### step3
-実行します。  
-`docker-compose up`
-
-### step4
-適当なhttpサーバーをシステムにインストールし、`localhost:8888`へリバースプロキシするように設定します。https化するのを忘れないでください。
-
-
-## Cloudflareについて
-Cloudflareはキャッシュやページ書き換えによる不具合を引き起こし、SSLのトラストモデルが破壊されるため Frea Search での使用は推奨しておらず、サポートもされていません。  
-もし使用する場合は、キャッシュやメールアドレスを隠す機能などページを書き換える機能を無効化するとトラブルが起きにくくなります。
-
+</div>
 
 ## Special thanks (敬称略・順不同)🙏
  - SearXNGの[開発者、貢献者](https://github.com/searxng/searxng/graphs/contributors)の方々
