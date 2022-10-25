@@ -7,11 +7,11 @@ general:
   donation_url: https://donate.freasearch.org
 
 brand:
-  new_issue_url: https://git.sda1.net/frea/search/issues
-  docs_url: https://git.sda1.net/frea/search#frea-search
+  new_issue_url: https://git.freasearch.org/frea/search/-/issues/new
+  docs_url: https://docs.freasearch.org/
   public_instances: https://freasearch.org/
-  wiki_url: https://github.com/searxng/searxng/wiki
-  issue_url: https://git.sda1.net/frea/search/issues
+  wiki_url: https://docs.freasearch.org/
+  issue_url: https://git.freasearch.org/frea/search/-/issues
 
 
 search:
