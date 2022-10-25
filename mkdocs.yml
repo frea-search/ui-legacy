@@ -3,3 +3,13 @@ site_url: https://docs.freasearch.org/
 site_dir: public
 theme:
   name: material
+nav:
+  - Welcome: index.md
+  - Admin:
+    - Setup: setup.md
+  - Architecture:
+    - overview: architecture.md
+    - subsystem: subsystems.md
+  - Workflow:
+    - branchs: branch.md
+    - ci/cd: pipeline.md
