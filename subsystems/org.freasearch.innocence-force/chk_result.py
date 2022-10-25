@@ -8,10 +8,10 @@ import tldextract
 
 
 
-def chk_result(result):
-    url = result["url"]
-    domain = result["parsed_url"][1]
-    title = result["title"]
+def chk_result(search_result):
+    url = search_result["url"]
+    domain = search_result["parsed_url"][1]
+    title = search_result["title"]
     extracted = tldextract.extract(url)
     root_domain = "{}.{}".format(extracted.domain, extracted.suffix)
     
