@@ -1,13 +1,15 @@
-# Frea Search
-[![repo: frea/search](https://img.shields.io/badge/%{project_path}-%{default_branch}-lightgrey?style=for-the-badge&logo=gitlab)](https://git.freasearch.org/frea/search/)
-[![docker-hub](https://img.shields.io/badge/get%20on%20docker%20hub-EEE?style=for-the-badge&logo=docker)](https://hub.docker.com/r/nexryai/frea)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0)
-<br>
-Powered by:
-[![python](https://img.shields.io/badge/python-EEE?style=for-the-badge&logo=python)](https://www.python.org/)
-[![flask](https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask)](https://palletsprojects.com/p/flask/)
-[![jquery](https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery)](https://jquery.com/)
 <div align="center">
+<h1 id="frea-search">Frea Search</h1>
+<p><a href="https://git.freasearch.org/frea/search/"><img src="https://img.shields.io/badge/frea%2Fsearch-master-lightgrey?style=for-the-badge&amp;logo=gitlab" alt="repo: frea/search"></a>
+<a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge" alt="License: AGPL v3"></a>
+<a href="https://hub.docker.com/r/nexryai/frea"><img src="https://img.shields.io/badge/get%20on%20docker%20hub-EEE?style=for-the-badge&amp;logo=docker" alt="docker-hub"></a>
+
+<br></p>
+<p>Powered by</p>
+<p><a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-EEE?style=for-the-badge&amp;logo=python" alt="python"></a>
+<a href="https://palletsprojects.com/p/flask/"><img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&amp;logo=flask" alt="flask"></a>
+<a href="https://jquery.com/"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&amp;logo=jquery" alt="jquery"></a></p>
+
 <br>
 信頼性の高い検索結果のみを表示するクリーンな検索エンジン<br>
 
