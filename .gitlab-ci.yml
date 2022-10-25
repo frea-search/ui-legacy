@@ -15,12 +15,26 @@ build:
   tags:
     - docker-build
 
+release_build:
+  stage: docker-build
+  image: docker:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker build --tag $CI_REGISTRY_IMAGE:latest --file Dockerfile .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  tags:
+    - docker-build
+
 build_pages:
   variables:
     CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
   stage: deploy-docs
   image: alpine:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "devel"
   script:
     - apk add py3-pip python3-dev nodejs npm
     - pip install mkdocs-material
