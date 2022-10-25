@@ -1,5 +1,5 @@
 <div align="center">
-<h1 id="frea-search">Frea Search</h1>
+<img src="docs/assets/logo.png" alt="Frea Search"><br>
 <p><a href="https://git.freasearch.org/frea/search/"><img src="https://img.shields.io/badge/frea%2Fsearch-master-lightgrey?style=for-the-badge&amp;logo=gitlab" alt="repo: frea/search"></a>
 <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=for-the-badge" alt="License: AGPL v3"></a>
 <a href="https://hub.docker.com/r/nexryai/frea"><img src="https://img.shields.io/badge/get%20on%20docker%20hub-EEE?style=for-the-badge&amp;logo=docker" alt="docker-hub"></a>
@@ -12,7 +12,7 @@
 
 <br>
 信頼性の高い検索結果のみを表示するクリーンな検索エンジン<br>
-
+<br>
 <ul>
 <li><a href="https://freasearch.org/">公式インスタンス</a></li>
 <li><a href="https://docs.freasearch.org/setup/">インスタンスを建てる</a></li>
