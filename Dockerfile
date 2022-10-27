@@ -49,7 +49,8 @@ RUN cd ./tools/init \
 RUN rpm -e mecab-devel \
  && swupd bundle-remove -R devpkg-libffi devpkg-libxslt devpkg-libxml2 devpkg-sqlite-autoconf  python-basic-dev rust-basic dnf \
  && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools/init
-
+ 
+RUN mv "/var/frea/dockerfiles/mime.types" "/etc/mime.types"
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng
