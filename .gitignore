@@ -23,6 +23,7 @@ gh-pages/
 docs/dev/
 docs/admin/
 examples/
+searxng_extra/
 src/
 tests/
 utils/brand.env
@@ -31,6 +32,7 @@ utils/searxng_check.py
 utils/*.sh
 utils/lxc-searxng.env
 utils/makefile*
+utils/templates/
 SECURITY.md
 .github
 manage
