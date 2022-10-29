@@ -14,16 +14,14 @@
         turnstile.render('#turnstile', {
             sitekey: '{{ turnstile_site_key }}',
             callback: function(token) {
-                console.log(`Challenge Success ${token}`);
                 const url = new URL(window.location.href);
                 if(navigator.cookieEnabled){
-                    document.cookie = "am_i_human=" + token;
+                    document.cookie = `am_i_human=${token}; SameSite=strict; Secure`;
                     window.location.href = url;
                 }else {
                     url.searchParams.set("am_i_human", token)
                     window.location.href = url;
                 }
-                
             },
         });
     };
