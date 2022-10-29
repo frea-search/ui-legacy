@@ -179,8 +179,8 @@ enabled_plugins:
   - 'Self Informations'
   - 'Hash plugin'
   - 'Warning snippet'
-  - 'Intelligence Engine'
-  - 'Innocence force'
+  #- 'Intelligence Engine'
+  #- 'Innocence force'
 
 
 checker:
@@ -505,6 +505,14 @@ engines:
   #   #custom_query_json: {"query":{"match_all": {}}}
   #   #show_metadata: false
   #   disabled: true
+  
+  - name: wikidata
+    engine: wikidata
+    shortcut: wd
+    timeout: 3.0
+    weight: 2
+    disabled: false
+    tests: *tests_infobox
 
   - name: duckduckgo
     engine: duckduckgo
