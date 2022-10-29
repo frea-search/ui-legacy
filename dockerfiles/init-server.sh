@@ -5,7 +5,7 @@ export SEARXNG_SECRET=$(openssl rand -hex 16)
 cp /var/frea/dockerfiles/uwsgi.ini /etc/searxng/uwsgi.ini
 
 if [ -e /etc/searxng/settings.yml ]; then
-  mv /etc/searxng/settings.yml /etc/frea/settings.yml
+  cp /etc/searxng/settings.yml /etc/frea/settings.yml
 fi
 
 if [ ! -e /etc/frea/settings.yml ]; then
