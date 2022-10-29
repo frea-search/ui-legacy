@@ -90,8 +90,7 @@ RUN dnf remove -y \
     git \
  && dnf autoremove -y \
  && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools/init
- 
-RUN mv "/var/frea/dockerfiles/mime.types" "/etc/mime.types"
+
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng
