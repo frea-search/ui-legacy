@@ -20,9 +20,12 @@ gh-pages/
 /package-lock.json
 /node_modules/
 
+babel.cfg
 docs/dev/
 docs/admin/
 examples/
+package.json
+requirements-dev.txt
 searxng_extra/
 src/
 tests/
