@@ -18,6 +18,12 @@
   {% set only_template = '' %}
 {% endif %}
 
+<script>
+  new KonamiCommandJS(() =>{
+      alert("Thank you for using Frea Search!!!");
+  });
+</script>
+
 <div id="results" class="{{ only_template }}">
     {% if answers -%}
     {%- from 'simple/icons.html' import icon_big -%}
