@@ -22,6 +22,12 @@ gh-pages/
 
 docs/dev/
 docs/admin/
+examples/
+src/
+tests/
+utils/brand.env
+utils/build_env.py
+utils/searxng_check.py
 utils/*.sh
 utils/lxc-searxng.env
 utils/makefile*
@@ -30,3 +36,6 @@ SECURITY.md
 manage
 AUTHORS.rst
 db_data/
+
+.dir-locals.el
+.coveragerc
