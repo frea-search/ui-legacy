@@ -40,7 +40,7 @@ def chk_title(title, content, root_domain, domain):
         if is_in_untrusted_domain(root_domain, domain):
             return True
 
-    if connect != "NO_DATA":
+    if content != "NO_DATA":
         if is_in_blockwords(content, "detect_words"):
             if is_in_untrusted_domain(root_domain, domain):
                 return True
