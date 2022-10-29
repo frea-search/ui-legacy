@@ -20,6 +20,7 @@ COPY requirements.txt ./requirements.txt
 RUN dnf update -y \
  && dnf install -y \
     ca-certificates \
+    mailcap \
     python3 \
     python3-pip \
     libxml2 \
@@ -53,20 +54,26 @@ RUN dnf update -y \
  
 # Install pip packages
 RUN cd /var/frea \
- && pip3 install --upgrade pip wheel setuptools \
  && pip3 install --no-cache -r requirements.txt
 
-RUN groupadd -g ${SEARXNG_GID} frea && \
-    useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
+RUN groupadd -g ${SEARXNG_GID} frea \
+ && useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
 
-RUN chown -R frea:frea /var/frea && \
-    su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
+RUN chown -R frea:frea /var/frea \
+ && su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
 
-COPY --chown=frea:frea . .
+COPY --chown=frea:frea dockerfiles ./dockerfiles
+COPY --chown=frea:frea searx ./searx
+COPY --chown=frea:frea subsystems ./subsystems
+COPY --chown=frea:frea tools ./tools
+
+RUN find /var/frea/searx/static \( -name '*.html' -o -name '*.css' -o -name '*.js' \
+    -o -name '*.svg' -o -name '*.eot' \) \
+    -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
 
 ARG VERSION_GITCOMMIT=unknown
 
-RUN su frea -c "/usr/bin/python3 -m compileall -q searx"
+
 
 RUN cd ./tools/init \
  && cargo build --release \
@@ -89,7 +96,8 @@ RUN dnf remove -y \
     cargo \
     git \
  && dnf autoremove -y \
- && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools/init
+ && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools \
+ && find /usr/lib/python*/ -name '*.pyc' -delete
 
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
