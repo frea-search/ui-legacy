@@ -19,7 +19,6 @@ typing_extensions==4.3.0
 pygeonlp
 feedparser
 psycopg2
-aiohttp
 tzdata
 pycrypto
 tldextract
