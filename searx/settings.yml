@@ -184,8 +184,8 @@ enabled_plugins:
   - 'Self Informations'
   - 'Hash plugin'
   - 'Warning snippet'
-  #- 'Intelligence Engine'
-  #- 'Innocence force'
+  - 'Intelligence Engine'
+  - 'Innocence force'
 
 
 checker:
