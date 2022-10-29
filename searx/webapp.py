@@ -22,11 +22,16 @@ import urllib
 import urllib.parse
 from urllib.parse import urlencode, unquote
 
+import datetime
+
 import httpx
+import requests
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter  # pylint: disable=no-name-in-module
+
+import redis
 
 import flask
 
@@ -128,9 +133,26 @@ import sync_server
 
 logger = logger.getChild('webapp')
 
+try:
+    redis_host = os.environ['REDIS_HOST']
+    redis_port = os.environ['REDIS_PORT']
+except KeyError as e:
+    logger.error(f'Environment variable {str(e)} is undefined.')
+    sys.exit(1)
+
+redis = redis.Redis(host=redis_host, port=redis_port, db=1)
+
 # check secret_key
 if not searx_debug and settings['server']['secret_key'] == 'ultrasecretkey':
     logger.error('server.secret_key is not changed. Please use something else instead of ultrasecretkey.')
+    sys.exit(1)
+
+# get turnstile_secret_key
+try:
+    turnstile_secret_key = os.environ['TURNSTILE_SECRET_KEY']
+    turnstile_site_key = os.environ['TURNSTILE_SITE_KEY']
+except KeyError as e:
+    logger.error(f'Environment variable {str(e)} is undefined.')
     sys.exit(1)
 
 # about static
@@ -650,6 +672,38 @@ def search():
     """
     # pylint: disable=too-many-locals, too-many-return-statements, too-many-branches
     # pylint: disable=too-many-statements
+
+    challenge_token = request.args.get('am_i_human')
+
+    if challenge_token is None:
+        challenge_token = request.cookies.get('am_i_human')
+
+    timestamp = datetime.datetime.now().timestamp()
+
+    if challenge_token is None:
+        return render('challenge.html', turnstile_site_key=turnstile_site_key)
+    elif redis.exists(challenge_token):
+        token_limit = redis.get(challenge_token)
+        if timestamp > float(token_limit) + 500:
+            return render('challenge.html', turnstile_site_key=turnstile_site_key)
+    else:
+        data = {
+                'secret': turnstile_secret_key,
+                'response': challenge_token,
+                'remoteip': request.access_route[0]
+        }
+
+        challenge_request = requests.post(
+                "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+                data=data
+        )
+
+        challenge_result = challenge_request.json()
+
+        if not challenge_result['success']:
+            return render('challenge_faild.html'), 403
+        else:
+            redis.set(challenge_token, timestamp)
 
     # output_format
     output_format = request.form.get('format', 'html')
