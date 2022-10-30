@@ -3764,19 +3764,19 @@ pre code {
 
 @font-face {
     font-family: Outfit;
-    src: url(../font/Outfit-Regular.ttf) format('truetype');
+    src: url(../font/Outfit-Regular.woff) format('woff');
     font-display: swap;
 }
 
 @font-face {
     font-family: NotoSans;
-    src: url(../font/NotoSansJP-Medium.otf) format('truetype');
+    src: url(../font/NotoSansJP-Medium.woff) format('woff');
     font-display: swap;
 }
 
 @font-face {
     font-family: NotoSansLight;
-    src: url(../font/NotoSansJP-Regular.otf) format('truetype');
+    src: url(../font/NotoSansJP-Regular.woff) format('woff');
     font-display: swap;
 }
 
