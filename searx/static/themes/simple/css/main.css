@@ -3770,13 +3770,13 @@ pre code {
 
 @font-face {
     font-family: NotoSans;
-    src: url(../font/NotoSansJP-Medium.woff) format('woff');
+    src: url(../font/NotoSansJP-Medium.otf) format('truetype');
     font-display: swap;
 }
 
 @font-face {
     font-family: NotoSansLight;
-    src: url(../font/NotoSansJP-Regular.woff) format('woff');
+    src: url(../font/NotoSansJP-Regular.otf) format('truetype');
     font-display: swap;
 }
 
