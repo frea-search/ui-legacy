@@ -5,6 +5,8 @@ stages:
 
 build:
   stage: docker-build
+  needs:
+    - job: snyk
   image: docker:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "devel"
@@ -17,6 +19,8 @@ build:
 
 release_build:
   stage: docker-build
+  needs:
+    - job: snyk
   image: docker:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
@@ -41,6 +45,13 @@ build_pages:
     - mkdocs build --strict --verbose
     - npm install -g wrangler --unsafe-perm=true
     - wrangler pages publish ./public --project-name=frea-dev-docs
+
+snyk:
+  stage: test
+  image: node:latest
+  script:
+    - npm install -g snyk
+    - snyk test
 
 include:
   - template: Security/Secret-Detection.gitlab-ci.yml
