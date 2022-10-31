@@ -3,6 +3,13 @@ stages:
   - deploy-docs
   - test
 
+snyk:
+  stage: test
+  image: node:latest
+  script:
+    - npm install -g snyk
+    - snyk test
+
 build:
   stage: docker-build
   needs:
@@ -45,13 +52,6 @@ build_pages:
     - mkdocs build --strict --verbose
     - npm install -g wrangler --unsafe-perm=true
     - wrangler pages publish ./public --project-name=frea-dev-docs
-
-snyk:
-  stage: test
-  image: node:latest
-  script:
-    - npm install -g snyk
-    - snyk test
 
 include:
   - template: Security/Secret-Detection.gitlab-ci.yml
