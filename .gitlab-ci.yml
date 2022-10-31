@@ -1,10 +1,11 @@
 stages:
+  - snyk
   - docker-build
   - deploy-docs
   - test
 
 snyk:
-  stage: test
+  stage: snyk
   image: node:latest
   script:
     - npm install -g snyk
