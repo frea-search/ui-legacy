@@ -11,7 +11,7 @@ snyk:
     - dnf install make automake gcc gcc-c++ python3-pip python3-devel npm uwsgi-plugin-python3 openssl-devel mecab-ipadic mecab-devel sqlite sqlite-devel libpq libpq-devel boost-devel -y
     - pip3 install -r requirements.txt
     - npm install -g snyk
-    - snyk test --command python3
+    - snyk test --debug
 
 build:
   stage: docker-build
