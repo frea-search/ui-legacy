@@ -129,8 +129,6 @@ from searx.search import SearchWithPlugins, initialize as search_initialize
 from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 
-import sync_server
-
 logger = logger.getChild('webapp')
 
 try:
@@ -1418,27 +1416,6 @@ def config():
             'default_doi_resolver': settings['default_doi_resolver'],
         }
     )
-
-
-#@app.route('/sync')
-#def sync():
-#    return render('sync.html')
-
-
-#@app.route('/sync/upload', methods=["POST"])
-#def config_upload():
-#    user_id = request.form[username]
-#    user_password = request.form[password]
-#    new_account = request.form[new_account]
-#    config_data = request.form[data]
-#    return sync_server.upload(user_id, user_password, new_account, config_data)
-
-
-#@app.route('/sync/download', methods=["POST"])
-#def config_download():
-#    user_id = request.form[username]
-#    user_password = request.form[password]
-#    return sync_server.download(user_id, user_password)
 
 
 @app.errorhandler(404)
