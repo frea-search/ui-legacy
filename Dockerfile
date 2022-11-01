@@ -14,8 +14,6 @@ ENV POSTGRESQL_HOST=db \
 
 WORKDIR /var/frea
 
-COPY requirements.txt ./requirements.txt
-
 # install packages
 RUN dnf update -y \
  && dnf install -y \
@@ -53,6 +51,7 @@ RUN dnf update -y \
 
  
 # Install pip packages
+COPY requirements.txt ./requirements.txt
 RUN cd /var/frea \
  && pip3 install --no-cache -r requirements.txt
 
