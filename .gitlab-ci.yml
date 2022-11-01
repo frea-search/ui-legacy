@@ -6,8 +6,10 @@ stages:
 
 snyk:
   stage: snyk
-  image: node:latest
+  image: alpine:latest
   script:
+    - apk add py3-pip python3-dev nodejs npm
+    - pip3 install -r requirements.txt
     - npm install -g snyk
     - snyk test
 
