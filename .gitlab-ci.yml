@@ -44,6 +44,8 @@ build_pages:
     CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
   stage: deploy-docs
+  needs:
+    - job: build
   image: alpine:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "devel"
