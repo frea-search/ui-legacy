@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-09-28 07:29+0000\n"
-"PO-Revision-Date: 2022-09-30 07:43+0000\n"
-"Last-Translator: Markus Heiser <markus.heiser@darmarit.de>\n"
+"POT-Creation-Date: 2022-10-14 14:11+0000\n"
+"PO-Revision-Date: 2022-10-28 07:18+0000\n"
+"Last-Translator: tents <remendne@pentrens.jp>\n"
 "Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/"
 "ja/>\n"
 "Language: ja\n"
@@ -173,64 +173,68 @@ msgstr "HTTP プロトコルエラー"
 msgid "network error"
 msgstr "ネットワークエラー"
 
-#: searx/webapp.py:169
+#: searx/webapp.py:168
+msgid "SSL error: certificate validation has failed"
+msgstr "SSL エラー: 証明書の検証に失敗しました"
+
+#: searx/webapp.py:170
 msgid "unexpected crash"
 msgstr "予期しないクラッシュ"
 
-#: searx/webapp.py:176
+#: searx/webapp.py:177
 msgid "HTTP error"
 msgstr "HTTP エラー"
 
-#: searx/webapp.py:177
+#: searx/webapp.py:178
 msgid "HTTP connection error"
 msgstr "HTTP 接続エラー"
 
-#: searx/webapp.py:183
+#: searx/webapp.py:184
 msgid "proxy error"
 msgstr "プロキシエラー"
 
-#: searx/webapp.py:184
+#: searx/webapp.py:185
 msgid "CAPTCHA"
 msgstr "CAPTCHA"
 
-#: searx/webapp.py:185
+#: searx/webapp.py:186
 msgid "too many requests"
 msgstr "リクエストが多すぎます"
 
-#: searx/webapp.py:186
+#: searx/webapp.py:187
 msgid "access denied"
 msgstr "アクセスが拒否されました"
 
-#: searx/webapp.py:187
+#: searx/webapp.py:188
 msgid "server API error"
 msgstr "サーバー API エラー"
 
-#: searx/webapp.py:362
+#: searx/webapp.py:365
 msgid "No item found"
 msgstr "アイテムが見つかりません"
 
 #: searx/engines/qwant.py:217
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:364
+#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:367
 msgid "Source"
 msgstr "ソース"
 
-#: searx/webapp.py:366
+#: searx/webapp.py:369
 msgid "Error loading the next page"
 msgstr "次のページの読み込み中にエラーが発生しました"
 
-#: searx/webapp.py:518 searx/webapp.py:950
+#: searx/webapp.py:521 searx/webapp.py:953
 msgid "Invalid settings, please edit your preferences"
 msgstr "設定が無効です、設定を変更してください"
 
-#: searx/webapp.py:534
+#: searx/webapp.py:537
 msgid "Invalid settings"
 msgstr "無効な設定です"
 
-#: searx/webapp.py:611 searx/webapp.py:687
+#: searx/webapp.py:614 searx/webapp.py:690
 msgid "search error"
 msgstr "検索エラー"
 
-#: searx/webapp.py:849
+#: searx/webapp.py:852
 msgid "Suspended"
 msgstr "一時停止"
 
@@ -680,9 +684,9 @@ msgid ""
 "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
 " rel=\"external\">learn more about request methods</a>"
 msgstr ""
-"フォームの送信方法を変更します。<a href=\"https://ja.wikipedia.org/wiki/"
-"Hypertext_Transfer_Protocol#リクエストメソッド\" rel=\"external\""
-">リクエストメソッドってなに？</a>"
+"フォームの送信方法を変更します。<a "
+"href=\"https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#リクエストメソッド\""
+" rel=\"external\">リクエストメソッドってなに？</a>"
 
 #: searx/templates/simple/preferences.html:269
 msgid "Image proxy"
@@ -1158,229 +1162,16 @@ msgstr "動画を表示する"
 msgid "hide video"
 msgstr "動画を隠す"
 
-#~ msgid "Engine time (sec)"
-#~ msgstr "検索時間 (秒)"
 
-#~ msgid "Page loads (sec)"
-#~ msgstr "ページ読み込み時間 (秒)"
+msgid "Request denied for instance protection."
+msgstr "インスタンス保護のため、リクエストは拒否されました。"
 
-#~ msgid "Errors"
-#~ msgstr "エラー"
+msgid "Checking the validity of the request."
+msgstr "あなたが人間であることを確認しています"
 
-#~ msgid "Rewrite HTTP links to HTTPS if possible"
-#~ msgstr "可能ならば HTTP リンクを HTTPS リンクに書き換える"
+msgid "Frea Search implements Turnstile protection to prevent attacks from bots."
+msgstr "Frea Search はボットからの攻撃を防止するためにTurnstileによる保護を実装しています。"
 
-#~ msgid ""
-#~ "Results are opened in the same window by default. This plugin overwrites the default behaviour to "
-#~ "open links on new tabs/windows. (JavaScript required)"
-#~ msgstr ""
-#~ "デフォルトでは結果は同じウィンドウで開きます。このプラグインはデフォルトの動作を書き換えて新しいタ"
-#~ "ブ/ウィンドウで開くようにします。(JavaScript が必要です)"
+msgid "The am_i_human cookie is not used for tracking - it is used to prove that you are a human being."
+msgstr "「am_i_human」というCookieは追跡目的ではなく、あなたが人間であることを証明するために使用されています。"
 
-#~ msgid "Color"
-#~ msgstr "色"
-
-#~ msgid "Blue (default)"
-#~ msgstr "青 (初期設定)"
-
-#~ msgid "Violet"
-#~ msgstr "紫"
-
-#~ msgid "Green"
-#~ msgstr "緑"
-
-#~ msgid "Cyan"
-#~ msgstr "シアン"
-
-#~ msgid "Orange"
-#~ msgstr "オレンジ"
-
-#~ msgid "Red"
-#~ msgstr "赤"
-
-#~ msgid "Category"
-#~ msgstr "カテゴリー"
-
-#~ msgid "Block"
-#~ msgstr "禁止する"
-
-#~ msgid "original context"
-#~ msgstr "元の文脈"
-
-#~ msgid "Plugins"
-#~ msgstr "プラグイン"
-
-#~ msgid "Answerers"
-#~ msgstr "回答者"
-
-#~ msgid "Avg. time"
-#~ msgstr "平均時間"
-
-#~ msgid "show details"
-#~ msgstr "詳細を表示する"
-
-#~ msgid "hide details"
-#~ msgstr "詳細を隠す"
-
-#~ msgid "Load more..."
-#~ msgstr "もっと見る…"
-
-#~ msgid "Change searx layout"
-#~ msgstr "Searx のレイアウトの変更"
-
-#~ msgid "Proxying image results through searx"
-#~ msgstr "画像検索結果を searx でプロキシする"
-
-#~ msgid "This is the list of searx's instant answering modules."
-#~ msgstr "これは searx の即席回答モジュールのリストです。"
-
-#~ msgid "This is the list of cookies and their values searx is storing on your computer."
-#~ msgstr "これはクッキーのリストで、これらの値はあなたのコンピュータに保存されています。"
-
-#~ msgid "With that list, you can assess searx transparency."
-#~ msgstr "このリストによって、あなたは searx の透明性を評価できます。"
-
-#~ msgid "It look like you are using searx first time."
-#~ msgstr "Searxを使うのは初めてようですね。"
-
-#~ msgid "Please, try again later or find another searx instance."
-#~ msgstr "後でやり直すか、別の searx インスタンスを探して下さい。"
-
-#~ msgid "Themes"
-#~ msgstr "テーマ"
-
-#~ msgid "Method"
-#~ msgstr "方法"
-
-#~ msgid "Advanced settings"
-#~ msgstr "詳細設定"
-
-#~ msgid "Close"
-#~ msgstr "閉じる"
-
-#~ msgid "Language"
-#~ msgstr "言語"
-
-#~ msgid "broken"
-#~ msgstr "起動不可"
-
-#~ msgid "supported"
-#~ msgstr "サポート"
-
-#~ msgid "not supported"
-#~ msgstr "未サポート"
-
-#~ msgid "about"
-#~ msgstr "このサイトについて"
-
-#~ msgid "Avg."
-#~ msgstr "平均"
-
-#~ msgid "User Interface"
-#~ msgstr "ユーザーインタフェース"
-
-#~ msgid "Choose style for this theme"
-#~ msgstr "このテーマのスタイルを選択"
-
-#~ msgid "Style"
-#~ msgstr "スタイル"
-
-#~ msgid "Show advanced settings"
-#~ msgstr "詳細設定を表示"
-
-#~ msgid "Show advanced settings panel in the home page by default"
-#~ msgstr "デフォルトでホームページで詳細設定を表示する"
-
-#~ msgid "Allow all"
-#~ msgstr "すべて許可"
-
-#~ msgid "Disable all"
-#~ msgstr "すべて無効"
-
-#~ msgid "Selected language"
-#~ msgstr "選択された言語"
-
-#~ msgid "Query"
-#~ msgstr "クエリ"
-
-#~ msgid "save"
-#~ msgstr "保存"
-
-#~ msgid "back"
-#~ msgstr "戻る"
-
-#~ msgid "Links"
-#~ msgstr "リンク"
-
-#~ msgid "RSS subscription"
-#~ msgstr "RSS登録"
-
-#~ msgid "Search results"
-#~ msgstr "検索結果"
-
-#~ msgid "next page"
-#~ msgstr "次のページ"
-
-#~ msgid "previous page"
-#~ msgstr "前のページ"
-
-#~ msgid "Start search"
-#~ msgstr "検索を開始"
-
-#~ msgid "Clear search"
-#~ msgstr "探索を消す"
-
-#~ msgid "Clear"
-#~ msgstr "消す"
-
-#~ msgid "stats"
-#~ msgstr "統計"
-
-#~ msgid "Heads up!"
-#~ msgstr "気をつけて!"
-
-#~ msgid "It look like you are using SearXNG first time."
-#~ msgstr "SearXNG を初めてお使いになるようですね。"
-
-#~ msgid "Well done!"
-#~ msgstr "あっぱれ!"
-
-#~ msgid "Settings saved successfully."
-#~ msgstr "設定の保存に成功しました。"
-
-#~ msgid "Oh snap!"
-#~ msgstr "おっと！"
-
-#~ msgid "Something went wrong."
-#~ msgstr "なにか問題が起こっているようです。"
-
-#~ msgid "Date"
-#~ msgstr "日付"
-
-#~ msgid "Get image"
-#~ msgstr "画像を取得する"
-
-#~ msgid "preferences"
-#~ msgstr "設定"
-
-#~ msgid "Scores per result"
-#~ msgstr "検索結果当たりスコア"
-
-#~ msgid "a privacy-respecting, hackable metasearch engine"
-#~ msgstr "プライバシー保護を重視した、ハッカブルなメタ検索エンジン"
-
-#~ msgid "No abstract is available for this publication."
-#~ msgstr "この出版物には要約がありません。"
-
-#~ msgid "Self Informations"
-#~ msgstr "自分の情報"
-
-#~ msgid ""
-#~ "Change how forms are submited, <a "
-#~ "href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
-#~ " rel=\"external\">learn more about request "
-#~ "methods</a>"
-#~ msgstr ""
-#~ "フォームの送信方法を変更します。<a "
-#~ "href=\"https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#リクエストメソッド\""
-#~ " rel=\"external\">リクエストメソッドってなに？</a>"

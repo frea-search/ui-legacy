@@ -104,7 +104,7 @@ services:
       - DAC_OVERRIDE
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./settings.yml:/etc/searxng/settings.yml:ro
+      - ./settings.yml:/etc/frea/settings.yml:ro
 
 networks:
   frea:

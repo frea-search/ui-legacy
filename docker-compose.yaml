@@ -50,7 +50,6 @@ services:
       POSTGRESQL_HOST: db
       POSTGRESQL_USER: freasearch
       POSTGRESQL_PASSWORD: freasearch
-      COUNT_USERS: "true"
       TZ: Asia/Tokyo
     ports:
      - "127.0.0.1:8888:8888"

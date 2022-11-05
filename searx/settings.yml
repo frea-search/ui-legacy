@@ -52,6 +52,7 @@ server:
   bind_address: "127.0.0.1"
   base_url: false  # Possible values: false or "https://example.org/location".
   limiter: true  # rate limit the number of request on the instance, block some bots
+  use_turnstile: false
 
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
@@ -139,6 +140,11 @@ outgoing:
   pool_maxsize: 20
   # See https://www.python-httpx.org/http2/
   enable_http2: true
+  # uncomment below section if you want to use a custom server certificate
+  # see https://www.python-httpx.org/advanced/#changing-the-verification-defaults
+  # and https://www.python-httpx.org/compatibility/#ssl-configuration
+  #  verify: ~/.mitmproxy/mitmproxy-ca-cert.cer
+  #
   # uncomment below section if you want to use a proxyq see: SOCKS proxies
   #   https://2.python-requests.org/en/latest/user/advanced/#proxies
   # are also supported: see
@@ -505,6 +511,14 @@ engines:
   #   #custom_query_json: {"query":{"match_all": {}}}
   #   #show_metadata: false
   #   disabled: true
+  
+  - name: wikidata
+    engine: wikidata
+    shortcut: wd
+    timeout: 3.0
+    weight: 2
+    disabled: false
+    tests: *tests_infobox
 
   - name: duckduckgo
     engine: duckduckgo

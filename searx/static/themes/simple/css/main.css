@@ -3764,7 +3764,7 @@ pre code {
 
 @font-face {
     font-family: Outfit;
-    src: url(../font/Outfit-Regular.ttf) format('truetype');
+    src: url(../font/Outfit-Regular.woff) format('woff');
     font-display: swap;
 }
 

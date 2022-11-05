@@ -1,10 +1,22 @@
 stages:
+  - snyk
   - docker-build
   - deploy-docs
   - test
 
+snyk:
+  stage: snyk
+  image: fedora:latest
+  script:
+    - dnf install make automake gcc gcc-c++ python3 python3-pip python3-devel python-is-python3 npm uwsgi-plugin-python3 openssl-devel mecab-ipadic mecab-devel sqlite sqlite-devel libpq libpq-devel boost-devel -y
+    - pip3 install -r requirements.txt
+    - npm install -g snyk
+    - snyk test
+
 build:
   stage: docker-build
+  needs:
+    - job: snyk
   image: docker:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "devel"
@@ -17,6 +29,8 @@ build:
 
 release_build:
   stage: docker-build
+  needs:
+    - job: snyk
   image: docker:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
@@ -32,6 +46,8 @@ build_pages:
     CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
   stage: deploy-docs
+  needs:
+    - job: build
   image: alpine:latest
   rules:
     - if: $CI_COMMIT_BRANCH == "devel"
@@ -48,9 +64,14 @@ include:
   - template: Security/Container-Scanning.gitlab-ci.yml
   - template: Jobs/SAST-IaC.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
 
 sast:
   stage: test
+
+code_quality:
+  artifacts:
+    paths: [gl-code-quality-report.json]
 
 container_scanning:
   variables:

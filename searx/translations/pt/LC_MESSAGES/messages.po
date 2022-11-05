@@ -8,13 +8,14 @@
 # Markus Heiser <markus.heiser@darmarit.de>, 2022.
 # Miguel Silva <miguelcabeca.dev@gmail.com>, 2022.
 # Ricardo Simões <xmcorporation@gmail.com>, 2022.
+# zaioti <zaioti@tuta.io>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-09-28 07:29+0000\n"
-"PO-Revision-Date: 2022-10-11 13:31+0000\n"
-"Last-Translator: Markus Heiser <markus.heiser@darmarit.de>\n"
+"POT-Creation-Date: 2022-10-14 14:11+0000\n"
+"PO-Revision-Date: 2022-10-28 07:18+0000\n"
+"Last-Translator: zaioti <zaioti@tuta.io>\n"
 "Language-Team: Portuguese <https://weblate.bubu1.eu/projects/searxng/searxng/"
 "pt/>\n"
 "Language: pt\n"
@@ -166,64 +167,68 @@ msgstr "Erro de protocolo HTTP"
 msgid "network error"
 msgstr "erro de rede"
 
-#: searx/webapp.py:169
-msgid "unexpected crash"
-msgstr "acidente inesperado"
+#: searx/webapp.py:168
+msgid "SSL error: certificate validation has failed"
+msgstr "Erro SSL: falha na validação do certificado"
 
-#: searx/webapp.py:176
+#: searx/webapp.py:170
+msgid "unexpected crash"
+msgstr "falha inesperada"
+
+#: searx/webapp.py:177
 msgid "HTTP error"
 msgstr "Erro HTTP"
 
-#: searx/webapp.py:177
+#: searx/webapp.py:178
 msgid "HTTP connection error"
 msgstr "Erro de conexão HTTP"
 
-#: searx/webapp.py:183
+#: searx/webapp.py:184
 msgid "proxy error"
 msgstr "erro de proxy"
 
-#: searx/webapp.py:184
+#: searx/webapp.py:185
 msgid "CAPTCHA"
 msgstr "CAPTCHA"
 
-#: searx/webapp.py:185
+#: searx/webapp.py:186
 msgid "too many requests"
 msgstr "demasiados pedidos"
 
-#: searx/webapp.py:186
+#: searx/webapp.py:187
 msgid "access denied"
 msgstr "acesso negado"
 
-#: searx/webapp.py:187
+#: searx/webapp.py:188
 msgid "server API error"
 msgstr "erro de API do servidor"
 
-#: searx/webapp.py:362
+#: searx/webapp.py:365
 msgid "No item found"
 msgstr "Nenhum item encontrado"
 
 #: searx/engines/qwant.py:217
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:364
+#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:367
 msgid "Source"
 msgstr "Fonte"
 
-#: searx/webapp.py:366
+#: searx/webapp.py:369
 msgid "Error loading the next page"
 msgstr "Erro ao carregar a próxima página"
 
-#: searx/webapp.py:518 searx/webapp.py:950
+#: searx/webapp.py:521 searx/webapp.py:953
 msgid "Invalid settings, please edit your preferences"
 msgstr "Definições inválidas, por favor edite as suas preferências"
 
-#: searx/webapp.py:534
+#: searx/webapp.py:537
 msgid "Invalid settings"
 msgstr "Configurações inválidas"
 
-#: searx/webapp.py:611 searx/webapp.py:687
+#: searx/webapp.py:614 searx/webapp.py:690
 msgid "search error"
 msgstr "erro de procura"
 
-#: searx/webapp.py:849
+#: searx/webapp.py:852
 msgid "Suspended"
 msgstr "Suspenso"
 
@@ -272,6 +277,8 @@ msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
 msgstr ""
+"{numCitations} citações do ano {firstCitationVelocityYear} até "
+"{lastCitationVelocityYear}"
 
 #: searx/engines/tineye.py:40
 msgid ""
@@ -1123,11 +1130,11 @@ msgstr "Data de publicação"
 
 #: searx/templates/simple/result_templates/paper.html:9
 msgid "Journal"
-msgstr ""
+msgstr "Jornal"
 
 #: searx/templates/simple/result_templates/paper.html:22
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: searx/templates/simple/result_templates/paper.html:23
 msgid "Publisher"
@@ -1139,7 +1146,7 @@ msgstr "Tipo"
 
 #: searx/templates/simple/result_templates/paper.html:25
 msgid "Tags"
-msgstr ""
+msgstr "Etiquetas"
 
 #: searx/templates/simple/result_templates/paper.html:26
 msgid "DOI"

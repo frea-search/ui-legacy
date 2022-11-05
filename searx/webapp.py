@@ -22,11 +22,16 @@ import urllib
 import urllib.parse
 from urllib.parse import urlencode, unquote
 
+import datetime
+
 import httpx
+import requests
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter  # pylint: disable=no-name-in-module
+
+import redis
 
 import flask
 
@@ -124,14 +129,30 @@ from searx.search import SearchWithPlugins, initialize as search_initialize
 from searx.network import stream as http_stream, set_context_network_name
 from searx.search.checker import get_result as checker_get_result
 
-import sync_server
-
 logger = logger.getChild('webapp')
+
+try:
+    redis_host = os.environ['REDIS_HOST']
+    redis_port = os.environ['REDIS_PORT']
+except KeyError as e:
+    logger.error(f'Environment variable {str(e)} is undefined.')
+    sys.exit(1)
+
+redis = redis.Redis(host=redis_host, port=redis_port, db=1)
 
 # check secret_key
 if not searx_debug and settings['server']['secret_key'] == 'ultrasecretkey':
     logger.error('server.secret_key is not changed. Please use something else instead of ultrasecretkey.')
     sys.exit(1)
+
+# get turnstile_secret_key
+if settings['server']['use_turnstile'] == True:
+    try:
+        turnstile_secret_key = os.environ['TURNSTILE_SECRET_KEY']
+        turnstile_site_key = os.environ['TURNSTILE_SITE_KEY']
+    except KeyError as e:
+        logger.error(f'Environment variable {str(e)} is undefined.')
+        sys.exit(1)
 
 # about static
 logger.debug('static directory is %s', settings['ui']['static_path'])
@@ -167,6 +188,7 @@ timeout_text = gettext('timeout')
 parsing_error_text = gettext('parsing error')
 http_protocol_error_text = gettext('HTTP protocol error')
 network_error_text = gettext('network error')
+ssl_cert_error_text = gettext("SSL error: certificate validation has failed")
 exception_classname_to_text = {
     None: gettext('unexpected crash'),
     'timeout': timeout_text,
@@ -191,6 +213,8 @@ exception_classname_to_text = {
     'KeyError': parsing_error_text,
     'json.decoder.JSONDecodeError': parsing_error_text,
     'lxml.etree.ParserError': parsing_error_text,
+    'ssl.SSLCertVerificationError': ssl_cert_error_text,  # for Python > 3.7
+    'ssl.CertificateError': ssl_cert_error_text,  # for Python 3.7
 }
 
 
@@ -651,6 +675,39 @@ def search():
     # pylint: disable=too-many-locals, too-many-return-statements, too-many-branches
     # pylint: disable=too-many-statements
 
+    if settings['server']['use_turnstile'] == True:
+        challenge_token = request.args.get('am_i_human')
+
+        if challenge_token is None:
+            challenge_token = request.cookies.get('am_i_human')
+
+        timestamp = datetime.datetime.now().timestamp()
+
+        if challenge_token is None:
+            return render('challenge.html', turnstile_site_key=turnstile_site_key)
+        elif redis.exists(challenge_token):
+            token_limit = redis.get(challenge_token)
+            if timestamp > float(token_limit) + 500:
+                return render('challenge.html', turnstile_site_key=turnstile_site_key)
+        else:
+            data = {
+                    'secret': turnstile_secret_key,
+                    'response': challenge_token,
+                    'remoteip': request.access_route[0]
+            }
+
+            challenge_request = requests.post(
+                "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+                data=data
+            )
+
+            challenge_result = challenge_request.json()
+
+            if not challenge_result['success']:
+                return render('challenge_faild.html'), 403
+            else:
+                redis.set(challenge_token, timestamp)
+
     # output_format
     output_format = request.form.get('format', 'html')
     if output_format not in OUTPUT_FORMATS:
@@ -676,7 +733,7 @@ def search():
     result_container = None
     try:
         search_query, raw_text_query, _, _ = get_search_query_from_webapp(request.preferences, request.form)
-        # search = Search(search_query) #  without plugins
+        #search = Search(search_query) #  without plugins
         search = SearchWithPlugins(search_query, request.user_plugins, request)  # pylint: disable=redefined-outer-name
 
         result_container = search.search()
@@ -1361,27 +1418,6 @@ def config():
             'default_doi_resolver': settings['default_doi_resolver'],
         }
     )
-
-
-#@app.route('/sync')
-#def sync():
-#    return render('sync.html')
-
-
-#@app.route('/sync/upload', methods=["POST"])
-#def config_upload():
-#    user_id = request.form[username]
-#    user_password = request.form[password]
-#    new_account = request.form[new_account]
-#    config_data = request.form[data]
-#    return sync_server.upload(user_id, user_password, new_account, config_data)
-
-
-#@app.route('/sync/download', methods=["POST"])
-#def config_download():
-#    user_id = request.form[username]
-#    user_password = request.form[password]
-#    return sync_server.download(user_id, user_password)
 
 
 @app.errorhandler(404)
