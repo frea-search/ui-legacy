@@ -674,37 +674,38 @@ def search():
     # pylint: disable=too-many-locals, too-many-return-statements, too-many-branches
     # pylint: disable=too-many-statements
 
-    challenge_token = request.args.get('am_i_human')
+    if settings['server']['use_turnstile'] == True:
+        challenge_token = request.args.get('am_i_human')
 
-    if challenge_token is None:
-        challenge_token = request.cookies.get('am_i_human')
+        if challenge_token is None:
+            challenge_token = request.cookies.get('am_i_human')
 
-    timestamp = datetime.datetime.now().timestamp()
+        timestamp = datetime.datetime.now().timestamp()
 
-    if challenge_token is None:
-        return render('challenge.html', turnstile_site_key=turnstile_site_key)
-    elif redis.exists(challenge_token):
-        token_limit = redis.get(challenge_token)
-        if timestamp > float(token_limit) + 500:
+        if challenge_token is None:
             return render('challenge.html', turnstile_site_key=turnstile_site_key)
-    else:
-        data = {
-                'secret': turnstile_secret_key,
-                'response': challenge_token,
-                'remoteip': request.access_route[0]
-        }
+        elif redis.exists(challenge_token):
+            token_limit = redis.get(challenge_token)
+            if timestamp > float(token_limit) + 500:
+                return render('challenge.html', turnstile_site_key=turnstile_site_key)
+        else:
+            data = {
+                    'secret': turnstile_secret_key,
+                    'response': challenge_token,
+                    'remoteip': request.access_route[0]
+            }
 
-        challenge_request = requests.post(
+            challenge_request = requests.post(
                 "https://challenges.cloudflare.com/turnstile/v0/siteverify",
                 data=data
-        )
+            )
 
-        challenge_result = challenge_request.json()
+            challenge_result = challenge_request.json()
 
-        if not challenge_result['success']:
-            return render('challenge_faild.html'), 403
-        else:
-            redis.set(challenge_token, timestamp)
+            if not challenge_result['success']:
+                return render('challenge_faild.html'), 403
+            else:
+                redis.set(challenge_token, timestamp)
 
     # output_format
     output_format = request.form.get('format', 'html')
@@ -731,7 +732,7 @@ def search():
     result_container = None
     try:
         search_query, raw_text_query, _, _ = get_search_query_from_webapp(request.preferences, request.form)
-        # search = Search(search_query) #  without plugins
+        #search = Search(search_query) #  without plugins
         search = SearchWithPlugins(search_query, request.user_plugins, request)  # pylint: disable=redefined-outer-name
 
         result_container = search.search()
