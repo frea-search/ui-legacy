@@ -146,12 +146,13 @@ if not searx_debug and settings['server']['secret_key'] == 'ultrasecretkey':
     sys.exit(1)
 
 # get turnstile_secret_key
-try:
-    turnstile_secret_key = os.environ['TURNSTILE_SECRET_KEY']
-    turnstile_site_key = os.environ['TURNSTILE_SITE_KEY']
-except KeyError as e:
-    logger.error(f'Environment variable {str(e)} is undefined.')
-    sys.exit(1)
+if settings['server']['use_turnstile'] == True:
+    try:
+        turnstile_secret_key = os.environ['TURNSTILE_SECRET_KEY']
+        turnstile_site_key = os.environ['TURNSTILE_SITE_KEY']
+    except KeyError as e:
+        logger.error(f'Environment variable {str(e)} is undefined.')
+        sys.exit(1)
 
 # about static
 logger.debug('static directory is %s', settings['ui']['static_path'])
