@@ -10,6 +10,8 @@ nav:
   - Welcome: index.md
   - Admin:
     - Setup: setup.md
+    - Tor: results-over-tor.md
+    - Turnstile: turnstile.md
   - Architecture:
     - overview: architecture.md
     - subsystem: subsystems.md

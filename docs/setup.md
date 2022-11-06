@@ -1,5 +1,6 @@
 # インスタンスを建てる
-Frea search をセルフホストする方法について説明します。
+Frea search をセルフホストする方法について説明します。  
+セルフホストインスタンスはプライバシー、速度の点で他人のインスタンスを使用するより優れています。
 
 ### step0 (通常は不要な手順)
 手動でビルドする場合は、[このリポジトリ](https://git.freasearch.org/frea/search)をcloneし`docker build --tag frea:latest --file Dockerfile .`を実行してください。
