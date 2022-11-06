@@ -44,6 +44,9 @@ def chk_title(title, content, root_domain, domain):
         if is_in_blockwords(content, "detect_words"):
             if is_in_untrusted_domain(root_domain, domain):
                 return True
+        
+        if is_in_blockwords(content, "block_words"):
+            return True
 
     if is_in_blockwords(title, "block_words"):
         return True
