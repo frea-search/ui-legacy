@@ -1248,6 +1248,9 @@ def clear_cookies():
         resp.delete_cookie(cookie_name)
     return resp
 
+@app.route('/msg')
+def thanks_page():
+    return render('thank.html'), 402
 
 @app.route('/config')
 def config():
