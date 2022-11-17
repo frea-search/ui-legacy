@@ -1,5 +1,5 @@
-FROM fedora:latest
-ENTRYPOINT ["/usr/libexec/init"]
+FROM alpine:latest
+ENTRYPOINT ["sh", "/usr/libexec/init-server.sh"]
 
 ARG SEARXNG_GID=1000
 ARG SEARXNG_UID=1000
@@ -13,89 +13,54 @@ ENV POSTGRESQL_HOST=db \
 WORKDIR /var/frea
 
 # install packages
-RUN dnf update -y \
- && dnf install -y \
+RUN echo -e "https://ap.edge.kernel.org/alpine/v3.16/main\nhttps://ap.edge.kernel.org/alpine/v3.16/community" > /etc/apk/repositories
+RUN apk upgrade --no-cache \
+ && apk add --no-cache -t build-dependencies \
+    build-base \
+    py3-setuptools \
+    python3-dev \
+    libffi-dev \
+    libxslt-dev \
+    libxml2-dev \
+    openssl-dev \
+    tar \
+    git \
+ && apk add --no-cache \
     ca-certificates \
-    mailcap \
+    su-exec \
     python3 \
-    python3-pip \
+    py3-pip \
     libxml2 \
     libxslt \
     openssl \
     tini \
     uwsgi \
-    uwsgi-plugin-python3 \
-    brotli \
-    boost \
-    mecab-ipadic \
-    sqlite \
-    libpq \
- && dnf install -y \
-    make automake gcc gcc-c++ \
-    python3-setuptools \
-    python3-devel \
-    libffi-devel \
-    libxslt-devel \
-    libxml2-devel \
-    openssl-devel \
-    boost-devel \
-    mecab-devel \
-    sqlite-devel \
-    libpq-devel \
-    tar \
-    bash \
-    cargo \
-    git
+    uwsgi-python3 \
+    brotli
 
- 
 # Install pip packages
 COPY requirements.txt ./requirements.txt
 RUN cd /var/frea \
  && pip3 install --no-cache -r requirements.txt
 
-RUN groupadd -g ${SEARXNG_GID} frea \
- && useradd -u ${SEARXNG_UID} -d /var/frea -s /bin/sh -g frea frea
+RUN addgroup -g ${SEARXNG_GID} frea \
+ && adduser -u ${SEARXNG_UID} -D -h /var/frea -s /bin/sh -G frea frea
 
-RUN chown -R frea:frea /var/frea \
- && su frea -c "python3 -m pygeonlp.api setup /usr/pygeonlp_basedata"
+RUN chown -R frea:frea /var/frea
 
 COPY --chown=frea:frea dockerfiles ./dockerfiles
 COPY --chown=frea:frea searx ./searx
-COPY --chown=frea:frea subsystems ./subsystems
-COPY --chown=frea:frea tools ./tools
 
 RUN find /var/frea/searx/static \( -name '*.html' -o -name '*.css' -o -name '*.js' \
     -o -name '*.svg' -o -name '*.eot' \) \
     -type f -exec gzip -9 -k {} \+ -exec brotli --best {} \+
 
-ARG VERSION_GITCOMMIT=unknown
-
-
-
-RUN cd ./tools/init \
- && cargo build --release \
- && cd /var/frea \
- && mv ./tools/init/target/release/init /usr/libexec/init
-
 # clean up
-RUN dnf remove -y \
-    make automake gcc gcc-c++ \
-    python3-setuptools \
-    python3-devel \
-    libffi-devel \
-    libxslt-devel \
-    libxml2-devel \
-    openssl-devel \
-    boost-devel \
-    mecab-devel \
-    sqlite-devel \
-    libpq-devel \
-    cargo \
-    git \
- && dnf autoremove -y \
+RUN apk del build-dependencies \
  && rm -rf /root/.cache ./subsystems/org.freasearch.innocence-force/chk_db ./tools \
  && find /usr/lib/python*/ -name '*.pyc' -delete
 
+RUN mkdir /usr/libexec/
 RUN mv "/var/frea/dockerfiles/init-server.sh" "/usr/libexec/init-server.sh"
 RUN chmod +x "/usr/libexec/init-server.sh"
 RUN mkdir /etc/searxng

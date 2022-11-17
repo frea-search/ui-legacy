@@ -2502,7 +2502,7 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 #main_preferences .preferences_clear {
-    background: #ff4e4e;
+    background: linear-gradient(to right,#ea3a3a,#aa1212);
 	color: white;
     border: 0 none;
     border-radius: 100px;
@@ -3803,6 +3803,11 @@ a,
 
 #search_url {
     padding-top: 45px;
+    display: none;
+}
+
+
+#result_count {
     display: none;
 }
 

@@ -1,35 +1,21 @@
 version: '3'
 
 services:
+version: '3.7'
+
+services:
+  frea-api:
+    image: "nexryai/frea-api:latest"
+    restart: always
+    ports:
+      - "127.0.0.1:8000:8000"
+
   db:
     container_name: db
-    image: postgres:alpine
-    restart: always
-    networks:
-      - frea
-    environment:
-      POSTGRES_DB: freasearch
-      POSTGRES_USER: freasearch
-      POSTGRES_PASSWORD: freasearch
-    cap_drop:
-      - ALL
-    cap_add:
-      - CHOWN
-      - DAC_READ_SEARCH
-      - FOWNER
-      - SETGID
-      - SETUID
-
-  redis:
-    container_name: redis
-    image: redis:alpine
-    restart: always
-    command: redis-server --save "" --appendonly "no" --protected-mode "no"
-    networks:
-      - frea
+    image: "redis:alpine"
+    command: redis-server --save "" --appendonly "no"
     tmpfs:
       - /var/lib/redis
-      - /var/redis
     cap_drop:
       - ALL
     cap_add:
@@ -37,20 +23,39 @@ services:
       - SETUID
       - DAC_OVERRIDE
 
-  frea:
-    container_name: frea
-    image: nexryai/frea:devel
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+    command: redis-server --save "" --appendonly "no"
+    tmpfs:
+      - /var/lib/redis
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    volumes:
+      - ./searxng:/etc/searxng:rw
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+
+  frea-ui:
+    container_name: frea-ui
+    image: nexryai/frea-ui:devel
     restart: always
     depends_on:
       - db
       - redis
-    networks:
-      - frea
-    environment:
-      POSTGRESQL_HOST: db
-      POSTGRESQL_USER: freasearch
-      POSTGRESQL_PASSWORD: freasearch
-      TZ: Asia/Tokyo
     ports:
      - "127.0.0.1:8888:8888"
     cap_drop:
@@ -62,6 +67,4 @@ services:
       - DAC_OVERRIDE
     volumes:
       - /etc/localtime:/etc/localtime:ro
-        
-networks:
-  frea:
+

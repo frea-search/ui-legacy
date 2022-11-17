@@ -32,6 +32,7 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter  # pylint: disable=no-name-in-module
 
 import redis
+from types import SimpleNamespace
 
 import flask
 
@@ -729,14 +730,12 @@ def search():
 
     # search
     search_query = None
-    raw_text_query = None
-    result_container = None
+
     try:
         search_query, raw_text_query, _, _ = get_search_query_from_webapp(request.preferences, request.form)
-        #search = Search(search_query) #  without plugins
-        search = SearchWithPlugins(search_query, request.user_plugins, request)  # pylint: disable=redefined-outer-name
-
-        result_container = search.search()
+        get_results = requests.get(f"http://frea-api:8000/search?q={request.form['q']}&category={search_query.categories[0]}&pageno={search_query.pageno}&language={search_query.lang}")
+        result_str = str(get_results.text)
+        results = json.loads(result_str, object_hook=lambda d: SimpleNamespace(**d))
 
     except SearxParameterException as e:
         logger.exception('search error: SearxParameterException')
@@ -744,143 +743,29 @@ def search():
     except Exception as e:  # pylint: disable=broad-except
         logger.exception(e, exc_info=True)
         return index_error(output_format, gettext('search error')), 500
-
-    # results
-    results = result_container.get_ordered_results()
-    number_of_results = result_container.results_number()
-    if number_of_results < result_container.results_length():
-        number_of_results = 0
-
-    # checkin for a external bang
-    if result_container.redirect_url:
-        return redirect(result_container.redirect_url)
-
-    # Server-Timing header
-    request.timings = result_container.get_timings()  # pylint: disable=assigning-non-slot
-
-    current_template = None
-    previous_result = None
-
-    # output
-    for result in results:
-        if output_format == 'html':
-            if 'content' in result and result['content']:
-                result['content'] = highlight_content(escape(result['content'][:1024]), search_query.query)
-            if 'title' in result and result['title']:
-                result['title'] = highlight_content(escape(result['title'] or ''), search_query.query)
-        else:
-            if result.get('content'):
-                result['content'] = html_to_text(result['content']).strip()
-            # removing html content and whitespace duplications
-            result['title'] = ' '.join(html_to_text(result['title']).strip().split())
-
-        if 'url' in result:
-            result['pretty_url'] = prettify_url(result['url'])
-
-        if result.get('publishedDate'):  # do not try to get a date from an empty string or a None type
-            try:  # test if publishedDate >= 1900 (datetime module bug)
-                result['pubdate'] = result['publishedDate'].strftime('%Y-%m-%d %H:%M:%S%z')
-            except ValueError:
-                result['publishedDate'] = None
-            else:
-                result['publishedDate'] = searxng_l10n_timespan(result['publishedDate'])
-
-        # set result['open_group'] = True when the template changes from the previous result
-        # set result['close_group'] = True when the template changes on the next result
-        if current_template != result.get('template'):
-            result['open_group'] = True
-            if previous_result:
-                previous_result['close_group'] = True  # pylint: disable=unsupported-assignment-operation
-        current_template = result.get('template')
-        previous_result = result
-
-    if previous_result:
-        previous_result['close_group'] = True
-
-    if output_format == 'json':
-        x = {
-            'query': search_query.query,
-            'number_of_results': number_of_results,
-            'results': results,
-            'answers': list(result_container.answers),
-            'corrections': list(result_container.corrections),
-            'infoboxes': result_container.infoboxes,
-            'suggestions': list(result_container.suggestions),
-            'unresponsive_engines': __get_translated_errors(result_container.unresponsive_engines),
-        }
-        response = json.dumps(x, default=lambda item: list(item) if isinstance(item, set) else item)
-        return Response(response, mimetype='application/json')
-
-    if output_format == 'csv':
-        csv = UnicodeWriter(StringIO())
-        keys = ('title', 'url', 'content', 'host', 'engine', 'score', 'type')
-        csv.writerow(keys)
-        for row in results:
-            row['host'] = row['parsed_url'].netloc
-            row['type'] = 'result'
-            csv.writerow([row.get(key, '') for key in keys])
-        for a in result_container.answers:
-            row = {'title': a, 'type': 'answer'}
-            csv.writerow([row.get(key, '') for key in keys])
-        for a in result_container.suggestions:
-            row = {'title': a, 'type': 'suggestion'}
-            csv.writerow([row.get(key, '') for key in keys])
-        for a in result_container.corrections:
-            row = {'title': a, 'type': 'correction'}
-            csv.writerow([row.get(key, '') for key in keys])
-        csv.stream.seek(0)
-        response = Response(csv.stream.read(), mimetype='application/csv')
-        cont_disp = 'attachment;Filename=searx_-_{0}.csv'.format(search_query.query)
-        response.headers.add('Content-Disposition', cont_disp)
-        return response
-
-    if output_format == 'rss':
-        response_rss = render(
-            'opensearch_response_rss.xml',
-            results=results,
-            answers=result_container.answers,
-            corrections=result_container.corrections,
-            suggestions=result_container.suggestions,
-            q=request.form['q'],
-            number_of_results=number_of_results,
-        )
-        return Response(response_rss, mimetype='text/xml')
-
-    # HTML output format
-
-    # suggestions: use RawTextQuery to get the suggestion URLs with the same bang
-    suggestion_urls = list(
-        map(
-            lambda suggestion: {'url': raw_text_query.changeQuery(suggestion).getFullQuery(), 'title': suggestion},
-            result_container.suggestions,
-        )
-    )
-
-    correction_urls = list(
-        map(
-            lambda correction: {'url': raw_text_query.changeQuery(correction).getFullQuery(), 'title': correction},
-            result_container.corrections,
-        )
-    )
+    
+    try:
+        result_answer = results.answers[0]
+    except:
+        # No answer
+        result_answer = None
 
     return render(
         # fmt: off
         'results.html',
-        results = results,
+        results = results.results,
         q=request.form['q'],
         selected_categories = search_query.categories,
         pageno = search_query.pageno,
         time_range = search_query.time_range,
-        number_of_results = format_decimal(number_of_results),
-        suggestions = suggestion_urls,
-        answers = result_container.answers,
-        corrections = correction_urls,
-        infoboxes = result_container.infoboxes,
-        engine_data = result_container.engine_data,
-        paging = result_container.paging,
-        unresponsive_engines = __get_translated_errors(
-            result_container.unresponsive_engines
-        ),
+        number_of_results = None,
+        suggestions = results.suggestions,
+        answer = result_answer,
+        corrections = results.corrections,
+        infoboxes = results.infoboxes,
+        engine_data = None,
+        paging = None,
+        unresponsive_engines = results.unresponsive_engines,
         current_locale = request.preferences.get_value("locale"),
         current_language = match_language(
             search_query.lang,
