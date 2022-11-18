@@ -109,6 +109,7 @@ preferences:
     - autocomplete
     - method
 
+
 # searx supports result proxification using an external service:
 # https://github.com/asciimoo/morty uncomment below section if you have running
 # morty proxy the key is base64 encoded (keep the !!binary notation)
