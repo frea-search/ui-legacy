@@ -2010,11 +2010,11 @@ article.result-images .detail {
     top: 7.6rem;
     transition: top 64ms ease-in 0s;
     bottom: 0;
-    background: #d5d1d16e none repeat scroll 0% 0%;
+    background: rgba(213, 209, 209, 0.74);
     z-index: 10000;
     padding: 4rem 3rem 3rem 3rem;
     backdrop-filter: blur(17.5px);
-    -webkit-backdrop-filter: blur(17.5px)
+    -webkit-backdrop-filter: blur(18px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
@@ -2096,7 +2096,7 @@ article.result-images .detail {
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:active,
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:hover,
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:visited {
-    color: var(--color-result-detail-link)
+    color: #282828
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:hover {
