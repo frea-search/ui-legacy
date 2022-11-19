@@ -732,30 +732,49 @@ def search():
     search_query = None
 
     try:
+        if request.form.get('category_general') == 'on':
+            search_category = "general"
+        elif request.form.get('category_images') == 'on':
+            search_category = "images"
+        elif request.form.get('category_videos') == 'on':
+            search_category = "videos"
+        elif request.form.get('category_news') == 'on':
+            search_category = "news"
+        elif request.form.get('category_it') == 'on':
+            search_category = "it"
+        else:
+            search_category = "general"
+    except:
+        search_category = "general"
+
+    try:
         search_query, raw_text_query, _, _ = get_search_query_from_webapp(request.preferences, request.form)
-        get_results = requests.get(f"http://frea-api:8000/search?q={request.form['q']}&category={search_query.categories[0]}&pageno={search_query.pageno}&language={search_query.lang}")
+        get_results = requests.get(f"http://frea-api:8000/search?q={request.form['q']}&category={search_category}&pageno={search_query.pageno}&language={search_query.lang}")
         result_str = str(get_results.text)
         results = json.loads(result_str, object_hook=lambda d: SimpleNamespace(**d))
-
-    except SearxParameterException as e:
-        logger.exception('search error: SearxParameterException')
-        return index_error(output_format, e.message), 400
     except Exception as e:  # pylint: disable=broad-except
         logger.exception(e, exc_info=True)
-        return index_error(output_format, gettext('search error')), 500
+        return render('error.html'), 500
     
     try:
         result_answer = results.answers[0]
     except:
         # No answer
         result_answer = None
+    
+    try:
+        result_err_info = results.error
+    except:
+        pass
+    else:
+        return render('error.html'), 500
 
     return render(
         # fmt: off
         'results.html',
         results = results.results,
         q=request.form['q'],
-        selected_categories = search_query.categories,
+        selected_categories = [search_category],
         pageno = search_query.pageno,
         time_range = search_query.time_range,
         number_of_results = None,
