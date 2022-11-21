@@ -783,7 +783,7 @@ def search():
         corrections = results.corrections,
         infoboxes = results.infoboxes,
         engine_data = None,
-        paging = None,
+        paging = True,
         unresponsive_engines = results.unresponsive_engines,
         current_locale = request.preferences.get_value("locale"),
         current_language = match_language(
