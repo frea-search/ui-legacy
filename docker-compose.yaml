@@ -4,12 +4,6 @@ services:
 version: '3.7'
 
 services:
-  frea-api:
-    image: "nexryai/frea-api:latest"
-    restart: always
-    ports:
-      - "127.0.0.1:8000:8000"
-
   db:
     container_name: db
     image: "redis:alpine"
@@ -45,6 +39,18 @@ services:
       - ALL
     cap_add:
       - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+
+  frea-api:
+    image: "nexryai/frea-api:latest"
+    restart: always
+    ports:
+      - "127.0.0.1:8000:8000"
+    cap_drop:
+      - ALL
+    cap_add:
       - SETGID
       - SETUID
       - DAC_OVERRIDE
