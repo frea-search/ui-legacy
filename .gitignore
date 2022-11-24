@@ -37,7 +37,6 @@ searxng_extra/
 /utils/makefile*
 /utils/templates/
 SECURITY.md
-.github
 manage
 AUTHORS.rst
 db_data/

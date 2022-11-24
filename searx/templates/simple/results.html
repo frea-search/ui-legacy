@@ -20,20 +20,20 @@
 
 <script>
   new KonamiCommandJS(() =>{
-      alert("Thank you for using Frea Search!!!");
+    const base_url = location.protocol + '//' + location.host;
+    window.location.href = base_url + '/wp-admin'
   });
 </script>
 
 <div id="results" class="{{ only_template }}">
-    {% if answers -%}
+    {% if answer -%}
     {%- from 'simple/icons.html' import icon_big -%}
-    {%- for answer in answers.values() -%}
     <div id="answers" role="complementary" aria-labelledby="answers-title"> 
      {% if answer.hide_icon != 'true' %}<h4 class="title" id="answers-title">{{ icon_big('information-circle-outline') }} INFORMATION</h4>{% endif %}
         <div class="answer">
               {% if answer.url %}
                 <a href="{{ answer.url }}">{{ answer.answer }}</a>
-              {% elif  answer.weather %}
+              {% elif  answer.type == 'weather' %}
                <div style="float: left;"><img  width="auto" height="90px" src="/static/themes/simple/img/weathericon/{{ answer.weather_icon }}.svg"></div>
                <div style="float: left;padding-left: 10px;"><h2><br>{{ answer.weather_temp}}℃</h2></div>
                <div style="float: right;">
@@ -50,16 +50,19 @@
                   </tr>
                 </table>
               </div>
-              {% elif  answer.tsunami %}
+              {% elif  answer.type == 'tsunami_warn' %}
                 <h2 style="color: #dd1717;">！ 津波情報</h2>
                 <span>{{ answer.message }}</span><br>
                 <br><a href="https://www.nhk.or.jp/kishou-saigai/tsunami/">↳ 詳細情報（NHK）</a>
+              {% elif  answer.type == 'train_delay' %}
+                <h3 style="color: #dd1717;">！ 鉄道運行情報</h3>
+                <span>{ answer.message }</span><br>
+                <br><a href="{ answer.url }">↳ 詳細情報</a>
               {% else %}
                 <span>{{ answer.answer }}</span>
               {% endif %}
         </div>
     </div>
-    {%- endfor -%}
     {%- endif %}
 
     <div id="sidebar">
@@ -173,7 +176,7 @@
         {% include get_result_template('simple', result['template']) %}
         {% if result.close_group and not only_template %}</div>{% endif %}
     {% endfor %}
-    {% if not results and not answers %}
+    {% if not results and not answer %}
         {% include 'simple/messages/no_results.html' %}
     {% endif %}
     </div>
@@ -195,7 +198,6 @@
                   <input type="hidden" name="safesearch" value="{{ safesearch }}" >
                   <input type="hidden" name="theme" value="{{ theme }}" >
                   {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
-                  {{- engine_data_form(engine_data) -}}
                   <button role="link" type="submit">{{ icon_small('chevron-left') }} {{ _('Previous page') }}</button>
                 </div>
             </form>
@@ -212,7 +214,6 @@
               <input type="hidden" name="safesearch" value="{{ safesearch }}" >
               <input type="hidden" name="theme" value="{{ theme }}" >
               {% if timeout_limit %}<input type="hidden" name="timeout_limit" value="{{ timeout_limit|e }}" >{% endif %}
-              {{- engine_data_form(engine_data) -}}
               <button role="link"  type="submit">{{ _('Next page') }} {{ icon_small('chevron-right') }}</button>
             </div>
         </form>

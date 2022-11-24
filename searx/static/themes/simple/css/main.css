@@ -738,7 +738,7 @@ template {
     --color-toolkit-kbd-font: #fff;
     --color-toolkit-kbd-background: #000;
     --color-toolkit-dialog-border: #ddd;
-    --color-toolkit-dialog-background: #fff;
+    --color-toolkit-dialog-background: rgba(255, 255, 255, 0.31);
     --color-toolkit-tabs-label-border: #fff;
     --color-toolkit-tabs-section-border: #ddd;
     --color-toolkit-select-background: #f7f7f7;
@@ -832,7 +832,7 @@ template {
         --color-toolkit-kbd-font: #000;
         --color-toolkit-kbd-background: #fff;
         --color-toolkit-dialog-border: #555;
-        --color-toolkit-dialog-background: #222;
+        --color-toolkit-dialog-background: rgba(0, 0, 0, 0.28);
         --color-toolkit-tabs-label-border: #222;
         --color-toolkit-tabs-section-border: #555;
         --color-toolkit-select-background: #3c3b31;
@@ -1431,6 +1431,7 @@ div.selectable_url pre {
     border-radius: 10px;
     display: block;
     background: var(--color-toolkit-dialog-background);
+    backdrop-filter: blur(16px);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -2009,11 +2010,11 @@ article.result-images .detail {
     top: 7.6rem;
     transition: top 64ms ease-in 0s;
     bottom: 0;
-    background: #d5d1d16e none repeat scroll 0% 0%;
+    background: rgba(213, 209, 209, 0.74);
     z-index: 10000;
     padding: 4rem 3rem 3rem 3rem;
     backdrop-filter: blur(17.5px);
-    -webkit-backdrop-filter: blur(17.5px)
+    -webkit-backdrop-filter: blur(18px)
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail a.result-images-source {
@@ -2095,7 +2096,7 @@ article.result-images .detail {
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:active,
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:hover,
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:visited {
-    color: var(--color-result-detail-link)
+    color: #282828
 }
 
 #results.image-detail-open article.result-images[data-vim-selected] .detail .result-images-labels a:hover {
@@ -2502,7 +2503,7 @@ iframe[src^="https://genius.com/songs"] {
 }
 
 #main_preferences .preferences_clear {
-    background: #ff4e4e;
+    background: linear-gradient(to right,#ea3a3a,#aa1212);
 	color: white;
     border: 0 none;
     border-radius: 100px;
@@ -3803,6 +3804,11 @@ a,
 
 #search_url {
     padding-top: 45px;
+    display: none;
+}
+
+
+#result_count {
     display: none;
 }
 
