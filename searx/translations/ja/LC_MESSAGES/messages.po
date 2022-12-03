@@ -19,16 +19,15 @@ msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-10-14 14:11+0000\n"
-"PO-Revision-Date: 2022-10-28 07:18+0000\n"
+"PO-Revision-Date: 2022-12-03 10:29+0900\n"
 "Last-Translator: tents <remendne@pentrens.jp>\n"
-"Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/"
-"ja/>\n"
+"Language-Team: Japanese <https://weblate.bubu1.eu/projects/searxng/searxng/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "Generated-By: Babel 2.10.3\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -213,8 +212,7 @@ msgstr "サーバー API エラー"
 msgid "No item found"
 msgstr "アイテムが見つかりません"
 
-#: searx/engines/qwant.py:217
-#: searx/templates/simple/result_templates/images.html:20 searx/webapp.py:367
+#: searx/engines/qwant.py:217 searx/templates/simple/result_templates/images.html:20 searx/webapp.py:367
 msgid "Source"
 msgstr "ソース"
 
@@ -279,12 +277,9 @@ msgid "Channel"
 msgstr "チャンネル"
 
 #: searx/engines/semantic_scholar.py:81
-msgid ""
-"{numCitations} citations from the year {firstCitationVelocityYear} to "
-"{lastCitationVelocityYear}"
+msgid "{numCitations} citations from the year {firstCitationVelocityYear} to {lastCitationVelocityYear}"
 msgstr ""
-"{firstCitationVelocityYear} 年から "
-"{lastCitationVelocityYear}年まで{numCitations} が引用文献として"
+"{firstCitationVelocityYear} 年から {lastCitationVelocityYear}年まで{numCitations} が引用文献として"
 
 #: searx/engines/tineye.py:40
 msgid ""
@@ -353,11 +348,11 @@ msgstr "カテゴリ選択したら検索を実行"
 
 #: searx/plugins/search_on_category_select.py:20
 msgid ""
-"Perform search immediately if a category selected. Disable to select multiple categories. "
-"(JavaScript required)"
+"Perform search immediately if a category selected. Disable to select multiple categories. (JavaScript "
+"required)"
 msgstr ""
-"カテゴリが選択されたときに検索を実行します。複数のカテゴリを選択する場合は無効にします。(JavaScript "
-"が必要です)"
+"カテゴリが選択されたときに検索を実行します。複数のカテゴリを選択する場合は無効にします。(JavaScript が"
+"必要です)"
 
 #: searx/plugins/self_info.py:20
 msgid "Self Information"
@@ -367,8 +362,8 @@ msgstr "自分の情報"
 msgid ""
 "Displays your IP if the query is \"ip\" and your user agent if the query contains \"user agent\"."
 msgstr ""
-"クエリが \"ip\" の場合にあなたのIPを、クエリに \"user agent\" が含まれる場合にあなたのユーザーエー"
-"ジェントを表示します。"
+"クエリが \"ip\" の場合にあなたのIPを、クエリに \"user agent\" が含まれる場合にあなたのユーザーエージェ"
+"ントを表示します。"
 
 #: searx/plugins/tor_check.py:25
 msgid "Tor check plugin"
@@ -411,8 +406,8 @@ msgid ""
 "Navigate search results with Vim-like hotkeys (JavaScript required). Press \"h\" key on main or "
 "result page to get help."
 msgstr ""
-"検索結果をVim 風のホットキーで操作します(JavaScript が必要)。メインページまたは検索結果ページで \"h"
-"\" キーを押してヘルプを表示します。"
+"検索結果をVim 風のホットキーで操作します(JavaScript が必要)。メインページまたは検索結果ページで \"h\" "
+"キーを押してヘルプを表示します。"
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -429,7 +424,7 @@ msgstr "検索ページ"
 
 #: searx/templates/simple/base.html:46
 msgid "About"
-msgstr "Frea Search について"
+msgstr "About"
 
 #: searx/templates/simple/base.html:50
 msgid "Donate"
@@ -479,8 +474,7 @@ msgstr "虫めがねをクリックして検索します"
 msgid "Length"
 msgstr "長さ"
 
-#: searx/templates/simple/macros.html:37
-#: searx/templates/simple/result_templates/images.html:18
+#: searx/templates/simple/macros.html:37 searx/templates/simple/result_templates/images.html:18
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "作者"
@@ -680,13 +674,11 @@ msgstr "HTTPメソッド"
 
 #: searx/templates/simple/preferences.html:264
 msgid ""
-"Change how forms are submitted, <a "
-"href=\"http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods\""
-" rel=\"external\">learn more about request methods</a>"
+"Change how forms are submitted, <a href=\"http://en.wikipedia.org/wiki/"
+"Hypertext_Transfer_Protocol#Request_methods\" rel=\"external\">learn more about request methods</a>"
 msgstr ""
-"フォームの送信方法を変更します。<a "
-"href=\"https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#リクエストメソッド\""
-" rel=\"external\">リクエストメソッドってなに？</a>"
+"フォームの送信方法を変更します。<a href=\"https://ja.wikipedia.org/wiki/Hypertext_Transfer_Protocol#リ"
+"クエストメソッド\" rel=\"external\">リクエストメソッドってなに？</a>"
 
 #: searx/templates/simple/preferences.html:269
 msgid "Image proxy"
@@ -711,8 +703,8 @@ msgstr "クエリを検索結果ページのタイトルに表示する"
 #: searx/templates/simple/preferences.html:288
 msgid "When enabled, the result page's title contains your query. Your browser can record this title"
 msgstr ""
-"有効にすると、検索結果ページのタイトルに検索されたワードが含まれるようになります。お使いのブラウザは"
-"このタイトルを記録できます"
+"有効にすると、検索結果ページのタイトルに検索されたワードが含まれるようになります。お使いのブラウザはこ"
+"のタイトルを記録できます"
 
 #: searx/templates/simple/preferences.html:294
 msgid "Engines"
@@ -831,14 +823,14 @@ msgstr "初期設定URLを使うことで、特別な設定をデバイスをま
 #: searx/templates/simple/preferences.html:428
 msgid "These settings are stored in your cookies, this allows us not to store this data about you."
 msgstr ""
-"これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保存するわけではありま"
-"せん。"
+"これらの設定はあなたのクッキーに保存されますが、これはサーバーがあなたの情報の保存するわけではありませ"
+"ん。"
 
 #: searx/templates/simple/preferences.html:430
 msgid "These cookies serve your sole convenience, we don't use these cookies to track you."
 msgstr ""
-"クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを追跡するためにクッ"
-"キーを使うことはありません。"
+"クッキーはあなたが便利に使えるようにするために使うのであって、サーバーはあなたを追跡するためにクッキー"
+"を使うことはありません。"
 
 #: searx/templates/simple/preferences.html:433
 msgid "Save"
@@ -1162,7 +1154,6 @@ msgstr "動画を表示する"
 msgid "hide video"
 msgstr "動画を隠す"
 
-
 msgid "Request denied for instance protection."
 msgstr "インスタンス保護のため、リクエストは拒否されました。"
 
@@ -1173,5 +1164,5 @@ msgid "Frea Search implements Turnstile protection to prevent attacks from bots.
 msgstr "Frea Search はボットからの攻撃を防止するためにTurnstileによる保護を実装しています。"
 
 msgid "The am_i_human cookie is not used for tracking - it is used to prove that you are a human being."
-msgstr "「am_i_human」というCookieは追跡目的ではなく、あなたが人間であることを証明するために使用されています。"
-
+msgstr ""
+"「am_i_human」というCookieは追跡目的ではなく、あなたが人間であることを証明するために使用されています。"

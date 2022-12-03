@@ -44,11 +44,6 @@
 
     <nav id="links_on_top">
       {%- from 'simple/icons.html' import icon_big -%}
-      {%- block linkto_donate -%}
-        {%- if donation_url -%}
-        <a href="{{ donation_url }}" class="link_on_top_donate">{{ icon_big('heart-outline') }}<span>{{ _('Donate') }}</span></a>
-        {%- endif -%}
-      {%- endblock -%}
       {%- block linkto_preferences -%}
         <a href="{{ url_for('preferences') }}" class="link_on_top_preferences">{{ icon_big('menu-outline') }}</a>
       {%- endblock -%}
@@ -60,16 +55,12 @@
   </main>
   <footer>
     <p>
-      copyright ©2022 Frea Search, Ablaze   All rights reserved.<br/>
-        <a href="https://git.freasearch.org/frea/search">{{ _('Source code') }}</a> |
-        <a href="{{ get_setting('brand.issue_url') }}">{{ _('Issue tracker') }}</a> |
-        <a href="{{ donation_url }}">{{ _('Donate') }}</a> |
-        <a href="{{ url_for('info', pagename='about') }}">{{ _('About') }}</a>
+        <br>
+        <a href="https://git.sda1.net/frea/legacy-ui">🔍 {{ _('Source code') }}</a>　
+        <a href="https://github.com/orgs/frea-search/repositories">🐛 {{ _('Issue tracker') }}</a>　
+        <a href="{{ donation_url }}">💴 {{ _('Donate') }}</a>　
         {% if get_setting('general.privacypolicy_url') %}
-        | <a href="{{ get_setting('general.privacypolicy_url') }}">{{ _('Privacy policy') }}</a>
-        {% endif %}
-        {% if get_setting('general.contact_url') %}
-        | <a href="{{ get_setting('general.contact_url') }}">{{ _('Contact instance maintainer') }}</a>
+        | <a href="{{ get_setting('general.privacypolicy_url') }}">🔒 {{ _('Privacy policy') }}</a>　
         {% endif %}
     </p>
   </footer>

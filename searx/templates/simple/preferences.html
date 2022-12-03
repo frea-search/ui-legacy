@@ -103,13 +103,6 @@
 {{ tabs_open() }}
 
   {{ tab_header('maintab', 'general', _('General'), True) }}
-    {% if 'categories' not in locked_preferences %}
-    <fieldset>
-      <legend>{{ _('Default categories') }}</legend>
-      {% set display_tooltip = false %}
-      {% include 'simple/categories.html' %}
-    </fieldset>
-    {% endif %}
     {% if 'language' not in locked_preferences %}
     <fieldset>
       <legend id="pref_language">{{ _('Search language') }}</legend>
@@ -124,59 +117,6 @@
       <div class="description" id="desc_language">{{ _('What language do you prefer for search?') }}</div>
     </fieldset>
     {% endif %}
-    {% if 'autocomplete' not in locked_preferences %}
-    <fieldset>
-      <legend id="pref_autocomplete">{{ _('Autocomplete') }}</legend>
-      <p class="value">
-        <select name="autocomplete" aria-labelledby="pref_autocomplete">
-          <option value=""> - </option>
-          {%- for backend in autocomplete_backends -%}
-          <option value="{{ backend }}" {% if backend == autocomplete %}selected="selected"{% endif %}>{{ backend }}</option>
-          {%- endfor -%}
-        </select>
-      </p>
-      <div class="description">{{ _('Find stuff as you type') }}</div>
-    </fieldset>
-    {% endif %}
-    {% if 'safesearch' not in locked_preferences %}
-    <fieldset>
-      <legend id="pref_safesearch">{{ _('SafeSearch') }}</legend>
-      <p class="value">
-        <select name='safesearch' aria-labelledby="pref_safesearch">
-          <option value="2" {% if safesearch == '2' %}selected="selected"{% endif %}>{{ _('Strict') }}</option>
-          <option value="1" {% if safesearch == '1' %}selected="selected"{% endif %}>{{ _('Moderate') }}</option>
-          <option value="0" {% if safesearch == '0' %}selected="selected"{% endif %}>{{ _('None') }}</option>
-        </select>
-      </p>
-      <p class="description">{{ _('Filter content') }}</p>
-    </fieldset>
-    {% endif %}
-    {{ plugin_preferences('general') }}
-    {% if 'doi_resolver' not in locked_preferences %}
-    <fieldset>
-      <legend id="pref_doi_resolver">{{ _('Open Access DOI resolver') }}</legend>
-      <p class="value">
-        <select id='doi_resolver' name='doi_resolver' aria-labelledby="pref_doi_resolver">
-        {%- for doi_resolver_name,doi_resolver_url in doi_resolvers.items() -%}
-          <option value="{{ doi_resolver_name }}" {% if doi_resolver_url == current_doi_resolver %}selected="selected"{% endif %}>
-          {{- doi_resolver_name }} - {{ doi_resolver_url -}}
-          </option>
-        {%- endfor -%}
-        </select>
-      </p>
-      <div class="description"><!-- {{ _('Redirect to open-access versions of publications when available (plugin required)') }} --></div>
-    </fieldset>
-    {% endif %}
-    <fieldset>
-      <legend id="pref_tokens">{{ _('Engine tokens') }}</legend>
-      <p class="value">
-        <input name="tokens" aria-labelledby="pref_tokens" type="text" autocomplete="off" spellcheck="false" autocorrect="off" value='{{ preferences.tokens.get_value() }}'/>
-      </p>
-      <p class="description">{{ _('Access tokens for private engines') }}</p>
-    </fieldset>
-  {{ tab_footer() }}
-
-  {{ tab_header('maintab', 'ui', _('User interface')) }}
     {% if 'locale' not in locked_preferences %}
     <fieldset>
       <legend id="pref_locale">{{ _('Interface language') }}</legend>
@@ -289,6 +229,19 @@
     </fieldset>
     {% endif %}
     {{ plugin_preferences('privacy') }}
+  {{ tab_footer() }}
+  {{ tab_header('maintab', 'about', _('About')) }}
+    <div class="info-page">
+      <h2>Frea Search Legacy UI 3.10</h2>
+      <p><br>(c) 2022 nexryai, Ablaze<br>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.</p>
+      <br>
+      <p>Frea Searchは信頼性の高い検索結果のみを表示するクリーンなメタ検索エンジンです。</p>
+      <ul>
+        <li><a href="https://github.com/frea-search/ui-legacy/issues">Report an issue</a></li>
+        <li><a href="https://docs.freasearch.org/setup/">Build an instance</a> </li>
+        <li><a href="https://git.sda1.net/frea">Browse source code</a></li>
+        </ul>
+    </div>
   {{ tab_footer() }}
 
 {{ tabs_close() }}
